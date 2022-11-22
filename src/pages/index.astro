@@ -12,6 +12,8 @@ import HighlightedPosts from '~/components/blog/HighlightedPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import UnderConstruction from '~/components/widgets/UnderConstruction.astro';
+import LatestPosts from '~/components/blog/LatestPosts.astro';
 
 const meta = {
 	title: SITE.title,
@@ -21,13 +23,6 @@ const meta = {
 ---
 
 <Layout {meta}>
-	<Hero />
-	<Features />
-	<Steps />
-	<Features2 />
-	<Features3 />
-	<HighlightedPosts />
-	<FAQs />
-	<Stats />
-	<CallToAction />
+	<UnderConstruction />
+	<LatestPosts />
 </Layout>

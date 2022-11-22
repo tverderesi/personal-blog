@@ -1,0 +1,9 @@
+---
+import Item from '~/components/blog/HomeGridItem.astro';
+
+const { posts } = Astro.props;
+---
+
+<div class="flex flex-row flex-wrap align-center justify-center w-auto">
+	{posts.map((post) => <Item post={post} />)}
+</div>
