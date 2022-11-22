@@ -1,21 +1,21 @@
 ---
-import { SITE, BLOG } from '~/config.mjs';
+import { SITE, PORTFOLIO } from '~/config.mjs';
 
 import Layout from '~/layouts/BlogLayout.astro';
 import BlogList from '~/components/blog/List.astro';
 import Pagination from '~/components/atoms/Pagination.astro';
 
 import { fetchPosts } from '~/utils/posts';
-import { getCanonical, getPermalink, BLOG_BASE } from '~/utils/permalinks';
+import { getCanonical, getPermalink, PORTFOLIO_BASE } from '~/utils/permalinks';
 
 export async function getStaticPaths({ paginate }) {
-	if (BLOG?.disabled || BLOG?.blog?.disabled) return [];
+	if (PORTFOLIO?.disabled || PORTFOLIO?.blog?.disabled) return [];
 
 	const posts = await fetchPosts();
 
 	return paginate(posts, {
-		params: { blog: BLOG_BASE || undefined },
-		pageSize: BLOG.postsPerPage,
+		params: { portfolio: PORTFOLIO_BASE || undefined },
+		pageSize: PORTFOLIO.postsPerPage,
 	});
 }
 
@@ -25,7 +25,7 @@ const currentPage = page.currentPage ?? 1;
 const meta = {
 	title: `Blog ${currentPage > 1 ? `— Page ${currentPage} ` : ''}— ${SITE.name}`,
 	description: SITE.description,
-	canonical: getCanonical(getPermalink(BLOG?.blog?.pathname)),
+	canonical: getCanonical(getPermalink(PORTFOLIO?.blog?.pathname)),
 	ogType: 'blog',
 	noindex: currentPage > 1,
 };

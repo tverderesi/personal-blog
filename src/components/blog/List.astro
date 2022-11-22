@@ -4,10 +4,10 @@ import Item from '~/components/blog/ListItem.astro';
 const { posts } = Astro.props;
 ---
 
-<ul>
+<ul class="min-h-[60vh]">
 	{
 		posts.map((post) => (
-			<li class="mb-10 md:mb-16">
+			<li class="mt-10 md:mt-16 mb-10 md:mb-16">
 				<Item post={post} />
 			</li>
 		))

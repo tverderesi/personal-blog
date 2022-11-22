@@ -11,35 +11,20 @@ const { post } = Astro.props;
 const image = await findImage(post.image);
 ---
 
-<article class={`max-w-md mx-auto md:max-w-none grid gap-6 md:gap-8 ${image ? 'md:grid-cols-2' : ''}`}>
-	{
-		image && (
-			<a class="relative block group" href={getPermalink(post.slug, 'post')}>
-				<div class="relative h-0 pb-[56.25%] md:pb-[75%] md:h-80 lg:pb-[56.25%] overflow-hidden bg-gray-400 dark:bg-slate-700 rounded shadow-lg">
-					<Picture
-						src={image}
-						class="absolute inset-0 object-cover w-full h-full mb-6 rounded shadow-lg bg-gray-400 dark:bg-slate-700"
-						widths={[400, 900]}
-						sizes="(max-width: 900px) 400px, 900px"
-						alt={post.title}
-						aspectRatio="16:9"
-					/>
-				</div>
-			</a>
-		)
-	}
-	<div>
+<article
+	class={` md:max-w-none grid gap-6 md:gap-8 ${
+		image ? 'md:grid-cols-4' : 'grid-cols-1'
+	} text-slate-900 dark:text-slate-100`}
+>
+	<div class="col-span-3 w-[90%]">
 		<header>
-			<h2 class="text-xl sm:text-2xl font-bold leading-snug mb-2 font-heading">
-				<a
-					class="hover:text-primary-600 underline underline-offset-4 decoration-1 decoration-dotted transition ease-in duration-200"
-					href={getPermalink(post.slug, 'post')}
-				>
+			<h2 class="text-xl sm:text-xl font-bold leading-snug mb-2 font-heading">
+				<a class="hover:text-primary-600 transition ease-in duration-200" href={getPermalink(post.slug, 'post')}>
 					{post.title}
 				</a>
 			</h2>
 		</header>
-		<p class="text-md sm:text-lg flex-grow">
+		<p class="text-md sm:text-md flex-grow text-justify">
 			{post.excerpt || post.description}
 		</p>
 		<footer class="mt-4">
@@ -49,9 +34,25 @@ const image = await findImage(post.image);
 					{Math.ceil(post.readingTime)} min read
 				</span>
 			</div>
-			<div class="mt-4">
+			<div class="mt-4 round">
 				<PostTags tags={post.tags} />
 			</div>
 		</footer>
 	</div>
+	{
+		image && (
+			<a class="relative block group h-40 w-40 right-0 rounded-3xl" href={getPermalink(post.slug, 'post')}>
+				<div class="overflow-hidden bg-gray-400 dark:bg-slate-700 rounded-3xl shadow-lg">
+					<Picture
+						src={image}
+						class="absolute inset-0 object-cover mb-6 w-full shadow-lg rounded-3xl dark:bg-slate-700"
+						widths={[400, 900]}
+						sizes="(max-width: 900px) 400px, 900px"
+						alt={post.title}
+						aspectRatio="1:1"
+					/>
+				</div>
+			</a>
+		)
+	}
 </article>

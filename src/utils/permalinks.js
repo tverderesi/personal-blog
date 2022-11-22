@@ -1,6 +1,6 @@
 import slugify from 'limax';
 
-import { SITE, BLOG } from '~/config.mjs';
+import { SITE, BLOG, PORTFOLIO } from '~/config.mjs';
 
 const trim = (str, ch) => {
 	let start = 0,
@@ -24,6 +24,11 @@ export const BLOG_BASE = cleanSlug(BLOG?.blog?.pathname);
 export const POST_BASE = cleanSlug(BLOG?.post?.pathname);
 export const CATEGORY_BASE = cleanSlug(BLOG?.category?.pathname);
 export const TAG_BASE = cleanSlug(BLOG?.tag?.pathname);
+
+export const PORTFOLIO_BASE = cleanSlug(PORTFOLIO?.blog?.pathname);
+export const PORTFOLIO_POST_BASE = cleanSlug(PORTFOLIO?.post?.pathname);
+export const PORTFOLIO_CATEGORY_BASE = cleanSlug(PORTFOLIO?.category?.pathname);
+export const PORTFOLIO_TAG_BASE = cleanSlug(PORTFOLIO?.tag?.pathname);
 
 /** */
 export const getCanonical = (path = '') => new URL(path, SITE.origin);
@@ -53,6 +58,7 @@ export const getPermalink = (slug = '', type = 'page') => {
 
 /** */
 export const getBlogPermalink = () => getPermalink(BLOG_BASE);
+export const getPortfolioPermalink = () => getPermalink(PORTFOLIO_BASE);
 
 /** */
 export const getHomePermalink = () => {
