@@ -4,20 +4,20 @@ const { text, url, class: className = 'inline-block' } = Astro.props;
 ---
 
 <div class={className}>
-	<span class="align-super font-bold">Share:</span>
+	<span class="align-middle pb-3 pr-1 font-bold text-slate-900 dark:text-white">Share:</span>
 	<button class="ml-2" data-aw-social-share="twitter" data-aw-url={url} data-aw-text={text}
-		><Icon name="logos:twitter" class="w-6 h-6" />
+		><Icon name="brandico:twitter-bird" class="text-primary-500 w-5 h-5" />
 	</button>
 	<button class="ml-2" data-aw-social-share="facebook" data-aw-url={url}
-		><Icon name="logos:facebook" class="w-6 h-6" />
+		><Icon name="brandico:facebook" class="w-5 h-5 text-secondary-500" />
 	</button>
 	<button class="ml-2" data-aw-social-share="linkedin" data-aw-url={url} data-aw-text={text}
-		><Icon name="logos:linkedin-icon" class="w-6 h-6" />
+		><Icon name="brandico:linkedin" class="w-5 h-5 text-primary-500" />
 	</button>
 	<button class="ml-2" data-aw-social-share="whatsapp" data-aw-url={url} data-aw-text={text}
-		><Icon name="logos:whatsapp" class="w-6 h-6" />
+		><Icon name="ic:baseline-whatsapp" class="w-5 h-5 text-secondary-500" />
 	</button>
 	<button class="ml-2" data-aw-social-share="mail" data-aw-url={url} data-aw-text={text}
-		><Icon name="tabler:mail" class="w-6 h-6" />
+		><Icon name="ic:baseline-mail" class="w-[1.375rem] h-[1.375rem] text-primary-500" />
 	</button>
 </div>
