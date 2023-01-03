@@ -1,0 +1,58 @@
+---
+import Picture from '~/components/core/Picture.astro';
+import PostTags from '~/components/atoms/Tags.astro';
+
+import { getPermalink } from '~/utils/permalinks';
+import { findImage } from '~/utils/images';
+import { getFormattedDate } from '~/utils/utils';
+
+const { post } = Astro.props;
+
+const image = await findImage(post.image);
+---
+
+<article
+	class={` md:max-w-none grid gap-6 md:gap-8 ${
+		image ? 'md:grid-cols-4' : 'grid-cols-1'
+	} text-slate-900 dark:text-slate-100`}
+>
+	<div class="col-span-3 w-[90%]">
+		<header>
+			<h2 class="text-xl sm:text-xl font-bold leading-snug mb-2 font-heading">
+				<a class="hover:text-primary-600 transition ease-in duration-200" href={getPermalink(post.slug, 'post')}>
+					{post.title}
+				</a>
+			</h2>
+		</header>
+		<p class="text-md sm:text-md flex-grow text-justify">
+			{post.excerpt || post.description}
+		</p>
+		<footer class="mt-4">
+			<div>
+				<span class="text-gray-500 dark:text-slate-400">
+					<time datetime={post.publishDate}>{getFormattedDate(post.publishDate)}</time> ~
+					{Math.ceil(post.readingTime)} min read
+				</span>
+			</div>
+			<div class="mt-4">
+				<PostTags tags={post.tags} />
+			</div>
+		</footer>
+	</div>
+	{
+		image && (
+			<a class="relative block group h-40 w-40 right-0 rounded-3xl" href={getPermalink(post.slug, 'post')}>
+				<div class="overflow-hidden bg-gray-400 dark:bg-slate-700 rounded-3xl shadow-lg">
+					<Picture
+						src={image}
+						class="absolute inset-0 object-cover mb-6 w-full shadow-lg rounded-3xl dark:bg-slate-700"
+						widths={[400, 900]}
+						sizes="(max-width: 900px) 400px, 900px"
+						alt={post.title}
+						aspectRatio="1:1"
+					/>
+				</div>
+			</a>
+		)
+	}
+</article>

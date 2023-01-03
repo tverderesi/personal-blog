@@ -41,6 +41,10 @@ module.exports = {
       },
     },
     {
+      files: ['*.tsx', '*.jsx'],
+      parser: '@babel/eslint-parser',
+    },
+    {
       // Define the configuration for `<script>` tag.
       // Script in `<script>` is assigned a virtual file name with the `.js` extension.
       files: ['**/*.astro/*.js', '*.astro/*.js'],
