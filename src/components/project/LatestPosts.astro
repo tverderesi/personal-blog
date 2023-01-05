@@ -1,0 +1,19 @@
+---
+import Grid from '~/components/blog/Grid.astro';
+
+import { findLatestPosts } from '~/utils/posts';
+import HomeGrid from './HomeGrid.astro';
+
+const count = 4;
+const posts = await findLatestPosts({ count });
+---
+
+<section class="flex flex-col justify-center border-t border-slate-100 dark:border-slate-800">
+	<h5
+		class="text-center my-10 font-bold tracking-tight text-3xl sm:leading-none group font-heading dark:text-slate-100 text-slate-900"
+	>
+		Latest Blog Articles
+	</h5>
+
+	<HomeGrid posts={posts} />
+</section>

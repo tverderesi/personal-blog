@@ -48,16 +48,16 @@ export const PORTFOLIO = {
 
 	post: {
 		disabled: false,
-		pathname: '', // empty for /some-post, value for /pathname/some-post
+		pathname: 'projects', // empty for /some-post, value for /pathname/some-post
 	},
 
 	category: {
-		disabled: true,
+		disabled: false,
 		pathname: 'category', // set empty to change from /category/some-category to /some-category
 	},
 
 	tag: {
-		disabled: true,
+		disabled: false,
 		pathname: 'tag', // set empty to change from /tag/some-tag to /some-tag
 	},
 };

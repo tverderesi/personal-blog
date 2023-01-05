@@ -2,11 +2,12 @@
 import { SITE, PORTFOLIO } from '~/config.mjs';
 
 import Layout from '~/layouts/BlogLayout.astro';
-import BlogList from '~/components/blog/List.astro';
+import BlogList from '~/components/project/List.astro';
 import Pagination from '~/components/atoms/Pagination.astro';
 
-import { fetchPosts } from '~/utils/posts';
+import { fetchPosts } from '~/utils/projects';
 import { getCanonical, getPermalink, PORTFOLIO_BASE } from '~/utils/permalinks';
+import Testa from '~/components/project/Testa';
 
 export async function getStaticPaths({ paginate }) {
 	if (PORTFOLIO?.disabled || PORTFOLIO?.blog?.disabled) return [];
@@ -23,15 +24,16 @@ const { page } = Astro.props;
 const currentPage = page.currentPage ?? 1;
 
 const meta = {
-	title: `Blog ${currentPage > 1 ? `— Page ${currentPage} ` : ''}— ${SITE.name}`,
+	title: `Projects ${currentPage > 1 ? `— Page ${currentPage} ` : ''}— ${SITE.name}`,
 	description: SITE.description,
-	canonical: getCanonical(getPermalink(PORTFOLIO?.blog?.pathname)),
-	ogType: 'blog',
+	canonical: getCanonical(getPermalink(PORTFOLIO?.project?.pathname)),
+	ogType: 'project',
 	noindex: currentPage > 1,
 };
 ---
 
 <Layout {meta}>
+	<Testa />
 	<BlogList posts={page.data} />
 	<Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
 </Layout>
