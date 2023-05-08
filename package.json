@@ -20,7 +20,7 @@
     "@astrojs/rss": "^1.0.3",
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/tailwind": "^2.1.2",
-    "@astrolib/analytics": "^0.2.4",
+    "@astrolib/analytics": "^0.3.0",
     "@astrolib/seo": "^0.2.1",
     "@babel/core": "^7.20.7",
     "@babel/eslint-parser": "^7.19.1",
