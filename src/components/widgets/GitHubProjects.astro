@@ -1,8 +1,12 @@
 ---
 import { Icon } from 'astro-icon';
-import storedData from '~/api/data.json';
+//TODO: Implement serverless function to fetch data from github;
+// import storedData from '~/api/data.json';
 
-const { projects, totalCommits } = storedData;
+//sync version
+import data from '~/api/data';
+
+const { projects, totalCommits } = data();
 ---
 
 <div class="grid gap-6 row-gap-5 md:grid-cols-2 lg:grid-cols-4 -mb-6">

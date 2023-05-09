@@ -3,7 +3,7 @@ const headers = {
 	Authorization: `Bearer ${import.meta.env.GH_API_KEY}`,
 };
 
-async function data() {
+export async function data() {
 	// Fetch your recent GitHub projects sorted by last recent commit
 	const totalCommits = [];
 	const response = await fetch(
