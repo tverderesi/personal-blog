@@ -1,13 +1,12 @@
 ---
 import { SITE, PORTFOLIO } from '~/config.mjs';
-
+import GitHubProjects from '~/components/widgets/GitHubProjects.astro';
 import Layout from '~/layouts/BlogLayout.astro';
 import BlogList from '~/components/project/List.astro';
 import Pagination from '~/components/atoms/Pagination.astro';
 
 import { fetchPosts } from '~/utils/projects';
 import { getCanonical, getPermalink, PORTFOLIO_BASE } from '~/utils/permalinks';
-import Testa from '~/components/project/Testa';
 
 export async function getStaticPaths({ paginate }) {
 	if (PORTFOLIO?.disabled || PORTFOLIO?.blog?.disabled) return [];
@@ -33,7 +32,8 @@ const meta = {
 ---
 
 <Layout {meta}>
-	<Testa />
-	<BlogList posts={page.data} />
-	<Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+	<h1>Projects</h1>
+	<GitHubProjects />
+	<!-- <BlogList posts={page.data} />
+	<Pagination prevUrl={page.url.prev} nextUrl={page.url.next} /> -->
 </Layout>
