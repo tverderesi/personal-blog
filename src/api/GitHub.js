@@ -1,4 +1,4 @@
-import { fs } from 'fs';
+// import { fs } from 'fs';
 const headers = {
 	Authorization: `Bearer ${import.meta.env.GH_API_KEY}`,
 };
@@ -39,13 +39,13 @@ export async function data() {
 	return { projects, totalCommits };
 }
 
-export default async (req, res) => {
-	const { projects, totalCommits } = await data();
+// export default async (req, res) => {
+// 	const { projects, totalCommits } = await data();
 
-	// Store the data in a file or a database
-	// Example: Store it in a JSON file
-	const dataToStore = { projects, totalCommits };
-	fs.writeFileSync('./data.json', JSON.stringify(dataToStore));
+// 	// Store the data in a file or a database
+// 	// Example: Store it in a JSON file
+// 	const dataToStore = { projects, totalCommits };
+// 	fs.writeFileSync('./data.json', JSON.stringify(dataToStore));
 
-	res.status(200).json({ message: 'Data fetched and stored.' });
-};
+// 	res.status(200).json({ message: 'Data fetched and stored.' });
+// };
