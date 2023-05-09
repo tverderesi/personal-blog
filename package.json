@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^2.1.3",
+    "@napi-rs/pinyin": "^1.7.1",
     "@types/react": "^18.2.6",
     "@vite-pwa/astro": "^0.0.5",
     "react": "^18.2.0",
