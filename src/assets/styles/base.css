@@ -26,3 +26,17 @@
 [data-aw-toggle-menu].expanded g > path:last-child {
 	@apply rotate-45 translate-y-[-8px] translate-x-[14px];
 }
+
+.wavy {
+	background-size: 200% 100%;
+	animation: wave 10s ease-in-out infinite alternate;
+}
+
+@keyframes wave {
+	0% {
+		background-position: 0% center;
+	}
+	100% {
+		background-position: 100% center;
+	}
+}
