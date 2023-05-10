@@ -112,10 +112,10 @@ sortProjects(); // Initial sorting
 				.filter((project) => project.fork === false)
 				.slice(0, 4)
 				.map((project) => (
-					<article class=" text-slate-100 relative h-[6rem] lg:h-52 lg:w-52 mx-4 mb-8 dark:bg-slate-100 bg-slate-700 rounded-2xl shadow-lg shadow-gray-300 dark:shadow-gray-700 flex">
+					<article class="transition ease-in duration-200 text-slate-900 dark:text-slate-100 relative h-[6rem] lg:h-52 lg:w-52 mx-4 flex bg-slate-300 dark:bg-slate-800 rounded-2xl shadow-gray-300  dark:shadow-black/30 shadow-lg hover:bg-slate-300 dark:hover:bg-slate-700 hover:text-primary-500 dark:hover:text-secondary-500 mb-6">
 						<Icon
 							name="ic:sharp-terminal"
-							class="absolute  top-[12.5%] left-[12.5%] -z-1  text-slate-400/10 dark:text-slate-500/10 w-3/4 h-3/4 mx-auto my-auto"
+							class="absolute  top-[12.5%] left-[12.5%] -z-1  dark:text-slate-400/20 text-slate-500/20 w-3/4 h-3/4 mx-auto my-auto"
 						/>
 						<a href={project.html_url} class="h-full w-full relative z-1">
 							<h3 class="text-xl mb-2 p-3 text-center font-bold  whitespace-normal hyphens-auto h-1/4">
@@ -125,21 +125,23 @@ sortProjects(); // Initial sorting
 							<div class="flex justify-around items-center w-11/12 h-1/8 absolute bottom-[12.5%]">
 								<div class="flex items-center ">
 									<Icon name="mdi:source-commit" class="w-5 h-5 mr-1 text-primary-500 drop-shadow-md" />
-									<span class="text-sm text-gray-100 dark:text-gray-400 font-semibold">{project.commits}</span>
+									<span class="text-sm text-slate-700 dark:text-slate-100 font-semibold">{project.commits}</span>
 								</div>
 								<div class="flex items-center ">
 									<Icon name="ic:star" class="w-5 h-5 mr-1 text-secondary-500" />
-									<span class="text-sm text-gray-100 dark:text-gray-400  font-semibold">
+									<span class="text-sm text-slate-700 dark:text-slate-100  font-semibold">
 										{project.stargazers_count}
 									</span>
 								</div>
 								<div class="flex items-center ">
 									<Icon name="ic:baseline-remove-red-eye" class="w-5 h-5 mr-1 text-primary-500" />
-									<span class="text-sm text-slate-100 dark:text-gray-400  font-semibold">{project.watchers_count}</span>
+									<span class="text-sm text-slate-700 dark:text-slate-100  font-semibold">
+										{project.watchers_count}
+									</span>
 								</div>
 								<div class="flex items-center">
 									<Icon name="mdi:source-branch" class="w-5 h-5 mr-1 text-secondary-500" />
-									<span class="text-sm text-gray-100 dark:text-gray-400  font-semibold">{project.forks}</span>
+									<span class="text-sm text-slate-700 dark:text-slate-100  font-semibold">{project.forks}</span>
 								</div>
 							</div>
 							<div class="prose flex flex-col items-center justify-center h-1/2">

@@ -4,6 +4,6 @@ import Item from '~/components/blog/HomeGridItem.astro';
 const { posts } = Astro.props;
 ---
 
-<div class="flex flex-row flex-wrap align-center justify-center w-auto">
+<div class="grid gap-2 md:grid-cols-2 lg:grid-cols-4 mx-auto w-11/12 pb-10">
 	{posts.map((post) => <Item post={post} />)}
 </div>
