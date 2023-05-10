@@ -11,5 +11,9 @@
         }
       ]
     }
+  ],
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/hello.js" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
