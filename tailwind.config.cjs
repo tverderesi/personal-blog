@@ -9,6 +9,13 @@ module.exports = {
 				primary: colors.blue,
 				secondary: colors.pink,
 			},
+			width: {
+				'1/8': '12.5%',
+			},
+			height: {
+				'1/8': '12.5%',
+			},
+
 			fontFamily: {
 				sans: ["'InterVariable'", ...defaultTheme.fontFamily.sans],
 			},

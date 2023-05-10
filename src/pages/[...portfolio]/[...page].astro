@@ -1,7 +1,7 @@
 ---
 import { SITE, PORTFOLIO } from '~/config.mjs';
 import GitHubProjects from '~/components/widgets/GitHubProjects.astro';
-import Layout from '~/layouts/BlogLayout.astro';
+import Layout from '~/layouts/PageLayout.astro';
 // import BlogList from '~/components/project/List.astro';
 // import Pagination from '~/components/atoms/Pagination.astro';
 
@@ -23,7 +23,7 @@ const { page } = Astro.props;
 const currentPage = page.currentPage ?? 1;
 
 const meta = {
-	title: `Projects ${currentPage > 1 ? `— Page ${currentPage} ` : ''}— ${SITE.name}`,
+	title: `Projects — ${SITE.name}`,
 	description: SITE.description,
 	canonical: getCanonical(getPermalink(PORTFOLIO?.project?.pathname)),
 	ogType: 'project',
@@ -32,8 +32,9 @@ const meta = {
 ---
 
 <Layout {meta}>
-	<h1>Projects</h1>
-	<GitHubProjects />
-	<!-- <BlogList posts={page.data} />
-	<Pagination prevUrl={page.url.prev} nextUrl={page.url.next} /> -->
+	<div class="w-screen">
+		<GitHubProjects />
+		{/* <BlogList posts={posts} /> */}
+		{/* <Pagination page={page} /> */}
+	</div>
 </Layout>

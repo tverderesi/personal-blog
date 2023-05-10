@@ -4,6 +4,7 @@ import { getCanonical, getHomePermalink } from '~/utils/permalinks';
 import Layout from '~/layouts/PageLayout.astro';
 import UnderConstruction from '~/components/widgets/UnderConstruction.astro';
 import LatestPosts from '~/components/blog/LatestPosts.astro';
+import LastestGitHub from '~/components/widgets/LastestGitHub.astro';
 
 const meta = {
 	title: SITE.title,
@@ -14,5 +15,6 @@ const meta = {
 
 <Layout {meta}>
 	<UnderConstruction />
+	<LastestGitHub />
 	<LatestPosts />
 </Layout>
