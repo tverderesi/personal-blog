@@ -10,6 +10,8 @@ import { remarkReadingTime } from './src/utils/frontmatter.js';
 import { SITE } from './src/config.mjs';
 import react from '@astrojs/react';
 import AstroPWA from '@vite-pwa/astro';
+import vercelServerless from '@astrojs/vercel/serverless';
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://astro.build/config
@@ -18,7 +20,7 @@ export default defineConfig({
 	site: SITE.origin,
 	base: SITE.basePathname,
 	trailingSlash: SITE.trailingSlash ? 'always' : 'never',
-	output: 'static',
+
 	integrations: [
 		tailwind({
 			config: {
@@ -49,4 +51,6 @@ export default defineConfig({
 			},
 		},
 	},
+	output: 'server',
+	adapter: vercelServerless(),
 });
