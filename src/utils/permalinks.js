@@ -1,4 +1,4 @@
-import slugify from 'limax';
+import slug from 'slug';
 
 import { SITE, BLOG, PORTFOLIO } from '~/config.mjs';
 
@@ -18,7 +18,7 @@ const createPath = (...params) => {
 
 const basePathname = trimSlash(SITE.basePathname);
 
-export const cleanSlug = (text) => slugify(trimSlash(text));
+export const cleanSlug = (text) => slug(trimSlash(text));
 
 export const BLOG_BASE = cleanSlug(BLOG?.blog?.pathname);
 export const POST_BASE = cleanSlug(BLOG?.post?.pathname);
