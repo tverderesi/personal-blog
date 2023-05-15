@@ -8,8 +8,11 @@ import ContactInfo from '~/components/atoms/ContactInfo.astro';
 import ProficiencyBar from '~/components/atoms/ProficiencyBar.astro';
 import Meetings from '~/components/atoms/Meetings.astro';
 import Paragraphs from '~/components/atoms/Paragraphs.astro';
-import { aboutMe, contactInfo, downloadLinks, strengths, techStack } from '~/assets/curriculum/index.js';
-import Picture from '~/components/core/Picture.astro';
+import { aboutMe, contactInfo, downloadLinks, strengths, techStack, workExperience } from '~/assets/curriculum/index.js';
+
+import ProjectList from '~/components/atoms/ProjectList.astro';
+import WorkXP from '~/components/atoms/workXP.astro';
+
 const titleClass = 'text-2xl lg:text-3xl font-bold text-center text-slate-900 dark:text-slate-100';
 
 const cardClass = 'p-5 border-slate-900 dark:border-slate-100 border-[1px] rounded-2xl w-full';
@@ -79,107 +82,7 @@ const navClass = 'anchor-link hover:text-primary-500  dark:hover:text-secondary-
 
 		<section id="#work-xp" class={`${cardClass}  col-span-2 lg:col-span-2`}>
 			<h2 class={titleClass}>WORK EXPERIENCE</h2>
-			<article class="pt-4 lg:pt-16 px-0 lg:px-4 mb-0">
-				<div class="flex flex-col lg:flex-row justify-start items-start gap-2 lg:items-center px-0 py-5 lg:p-5 lg:pb-0">
-					<h3 class="font-semibold text-base lg:text-2xl flex flex-row items-start lg:items-center text-slate-900 dark:text-slate-100">
-						<Icon name="mdi:briefcase" class="h-6 w-6 mr-1 text-primary-500 dark:text-secondary-500" />Freelance Fullstack Software Engineer
-					</h3>
-					<h4 class="font-semibold textl-2xl flex flex-row text-slate-900 dark:text-slate-100">
-						<Icon name="mdi:office-building" class="h-6 w-6 mr-1 text-primary-500 dark:text-secondary-500" /> tverderesi.dev
-					</h4>
-				</div>
-
-				<div class="px-0 py-5 lg:p-5 flex flex-col lg:flex-row justify-between font-medium w-full gap-2">
-					<p class="flex flex-row font-semibold text-slate-900 dark:text-slate-100">
-						<Icon name="mdi:calendar" class="w-6 h-6 mr-1 text-primary-500 dark:text-secondary-500" />
-						<span class="hidden lg:inline">Period</span><span class="lg:font-light ml-1 font-semibold"> SEP/2022 - Current</span>
-					</p>
-
-					<p class="flex flex-row font-semibold text-slate-900 dark:text-slate-100">
-						<Icon name="mdi:map" class="w-6 h-6 mr-1 text-primary-500 dark:text-secondary-500" />
-						<span class="hidden lg:inline">Location:</span><span class="lg:font-light ml-1 font-semibold">Curitiba - PR, Brasil</span>
-					</p>
-
-					<span class="flex flex-row lg:flex-row font-semibold text-slate-900 dark:text-slate-100">
-						<Icon name="mdi:laptop" class="w-6 h-6 mr-1 text-primary-500 dark:text-secondary-500" />
-						<span class="hidden lg:inline">Area:</span>
-						<span class="lg:font-light ml-1 font-semibold">Software Development</span>
-					</span>
-				</div>
-			</article>
-
-			<h5 class="font-medium mb-3 lg:px-10 text-slate-900 dark:text-slate-100">
-				<em>Company's brief description: <span class="font-normal block lg:inline">I work freelance for some clients.</span></em>
-			</h5>
-			<hr class="border-slate-900 dark:border-slate-100" />
-
-			<div class="px-0 lg:px-5 flex flex-row items-center relative mt-4">
-				<Picture
-					src="forestask.png"
-					class="mx-auto w-[43px] lg:w-[86px] mr-0 absolute lg:relative top-0 right-0 lg:left-0 lg:mr-5 my-3 shadow-xl rounded-full inline"
-					widths={[43, 86]}
-					sizes="43px, 86px"
-					alt="forestask"
-					aspectRatio="1:1"
-				/>
-				<h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100">
-					<div class="flex-col">
-						<div class="flex flex-row items-center">
-							Project 1 <div class="btn bg-primary-500 dark:bg-secondary-500 text-slate-100 text-[14px] shadow-none p-1.5 py-1 ml-2 font-medium">
-								In Progress
-							</div>
-						</div>
-						<span class="text-2xl font-medium flex flex-col">
-							Forestask
-							<span class="text-base"><em>(Formely Florestarefa)</em></span>
-						</span>
-					</div>
-				</h3>
-			</div>
-
-			<ul class="mt-2 list-inside lg:px-5 text-base lg:text-lg text-slate-900 dark:text-slate-100 transition-colors duration-200">
-				<li class="flex flex-row items-center hover:text-primary-500 dark:hover:text-secondary-500 font-semibold">
-					<Icon name="ph:globe-bold" class="h-6 w-6 mr-1 inline" />
-					<a href="https://florestarefa.vercel.app/" target="_blank" rel="noopener noreferrer" class="">https://florestarefa.vercel.app/</a>
-				</li>
-				<li><strong class="font-semibold">Client:</strong> Myself/Learning purposes.</li>
-				<li>Main goal: Create a student friendly PWA with gamified elements which doubles as a Learning Management System for the school staff.</li>
-				<li>
-					Details and responsibilities: I conceptualized Florestarefa during a Hackathon in 2022. Then I built it as a prototype using HTML, CSS and
-					JS, and now I’m building it using the MERN (MongoDB, Express, React and Node.js) stack and GraphQL for data requests.
-				</li>
-				<li>
-					Outcome: First prototype in HTML, CSS and JS. Student UI prototype in ReactJS and JSONServer. Partially complete PWA with login,
-					registration and admin using the MERNG stack.
-				</li>
-				<li>Technologies: MongoDB, Typescript, ReactJS, Framer, Tailwind, Node.js, GraphQL, Apollo Server and Client, Vercel.</li>
-
-				<h3 class="mt-4 text-xl font-bold">Project 2 – GK Empreendimentos (In Progress)</h3>
-				<ul class="mt-2 list-disc list-inside">
-					<li>Client: GK, a high-end condominiums developer in Santa Catarina, Brazil.</li>
-					<li>
-						Main goal: Refactor a WordPress website into a SPA using ReactJS in the front-end and AWS Lambda, while also providing a CMS for it.
-					</li>
-					<li>
-						Details and responsibilities: I am spearheading the front-end design and CMS conception and execution while being mentored on the backend
-						and infrastructure implementation by a Senior Software Engineer. I also worked out a data structure for each building selling information
-						so it can be updated easily and quickly.
-					</li>
-					<li>
-						Outcome: Partially Complete SPA. The generic frame for displaying each building’s information is ready, currently working on the company
-						page and CMS development.
-					</li>
-					<li>Technologies: ReactJS, AWS Lambda, Typescript, Node.js, Vercel.</li>
-				</ul>
-				<h3 class="mt-4 text-xl font-bold">Project 3 – tverderesi.dev (In Progress)</h3>
-				<ul class="mt-2 list-disc list-inside">
-					<li>Client: Myself/Learning purposes.</li>
-					<li>Main Goal: Create a portfolio highlighting my work and writings.</li>
-					<li>Details and responsibilities: I am responsible for learning a new framework, Astro, and for Front-end design.</li>
-					<li>Outcome: A portfolio website (<a href="https://tverderesi.dev">https://tverderesi.dev</a>).</li>
-					<li>Technologies: Astro, Vercel.</li>
-				</ul>
-			</ul>
+			<WorkXP workExperience={workExperience} />
 		</section>
 		<div class="mt-8">
 			<h2 class="text-2xl font-bold">FOUNDER AND SERVER MAINTENANCE</h2>

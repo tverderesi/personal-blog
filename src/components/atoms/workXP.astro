@@ -1,0 +1,43 @@
+---
+import Icon from 'astro-icon';
+import ProjectList from './ProjectList.astro';
+const {workExperience} = Astro.props;
+---
+{workExperience.map(work => 
+{return (
+	
+<article class="pt-4 lg:pt-16 px-0 lg:px-4 mb-0">
+				<div class="flex flex-col lg:flex-row justify-start items-start gap-2 lg:items-center px-0 py-5 lg:p-5 lg:pb-0">
+					<h3 class="font-semibold text-base lg:text-2xl flex flex-row items-start lg:items-center text-slate-900 dark:text-slate-100">
+						<Icon name="mdi:briefcase" class="h-6 w-6 mr-1 text-primary-500 dark:text-secondary-500" />{work.title}
+					</h3>
+					<h4 class="font-semibold textl-2xl flex flex-row text-slate-900 dark:text-slate-100">
+						<Icon name="mdi:office-building" class="h-6 w-6 mr-1 text-primary-500 dark:text-secondary-500" /> {work.company}
+					</h4>
+				</div>
+
+				<div class="px-0 py-5 lg:p-5 flex flex-col lg:flex-row justify-between font-medium w-full gap-2">
+					<p class="flex flex-row font-semibold text-slate-900 dark:text-slate-100">
+						<Icon name="mdi:calendar" class="w-6 h-6 mr-1 text-primary-500 dark:text-secondary-500" />
+						<span class="hidden lg:inline">Period</span><span class="lg:font-light ml-1 font-semibold"> {work.period}</span>
+					</p>
+
+					<p class="flex flex-row font-semibold text-slate-900 dark:text-slate-100">
+						<Icon name="mdi:map" class="w-6 h-6 mr-1 text-primary-500 dark:text-secondary-500" />
+						<span class="hidden lg:inline">Location</span><span class="lg:font-light ml-1 font-semibold">{work.location}</span>
+						
+					</p>
+
+					<span class="flex flex-row lg:flex-row font-semibold text-slate-900 dark:text-slate-100">
+						<Icon name="mdi:laptop" class="w-6 h-6 mr-1 text-primary-500 dark:text-secondary-500" />
+						<span class="hidden lg:inline">Area</span>
+						<span class="lg:font-light ml-1 font-semibold">{work.area}</span>
+					</span>
+				</div>
+			</article>
+
+			<h5 class="font-medium mb-3 lg:px-10 text-slate-900 dark:text-slate-100">
+				<em>Company's brief description<span class="font-normal block lg:inline lg: ml-1">{work.brief}</span></em>
+			</h5>
+			<ProjectList projects={work.projects} />
+)})}

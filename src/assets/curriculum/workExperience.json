@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Freelance Fullstack Software Engineer",
+    "company": "tverderesi.dev",
+    "period": "SEP/2022 - Current",
+    "location": "Curitiba - PR, Brasil (Remote)",
+    "area": "Software Engineering",
+    "brief": "I work freelance for some clients.",
+    "projects": [
+      {
+        "status": "In Progress",
+        "title": "Forestask",
+        "subtitle": "(Formely Florestarefa)",
+        "picture": "forestask.png",
+        "href": "https://florestarefa.vercel.app/",
+        "client": "Myself/Learning purposes.",
+        "mainGoal": "Create a student friendly PWA with gamified elements which doubles as a Learning Management System for the school staff.",
+        "details": "I conceptualized Florestarefa during a Hackathon in 2022. Then I built it as a prototype using HTML, CSS and JS, and now I’m building it using the MERN (MongoDB, Express, React and Node.js) stack and GraphQL for data requests.",
+        "outcomes": "First prototype in HTML, CSS and JS. Student UI prototype in ReactJS and JSONServer. Partially complete PWA with login, registration and admin using the MERNG stack.",
+        "tech": "MongoDB, Typescript, ReactJS, Framer, Tailwind, Node.js, GraphQL, Apollo Server and Client, Vercel."
+      },
+      {
+        "status": "In Progress",
+        "title": "GK Empreendimentos",
+        "picture": "GK.png",
+        "subtitle": "",
+        "href": "https://gkempreendimentos.vercel.app/",
+        "client": "GK, a high-end condominiums developer in Santa Catarina, Brazil.",
+        "mainGoal": "Refactor a WordPress website into a SPA using ReactJS in the front-end and AWS Lambda, while also providing a CMS for it.",
+        "details": "I am spearheading the front-end design and CMS conception and execution while being mentored on the backend and infrastructure implementation by a Senior Software Engineer. I also worked out a data structure for each building selling information so it can be updated easily and quickly.",
+        "outcomes": "Partially Complete SPA. The generic frame for displaying each building’s information is ready, currently working on the company page and CMS development.",
+        "tech": "ReactJS, AWS Lambda, Typescript, Node.js, Vercel."
+      },
+      {
+        "status": "In Progress",
+        "title": "",
+        "picture": "tverderesi.png",
+        "subtitle": "",
+        "href": "https://tverderesi.dev/",
+        "mainGoal": "Create a personal website to showcase my work and skills.",
+        "details": "I am building this website using Astro, a new static site builder that uses ReactJS, Vue, Svelte and Markdown. I'm also planning to implement serverless functions to fetch content in the future.",
+        "outcomes": "Complete website.",
+        "tech": "Astro, ReactJS, Tailwind, Vercel."
+      },
+      {
+        "status": "completed",
+        "title": "Hi World! Social Network",
+        "picture": "hiworld.png",
+        "subtitle": "Come and say Hi! to the world.",
+        "href": "https://hiworldsocial.vercel.app/",
+        "client": "Myself/Learning purposes.",
+        "mainGoal": "Create a social network with a focus on user experience and accessibility, while also learning new technologies.",
+        "details": "I built this project using the MERN stack and GraphQL for data requests. I also implemented ",
+        "outcomes": "Complete social network with login, registration, posts, comments, likes, profile editing and deletion, and more.",
+        "tech": "MongoDB, Typescript, ReactJS, Semantic UI, Node.js, GraphQL, Apollo Server and Client, Vercel."
+      }
+    ]
+  }
+]
