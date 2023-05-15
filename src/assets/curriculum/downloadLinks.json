@@ -1,0 +1,14 @@
+[
+  {
+    "href": "https://1drv.ms/b/s!Ai-_aSZmd3wI37VU5Q9anoj4v0LN5Q?e=J8883J",
+    "format": "PDF",
+    "icon": "carbon:document-pdf",
+    "ariaLabel": "Download curriculum in the PDF format."
+  },
+  {
+    "href": "https://1drv.ms/w/s!Ai-_aSZmd3wI37VJyx9IZpP0Vn71Iw?e=LFAfzu",
+    "format": "DOCX",
+    "icon": "mdi:microsoft-word",
+    "ariaLabel": "Download curriculum in the DOCX format."
+  }
+]

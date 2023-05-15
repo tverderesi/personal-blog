@@ -1,0 +1,14 @@
+[
+  { "title": "HTML", "years": 2.0 },
+  { "title": "CSS", "years": 2.0 },
+  { "title": "SQL", "years": 2.0 },
+  { "title": "JavaScript", "years": 1.0 },
+  { "title": "Typescript", "years": 1.0 },
+  { "title": "ReactJS", "years": 1.0 },
+  { "title": "Python", "years": 1.0 },
+  { "title": "GraphQL", "years": 1.0 },
+  { "title": "Node.js", "years": 1.0 },
+  { "title": "REST API", "years": 1.0 },
+  { "title": "MongoDB", "years": 1.0 },
+  { "title": "Google Cloud Platform", "years": 0.8 }
+]

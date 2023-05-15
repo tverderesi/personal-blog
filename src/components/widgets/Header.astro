@@ -7,10 +7,7 @@ import ToggleMenu from '~/components/core/ToggleMenu.astro';
 import { getPermalink, getBlogPermalink, getHomePermalink } from '~/utils/permalinks';
 ---
 
-<header
-	class="sticky top-0 z-40 flex-none mx-auto w-full bg-white/30 dark:bg-slate-800/30 backdrop-blur-lg border-b dark:border-b-0"
-	id="header"
->
+<header class="sticky top-0 z-40 flex-none mx-auto w-full bg-slate-100/60 dark:bg-slate-800/60 backdrop-blur-xl" id="header">
 	<div class="py-3 px-3 mx-auto w-full md:flex justify-between md:px-4">
 		<div class="flex justify-between">
 			<a class="flex items-center" href={getHomePermalink()}>
@@ -21,17 +18,10 @@ import { getPermalink, getBlogPermalink, getHomePermalink } from '~/utils/permal
 				<ToggleMenu />
 			</div>
 		</div>
-		<nav
-			class="items-center w-full md:w-auto hidden md:flex text-slate-900 dark:text-slate-200 h-screen md:h-auto"
-			aria-label="Main navigation"
-		>
-			<ul
-				class="flex flex-col pt-8 md:pt-0 md:flex-row md:self-center w-full md:w-auto text-lg md:text-base font-semibold"
-			>
+		<nav class="items-center w-full md:w-auto hidden md:flex text-slate-900 dark:text-slate-200 h-screen md:h-auto" aria-label="Main navigation">
+			<ul class="flex flex-col pt-8 md:pt-0 md:flex-row md:self-center w-full md:w-auto text-lg md:text-base font-semibold">
 				<li class="px-4 flex flex-row">
-					<a
-						class="hover:text-primary-400 dark:hover:text-primary-400 flex pl-1 py-3 transition duration-150 ease-in-out"
-						href={'/'}
+					<a class="hover:text-primary-400 dark:hover:text-primary-400 flex pl-1 py-3 transition duration-150 ease-in-out" href={'/'}
 						><Icon name="ant-design:home-twotone" class="w-4 text-primary-400 mb-0.5" /> <span class="pl-1">Home</span>
 					</a>
 					<li class="flex flex-row px-4">

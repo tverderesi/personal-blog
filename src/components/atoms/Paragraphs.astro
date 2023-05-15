@@ -1,0 +1,5 @@
+---
+const { paragraphs } = Astro.props;
+---
+
+{paragraphs.map((paragraph) => <p class="mt-2 prose text-slate-900 dark:text-white text-justify min-w-full">{paragraph}</p>)}
