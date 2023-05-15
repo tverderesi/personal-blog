@@ -9,9 +9,9 @@ const { stack, maxYears } = Astro.props;
 		return (
 			<div class="mt-2 flex w-[90%] flex-col justify-center items-center mx-auto relative">
 				<h3 class="text-lg  mb-1 font-bold text-center">{title}</h3>
-				<div class={`w-full h-7 rounded-full bg-gray-300 animation-container-2`}>
+				<div class="w-full h-7 rounded-full bg-gray-300 animation-container">
 					<div
-						class={`h-7 rounded-full progress-bar-2 ${
+						class={`h-7 rounded-full progress-bar ${
 							years === maxYears ? 'rounded' : 'rounded-r'
 						} text-right pr-5 font-bold bg-primary-500 dark:bg-secondary-500 flex items-center justify-end text-white`}
 						style={{ width: `${width}%` }}
@@ -26,40 +26,37 @@ const { stack, maxYears } = Astro.props;
 }
 
 <style>
-	.progress-bar-2 {
+	.progress-bar {
 		transition: width 1s ease-in-out;
 		width: 0;
 		border-radius: 999rem;
 	}
-	.progress-bar-2 span {
+	.progress-bar span {
 		transition: opacity 1s ease-in-out;
 		opacity: 0;
 	}
 
-	.animation-container-2.animate-2 .progress-bar-2 span {
+	.animation-container.animate .progress-bar span {
 		opacity: 1;
 	}
 
-	.animation-container-2.animate-2 .progress-bar-2 {
+	.animation-container.animate .progress-bar {
 		width: 100%;
 	}
 </style>
 <script>
-	const animationContainers = document.querySelectorAll('.animation-container-2') as NodeListOf<HTMLElement>;
+	const animationContainers = document.querySelectorAll('.animation-container') as NodeListOf<HTMLElement>;
 	const observer = new IntersectionObserver((entries) => {
 		entries.forEach((entry) => {
-			const progressBar = entry.target.querySelector('.progress-bar-2') as HTMLElement;
+			const progressBar = entry.target.querySelector('.progress-bar') as HTMLElement;
 
 			if (entry.isIntersecting) {
 				const width = progressBar?.getAttribute('data-width');
 				progressBar.style.width = `${width}%`;
-				entry.target.classList.add('animate-2');
+				entry.target.classList.add('animate');
 			} else {
-				// @ts-ignore
-				progressBar.timeout = setTimeout(() => {
-					progressBar.style.width = '0';
-					entry.target.classList.remove('animate-2');
-				}, 60000);
+				progressBar.style.width = '0';
+				entry.target.classList.remove('animate');
 			}
 		});
 	});
