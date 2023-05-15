@@ -5,21 +5,21 @@ import Icon from 'astro-icon';
 const {projects } = Astro.props
 
 ---
-
+<!-- TODO: Implement pictures correctly -->
 {projects.map((project, index) => {
 return (
 <hr class="border-slate-900 dark:border-slate-100 mt-8" />
 
 <div class="px-0 lg:px-5 flex flex-row items-center relative mt-4">
-    {project.picture?
-    <Picture
+<!-- 
+    {project.picture? <Picture
         src={project.picture}
         class="mx-auto w-[43px] lg:w-[86px] mr-0 absolute lg:relative top-0 right-0 lg:left-0 lg:mr-5 my-3 shadow-xl rounded-full inline"
         widths={[43, 86]}
         sizes="43px, 86px"
         alt={project.title}
         aspectRatio="1:1"
-    /> : ''}
+    /> : ''} -->
     <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100">
         <div class="flex-col">
             <div class="flex flex-row items-center">
