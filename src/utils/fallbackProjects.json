@@ -397,7 +397,7 @@
     "deployments_url": "https://api.github.com/repos/tverderesi/gk-empreendimentos/deployments",
     "created_at": "2022-11-23T18:20:22Z",
     "updated_at": "2023-04-05T14:10:40Z",
-    "pushed_at": "2023-05-12T03:04:10Z",
+    "pushed_at": "2023-05-15T03:08:28Z",
     "git_url": "git://github.com/tverderesi/gk-empreendimentos.git",
     "ssh_url": "git@github.com:tverderesi/gk-empreendimentos.git",
     "clone_url": "https://github.com/tverderesi/gk-empreendimentos.git",
@@ -613,13 +613,13 @@
     "deployments_url": "https://api.github.com/repos/tverderesi/personal-blog/deployments",
     "created_at": "2022-11-22T00:53:30Z",
     "updated_at": "2022-11-22T00:55:07Z",
-    "pushed_at": "2023-05-14T17:23:04Z",
+    "pushed_at": "2023-05-15T22:26:32Z",
     "git_url": "git://github.com/tverderesi/personal-blog.git",
     "ssh_url": "git@github.com:tverderesi/personal-blog.git",
     "clone_url": "https://github.com/tverderesi/personal-blog.git",
     "svn_url": "https://github.com/tverderesi/personal-blog",
     "homepage": "tverderesi.vercel.app",
-    "size": 10290,
+    "size": 10606,
     "stargazers_count": 0,
     "watchers_count": 0,
     "language": "Astro",
@@ -633,7 +633,7 @@
     "mirror_url": null,
     "archived": false,
     "disabled": false,
-    "open_issues_count": 4,
+    "open_issues_count": 5,
     "license": {
       "key": "unlicense",
       "name": "The Unlicense",
@@ -647,7 +647,7 @@
     "topics": [],
     "visibility": "public",
     "forks": 0,
-    "open_issues": 4,
+    "open_issues": 5,
     "watchers": 0,
     "default_branch": "main",
     "permissions": {
@@ -657,7 +657,7 @@
       "triage": true,
       "pull": true
     },
-    "commits": 55
+    "commits": 68
   },
   {
     "id": 555519374,
