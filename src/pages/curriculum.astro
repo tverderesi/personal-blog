@@ -54,14 +54,16 @@ const navClass = 'anchor-link hover:text-primary-500  dark:hover:text-secondary-
 			<h2 class={titleClass}>INDEX</h2>
 
 			<p class={`text-center text-lg lg:text-lg break-word font-extrabold`}>
+				| <a href="#contacts" class={navClass}> CONTACT</a>
+				| <a href="#meetings" class={navClass}> SCHEDULE A MEETING</a>
+				| <a href="#about" class={navClass}> ABOUT ME</a>
+				| <a href="#tech-stack" class={navClass}> TECH STACK</a>
+				| <a href="#strengths" class={navClass}> STRENGTHS & SKILLS</a>
+				| <a href="#work-xp" class={navClass}> WORK EXPERIENCE</a>
+				| <a href="#education" class={navClass}> EDUCATION</a>
+				| <a href="#courses" class={navClass}> COURSES</a>
+				| <a href="#languages" class={navClass}> LANGUAGES</a>
 				|
-				<a href="#contacts" class={navClass}> CONTACT</a> |
-				<a href="#meetings" class={navClass}> SCHEDULE A MEETING</a> |
-				<a href="#about" class={navClass}> ABOUT ME</a> |
-				<a href="#tech-stack" class={navClass}> TECH STACK</a> |
-				<a href="#strengths" class={navClass}> STRENGTHS & SKILLS</a> |
-				<a href="#work-xp" class={navClass}> WORK EXPERIENCE</a> |
-				<a href="#education" class={navClass}> EDUCATION</a> |
 			</p>
 		</section>
 
@@ -102,11 +104,11 @@ const navClass = 'anchor-link hover:text-primary-500  dark:hover:text-secondary-
 			<Education education={education} />
 		</div>
 
-		<div class={`${cardClass} ${halfWidth}`}>
+		<div class={`${cardClass} ${halfWidth}`} id="courses">
 			<h2 class={titleClass}>CERTIFICATIONS & COURSES</h2>
 			<Courses courses={courses} />
 		</div>
-		<div class={`${cardClass} ${halfWidth}`}>
+		<div class={`${cardClass} ${halfWidth}`} id="languages">
 			<h2 class={titleClass}>LANGUAGES</h2>
 			<Languages languages={languages} maxLevel={6} />
 		</div>
