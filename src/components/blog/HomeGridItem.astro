@@ -12,7 +12,7 @@ const image = await findImage(post.image);
 
 <article class="transition ease-in duration-200">
 	<div
-		class="w-11/12 relative h-[6rem] lg:h-52 lg:w-52 mb-8 bg-slate-300 dark:bg-slate-700 rounded-2xl shadow-lg shadow-gray-300 dark:shadow-black/30 flex mx-4"
+		class="w-11/12 relative h-[6rem] lg:h-52 lg:w-52 mb-8 bg-slate-300 dark:bg-slate-800 rounded-2xl shadow-lg shadow-gray-300 dark:shadow-black/30 flex mx-4"
 	>
 		<div class="w-100">
 			{
@@ -26,7 +26,10 @@ const image = await findImage(post.image);
 						aspectRatio="1:1"
 					/>
 				) : (
-					<Icon name="la:feather-alt" class="dark:text-slate-400/20 text-slate-500/20 w-3/4 h-3/4 mx-auto my-auto" />
+					<Icon
+						name="la:feather-alt"
+						class="absolute  top-[12.5%] left-[12.5%] -z-1  dark:text-slate-400/20 text-slate-500/20 w-3/4 h-3/4 mx-auto my-auto"
+					/>
 				)
 			}
 

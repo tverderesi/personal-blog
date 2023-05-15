@@ -2,13 +2,49 @@
 import { SITE } from '~/config.mjs';
 import { getCanonical, getHomePermalink } from '~/utils/permalinks';
 import Layout from '~/layouts/PageLayout.astro';
-import { Icon } from 'astro-icon';
 
-const {
-	label = 'E-mail to tverderesi@gmail.com',
-	iconClass = 'w-6 h-6 mr-1',
-	iconName = 'ic:baseline-email',
-} = Astro.props;
+import CurriculumDownload from '~/components/atoms/CurriculumDownload.astro';
+import ContactInfo from '~/components/atoms/ContactInfo.astro';
+import ProficiencyBar from '~/components/atoms/ProficiencyBar.astro';
+
+const titleClass = 'text-2xl lg:text-3xl font-bold text-center';
+
+const cardClass = 'p-5 border-slate-900 dark:border-slate-100 border-[1px] col-span-2 lg:col-span-1 rounded-2xl w-full';
+
+const stack = [
+	{ title: 'SQL', years: 2.0 },
+	{ title: 'JavaScript', years: 1.0 },
+	{ title: 'Typescript', years: 1.0 },
+	{ title: 'ReactJS', years: 1.0 },
+	{ title: 'Python', years: 1.0 },
+	{ title: 'GraphQL', years: 1.0 },
+	{ title: 'Node.js', years: 1.0 },
+	{ title: 'REST API', years: 1.0 },
+	{ title: 'MongoDB', years: 1.0 },
+	{ title: 'Google Cloud Platform', years: 0.5 },
+	{ title: 'HTML', years: 2.0 },
+];
+
+const contactInfo = [
+	{
+		href: 'mailto:tverderesi@gmail.com',
+		label: 'E-mail to tverderesi@gmail.com',
+		iconText: 'tverderesi@gmail.com',
+		iconName: 'ic:baseline-email',
+	},
+	{
+		label: 'Link to LinkedIn profile',
+		href: 'https://www.linkedin.com/in/tverderesi/',
+		iconText: 'tverderesi',
+		iconName: 'mdi:linkedin',
+	},
+	{
+		label: 'Link to GitHub profile',
+		href: 'https://github.com/tverderesi',
+		iconText: 'tverderesi',
+		iconName: 'mdi:github',
+	},
+];
 
 const meta = {
 	title: SITE.title,
@@ -16,245 +52,234 @@ const meta = {
 	canonical: getCanonical(getHomePermalink()),
 };
 
-const linkClass = 'flex hover:text-primary-400 dark:hover:text-secondary-400 not-italic';
+const downloadLinks = [
+	{
+		href: 'https://1drv.ms/b/s!Ai-_aSZmd3wI37VU5Q9anoj4v0LN5Q?e=J8883J',
+		format: 'PDF',
+		icon: 'carbon:document-pdf',
+		ariaLabel: 'Download curriculum in the PDF format.',
+	},
+	{
+		href: 'https://1drv.ms/w/s!Ai-_aSZmd3wI37VJyx9IZpP0Vn71Iw?e=LFAfzu',
+		format: 'DOCX',
+		icon: 'mdi:microsoft-word',
+		ariaLabel: 'Download curriculum in the DOCX format.',
+	},
+];
 ---
 
 <Layout {meta}>
-	<div>
-		<section
-			class="shadow-inner shadow-slate-600/30 p-20 bg-gradient-to-r from-primary-400 to-secondary-500 text-white wavy"
-		>
-			<h1 class="text-4xl font-bold">THOMAS B. VERDERESI</h1>
-			<p class="text-2xl font-medium">FULLSTACK SOFTWARE ENGINEER</p>
+	<section
+		class="shadow-inner shadow-slate-600/30 p-20 bg-gradient-to-r from-primary-400 to-secondary-500 text-white wavy"
+	>
+		<h1 class="text-3xl lg:text-4xl font-bold">THOMAS B. VERDERESI</h1>
+		<p class="text-xl lg:text-2xl font-medium">FULLSTACK SOFTWARE ENGINEER</p>
+	</section>
+	<section class="px-5 py-10 lg:p-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-10">
+		<section class="lg:px-10 col-span-2"><CurriculumDownload downloadLinks={downloadLinks} /></section>
+
+		<section class={cardClass}>
+			<h2 class={titleClass}>CONTACT INFO</h2>
+			<ContactInfo contactInfo={contactInfo} />
 		</section>
-		<div class="p-10 pt-2">
-			<p class="text-sm italic flex gap-2 py-6">
-				Download this curriculum:
+
+		<section class={cardClass}>
+			<h2 class={titleClass}>SCHEDULE A MEETING</h2>
+			<div class="flex flex-row justify-start gap-6 items-center mt-5">
 				<a
-					href="https://1drv.ms/b/s!Ai-_aSZmd3wI37VU5Q9anoj4v0LN5Q?e=J8883J"
-					download
-					class={`${linkClass} font-bold`}
-					aria-label={'Download curriculum in the PDF format.'}
+					href="https://calendly.com/tverderesi/1hr-meeting"
+					class="btn bg-primary-500 dark:bg-secondary-500 text-slate-100 hover:dark:bg-secondary-400 hover:bg-primary-400 shadow-none font-bold rounded-2xl"
+					>30 min. meeting</a
 				>
-					<Icon name="carbon:document-pdf" class="h-4 w-4 mr-1" /> PDF
-				</a>
 				<a
-					href="https://1drv.ms/w/s!Ai-_aSZmd3wI37VJyx9IZpP0Vn71Iw?e=LFAfzu"
-					download
-					class={`${linkClass} font-bold`}
-					aria-label={'Download curriculum in the DOCX format.'}
+					href="https://calendly.com/tverderesi/1hr-meeting"
+					class="btn bg-primary-500 dark:bg-secondary-500 text-slate-100 hover:dark:bg-secondary-400 hover:bg-primary-400 shadow-none font-bold rounded-2xl"
+					>1 hour meeting</a
 				>
-					<Icon name="mdi:microsoft-word" class="h-4 w-4 mr-1" />
-					DOCX</a
-				>
+			</div>
+		</section>
+
+		<section class={cardClass}>
+			<h2 class={titleClass}>ABOUT ME</h2>
+			<p class="mt-2 prose text-slate-900 dark:text-white text-justify min-w-full">
+				I am a software engineer who strives to create and improve software using passion and creativity and rooted upon
+				a deep involvement with the goals said software wants to achieve. I thoroughly use my knowledge to create,
+				contribute, evolve, and perfect the products and processes of the companies I work in.
 			</p>
+			<p class="mt-2 prose text-slate-900 dark:text-white text-justify min-w-full">
+				Currently, I have 1+ years of experience working with web development in the most diverse languages (i.e.,
+				JavaScript and Python), I’m also well acquainted with Frameworks (i.e., ReactJS, Framer) and 3+ years working
+				with data. I focus on Full stack Development, and I am often involved with every aspect of development, from
+				conceptual design to data structure, deployment, front and back-end development.
+			</p>
+			<p class="mt-2 prose text-slate-900 dark:text-white text-justify min-w-full">
+				Right now, I am looking for opportunities where I can use my current and expand my knowledge to develop Web and
+				Mobile applications that enhance the life of and delight those who use them.
+			</p>
+		</section>
 
-			<div class="mt-6 flex gap-3">
-				<a href="mailto:tverderesi@gmail.com" class={linkClass}>
-					<Icon name={iconName} class={iconClass} aria-label={label} />tverderesi@gmail.com
-				</a>
-				<a href="https://www.linkedin.com/in/tverderesi/" class={linkClass}>
-					<Icon name="mdi:linkedin" class={iconClass} aria-label="Link to LinkedIn profile" />tverderesi
-				</a>
-				<a href="https://github.com/tverderesi/" class={linkClass}>
-					<Icon name="mdi:github" class={iconClass} aria-label="Link to GitHub profile" />tverderesi
-				</a>
-				<p class="flex"><Icon name="mdi:map-marker-account" class={iconClass} /> Curitiba, Paraná, Brazil (GMT-3)</p>
-			</div>
+		<div class={cardClass}>
+			<h2 class={titleClass}>PROFICIENCY STACK</h2>
+			<ProficiencyBar maxYears={2.5} stack={stack} />
+		</div>
+	</section>
 
-			<div class="mt-8">
-				<h2 class="text-2xl font-bold">ABOUT ME</h2>
-				<p class="mt-2">
-					I am a software engineer who strives to create and improve software using passion and creativity and rooted
-					upon a deep involvement with the goals said software wants to achieve. I thoroughly use my knowledge to
-					create, contribute, evolve, and perfect the products and processes of the companies I work in. Currently, I
-					have 1+ years of experience working with web development in the most diverse languages (i.e., JavaScript and
-					Python), I’m also well acquainted with Frameworks (i.e., ReactJS, Framer) and 3+ years working with data. I
-					focus on Full stack Development, and I am often involved with every aspect of development, from conceptual
-					design to data structure, deployment, front and back-end development. Right now, I am looking for
-					opportunities where I can use my current and expand my knowledge to develop Web and Mobile applications that
-					enhance the life of and delight those who use them.
-				</p>
-			</div>
+	<div class="mt-8">
+		<h2 class="text-2xl font-bold">PORTFOLIO</h2>
+		<ul class="mt-2 list-disc list-inside">
+			<li><a href="https://tverderesi.dev/">https://tverderesi.dev/</a></li>
+			<li><a href="https://florestarefa.vercel.app/">https://florestarefa.vercel.app/</a></li>
+			<li><a href="https://gk-empreendimentos.vercel.app/">https://gk-empreendimentos.vercel.app/</a></li>
+			<li>
+				<a href="https://github.com/tverderesi/merng-social-network"
+					>https://github.com/tverderesi/merng-social-network</a
+				>
+			</li>
+		</ul>
+	</div>
 
-			<div class="mt-8">
-				<h2 class="text-2xl font-bold">PROFICIENCY STACK</h2>
-				<ul class="mt-2 list-disc list-inside">
-					<li>SQL - 2 years</li>
-					<li>JavaScript - 1 year</li>
-					<li>Typescript - 1 year</li>
-					<li>ReactJS - 1 year</li>
-					<li>Python - 1 year</li>
-					<li>GraphQL - 1 year</li>
-					<li>Node.js - 1 year</li>
-					<li>REST API - 1 year</li>
-					<li>MongoDB - 1 year</li>
-					<li>Google Cloud Platform - 0-1 year(s)</li>
-				</ul>
-			</div>
+	<div class="mt-8">
+		<h2 class="text-2xl font-bold">STRENGTHS & SKILLS</h2>
+		<ul class="mt-2 list-disc list-inside">
+			<li>Experienced with relational and non-relational databases (MongoDB, MariaDB, MySQL).</li>
+			<li>Intermediate experience with modern JS frameworks (ReactJS, Astro).</li>
+			<li>Some experience deploying and managing a Moodle server using Google Cloud Platform (Compute Engine).</li>
+			<li>Mentoring, teaching, and leadership skills.</li>
+			<li>Creativity, problem-solving, team worker, self-taught, adaptive person.</li>
+		</ul>
+	</div>
 
-			<div class="mt-8">
-				<h2 class="text-2xl font-bold">PORTFOLIO</h2>
-				<ul class="mt-2 list-disc list-inside">
-					<li><a href="https://tverderesi.dev/">https://tverderesi.dev/</a></li>
-					<li><a href="https://florestarefa.vercel.app/">https://florestarefa.vercel.app/</a></li>
-					<li><a href="https://gk-empreendimentos.vercel.app/">https://gk-empreendimentos.vercel.app/</a></li>
-					<li>
-						<a href="https://github.com/tverderesi/merng-social-network"
-							>https://github.com/tverderesi/merng-social-network</a
-						>
-					</li>
-				</ul>
-			</div>
-
-			<div class="mt-8">
-				<h2 class="text-2xl font-bold">STRENGTHS & SKILLS</h2>
-				<ul class="mt-2 list-disc list-inside">
-					<li>Experienced with relational and non-relational databases (MongoDB, MariaDB, MySQL).</li>
-					<li>Intermediate experience with modern JS frameworks (ReactJS, Astro).</li>
-					<li>Some experience deploying and managing a Moodle server using Google Cloud Platform (Compute Engine).</li>
-					<li>Mentoring, teaching, and leadership skills.</li>
-					<li>Creativity, problem-solving, team worker, self-taught, adaptive person.</li>
-				</ul>
-			</div>
-
-			<div class="mt-8">
-				<h2 class="text-2xl font-bold">WORK EXPERIENCE</h2>
-				<div class="mt-4">
-					<p class="font-medium">Freelance Fullstack Software Engineer</p>
-					<p class="font-medium">tverderesi.dev</p>
-					<p><em>Company's brief description: I work freelance for some clients.</em></p>
-					<p class="mt-2">
-						<strong>📆 SEP/2022 - Current</strong>
-						<br />
-						<strong>🗺️ Curitiba, PR – Brasil (Remote)</strong>
-						<br />
-						<strong>💻 Business area: Software Development</strong>
-					</p>
-					<h3 class="mt-4 text-xl font-bold">Project 1 – Florestarefa (In Progress)</h3>
-					<ul class="mt-2 list-disc list-inside">
-						<li>Client: Myself/Learning purposes.</li>
-						<li>
-							Main goal: Create a student friendly PWA with gamified elements which doubles as a Learning Management
-							System for the school staff.
-						</li>
-						<li>
-							Details and responsibilities: I conceptualized Florestarefa during a Hackathon in 2022. Then I built it as
-							a prototype using HTML, CSS and JS, and now I’m building it using the MERN (MongoDB, Express, React and
-							Node.js) stack and GraphQL for data requests.
-						</li>
-						<li>
-							Outcome: First prototype in HTML, CSS and JS. Student UI prototype in ReactJS and JSONServer. Partially
-							complete PWA with login, registration and admin using the MERNG stack.
-						</li>
-						<li>
-							Technologies: MongoDB, Typescript, ReactJS, Framer, Tailwind, Node.js, GraphQL, Apollo Server and Client,
-							Vercel.
-						</li>
-					</ul>
-					<h3 class="mt-4 text-xl font-bold">Project 2 – GK Empreendimentos (In Progress)</h3>
-					<ul class="mt-2 list-disc list-inside">
-						<li>Client: GK, a high-end condominiums developer in Santa Catarina, Brazil.</li>
-						<li>
-							Main goal: Refactor a WordPress website into a SPA using ReactJS in the front-end and AWS Lambda, while
-							also providing a CMS for it.
-						</li>
-						<li>
-							Details and responsibilities: I am spearheading the front-end design and CMS conception and execution
-							while being mentored on the backend and infrastructure implementation by a Senior Software Engineer. I
-							also worked out a data structure for each building selling information so it can be updated easily and
-							quickly.
-						</li>
-						<li>
-							Outcome: Partially Complete SPA. The generic frame for displaying each building’s information is ready,
-							currently working on the company page and CMS development.
-						</li>
-						<li>Technologies: ReactJS, AWS Lambda, Typescript, Node.js, Vercel.</li>
-					</ul>
-					<h3 class="mt-4 text-xl font-bold">Project 3 – tverderesi.dev (In Progress)</h3>
-					<ul class="mt-2 list-disc list-inside">
-						<li>Client: Myself/Learning purposes.</li>
-						<li>Main Goal: Create a portfolio highlighting my work and writings.</li>
-						<li>
-							Details and responsibilities: I am responsible for learning a new framework, Astro, and for Front-end
-							design.
-						</li>
-						<li>Outcome: A portfolio website (<a href="https://tverderesi.dev">https://tverderesi.dev</a>).</li>
-						<li>Technologies: Astro, Vercel.</li>
-					</ul>
-				</div>
-			</div>
-
-			<div class="mt-8">
-				<h2 class="text-2xl font-bold">FOUNDER AND SERVER MAINTENANCE</h2>
-				<p class="font-medium">Dord English School</p>
-				<p><em>Company's brief description: Online-First Business English School</em></p>
-				<p class="mt-2">
-					<strong>📆 MAR/2020 – MAY/2022</strong>
-					<br />
-					<strong>🗺️ Curitiba, PR – Brasil (Remote)</strong>
-					<br />
-					<strong>💻 Business area: Education and Technology</strong>
-				</p>
-				<h3 class="mt-4 text-xl font-bold">Project 1 – Moodle Server Deployment and Maintenance</h3>
-				<ul class="mt-2 list-disc list-inside">
-					<li>Main goal: Deploy a Moodle Server and maintain it with zero cost as long as possible.</li>
-					<li>
-						Details and responsibilities: I was responsible for deploying the Moodle server and maintaining it while
-						keeping in mind the School had $0 to invest in server maintenance when it was founded. I chose to use Google
-						Cloud Platform because it had free credit for 12 months, which was enough time for the school to have funds
-						to keep the server running. I chose a low code approach because maintaining the server was a secondary
-						assignment that I did for free. I taught myself how to use GCP, Compute Engine and Data Buckets to backup
-						the servers. I also implemented Google’s OAuth2 login system to make the login process easier for students
-						and teachers.
-					</li>
-					<li>Outcome: The Moodle server which was used to apply tests to grade students.</li>
-					<li>Technologies: Google Cloud Platform, PHP.</li>
-				</ul>
-			</div>
-			<h3 class="mt-4 text-xl font-bold">Project 2 – Data Good Practices Training</h3>
+	<div class="mt-8">
+		<h2 class="text-2xl font-bold">WORK EXPERIENCE</h2>
+		<div class="mt-4">
+			<p class="font-medium">Freelance Fullstack Software Engineer</p>
+			<p class="font-medium">tverderesi.dev</p>
+			<p><em>Company's brief description: I work freelance for some clients.</em></p>
+			<p class="mt-2">
+				<strong>📆 SEP/2022 - Current</strong>
+				<br />
+				<strong>🗺️ Curitiba, PR – Brasil (Remote)</strong>
+				<br />
+				<strong>💻 Business area: Software Development</strong>
+			</p>
+			<h3 class="mt-4 text-xl font-bold">Project 1 – Florestarefa (In Progress)</h3>
 			<ul class="mt-2 list-disc list-inside">
+				<li>Client: Myself/Learning purposes.</li>
 				<li>
-					Main goal: Train staff to effectively use the Moodle server while keeping good practices in inserting and
-					keeping data.
+					Main goal: Create a student friendly PWA with gamified elements which doubles as a Learning Management System
+					for the school staff.
 				</li>
 				<li>
-					Details and responsibilities: I taught the teachers at Dord how to create questions for the question bank and
-					to use a tag system that I created, which was human-readable. The tagging system was created as a foundation
-					to implement AI-driven granular grading and studying suggestions as a long-term goal. I crafted video lessons
-					and a manual for future reference. I also taught them how to navigate the system, create cohorts, tests, and
-					everything they needed to keep their classes running properly.
+					Details and responsibilities: I conceptualized Florestarefa during a Hackathon in 2022. Then I built it as a
+					prototype using HTML, CSS and JS, and now I’m building it using the MERN (MongoDB, Express, React and Node.js)
+					stack and GraphQL for data requests.
 				</li>
-				<li>Outcome: A tagging system and a training course for the teachers.</li>
-				<li>Technologies: Adobe Premiere, Microsoft Office, Moodle.</li>
+				<li>
+					Outcome: First prototype in HTML, CSS and JS. Student UI prototype in ReactJS and JSONServer. Partially
+					complete PWA with login, registration and admin using the MERNG stack.
+				</li>
+				<li>
+					Technologies: MongoDB, Typescript, ReactJS, Framer, Tailwind, Node.js, GraphQL, Apollo Server and Client,
+					Vercel.
+				</li>
 			</ul>
-		</div>
-
-		<div class="mt-8">
-			<h2 class="text-2xl font-bold">EDUCATION</h2>
+			<h3 class="mt-4 text-xl font-bold">Project 2 – GK Empreendimentos (In Progress)</h3>
 			<ul class="mt-2 list-disc list-inside">
-				<li>Specialization in Gamification in E-Learning - Federal University of São Carlos - MAY/2020 - MAY/2022</li>
-				<li>Incomplete Master's in Structural Engineering - Federal University of Paraná - MAR/2017 - SEP/2019</li>
-				<li>Bachelor's in Civil Engineering - Federal University of Paraná - MAR/2012 - DEC/2016</li>
+				<li>Client: GK, a high-end condominiums developer in Santa Catarina, Brazil.</li>
+				<li>
+					Main goal: Refactor a WordPress website into a SPA using ReactJS in the front-end and AWS Lambda, while also
+					providing a CMS for it.
+				</li>
+				<li>
+					Details and responsibilities: I am spearheading the front-end design and CMS conception and execution while
+					being mentored on the backend and infrastructure implementation by a Senior Software Engineer. I also worked
+					out a data structure for each building selling information so it can be updated easily and quickly.
+				</li>
+				<li>
+					Outcome: Partially Complete SPA. The generic frame for displaying each building’s information is ready,
+					currently working on the company page and CMS development.
+				</li>
+				<li>Technologies: ReactJS, AWS Lambda, Typescript, Node.js, Vercel.</li>
 			</ul>
-		</div>
-
-		<div class="mt-8">
-			<h2 class="text-2xl font-bold">CERTIFICATIONS & COURSES</h2>
+			<h3 class="mt-4 text-xl font-bold">Project 3 – tverderesi.dev (In Progress)</h3>
 			<ul class="mt-2 list-disc list-inside">
-				<li>Tech Academy – StartSe University (2022) - Credential ID 62e293e41aa0ba726fbb04c4</li>
-				<li>Python Para Data Science - Alura (2022) - Credential ID f33fb405-ffd5-4310-9192-cf05a612864b</li>
-				<li>Formação Fullstack – Alura (2023) - In Progress</li>
+				<li>Client: Myself/Learning purposes.</li>
+				<li>Main Goal: Create a portfolio highlighting my work and writings.</li>
+				<li>
+					Details and responsibilities: I am responsible for learning a new framework, Astro, and for Front-end design.
+				</li>
+				<li>Outcome: A portfolio website (<a href="https://tverderesi.dev">https://tverderesi.dev</a>).</li>
+				<li>Technologies: Astro, Vercel.</li>
 			</ul>
 		</div>
+	</div>
 
-		<div class="mt-8">
-			<h2 class="text-2xl font-bold">LANGUAGES</h2>
-			<ul class="mt-2 list-disc list-inside">
-				<li>Portuguese (Native – CEFR C2)</li>
-				<li>English (Fluent – CEFR C1)</li>
-				<li>French (Basic – CEFR B1)</li>
-			</ul>
-		</div>
+	<div class="mt-8">
+		<h2 class="text-2xl font-bold">FOUNDER AND SERVER MAINTENANCE</h2>
+		<p class="font-medium">Dord English School</p>
+		<p><em>Company's brief description: Online-First Business English School</em></p>
+		<p class="mt-2">
+			<strong>📆 MAR/2020 – MAY/2022</strong>
+			<br />
+			<strong>🗺️ Curitiba, PR – Brasil (Remote)</strong>
+			<br />
+			<strong>💻 Business area: Education and Technology</strong>
+		</p>
+		<h3 class="mt-4 text-xl font-bold">Project 1 – Moodle Server Deployment and Maintenance</h3>
+		<ul class="mt-2 list-disc list-inside">
+			<li>Main goal: Deploy a Moodle Server and maintain it with zero cost as long as possible.</li>
+			<li>
+				Details and responsibilities: I was responsible for deploying the Moodle server and maintaining it while keeping
+				in mind the School had $0 to invest in server maintenance when it was founded. I chose to use Google Cloud
+				Platform because it had free credit for 12 months, which was enough time for the school to have funds to keep
+				the server running. I chose a low code approach because maintaining the server was a secondary assignment that I
+				did for free. I taught myself how to use GCP, Compute Engine and Data Buckets to backup the servers. I also
+				implemented Google’s OAuth2 login system to make the login process easier for students and teachers.
+			</li>
+			<li>Outcome: The Moodle server which was used to apply tests to grade students.</li>
+			<li>Technologies: Google Cloud Platform, PHP.</li>
+		</ul>
+	</div>
+	<h3 class="mt-4 text-xl font-bold">Project 2 – Data Good Practices Training</h3>
+	<ul class="mt-2 list-disc list-inside">
+		<li>
+			Main goal: Train staff to effectively use the Moodle server while keeping good practices in inserting and keeping
+			data.
+		</li>
+		<li>
+			Details and responsibilities: I taught the teachers at Dord how to create questions for the question bank and to
+			use a tag system that I created, which was human-readable. The tagging system was created as a foundation to
+			implement AI-driven granular grading and studying suggestions as a long-term goal. I crafted video lessons and a
+			manual for future reference. I also taught them how to navigate the system, create cohorts, tests, and everything
+			they needed to keep their classes running properly.
+		</li>
+		<li>Outcome: A tagging system and a training course for the teachers.</li>
+		<li>Technologies: Adobe Premiere, Microsoft Office, Moodle.</li>
+	</ul>
+	<div class="mt-8">
+		<h2 class="text-2xl font-bold">EDUCATION</h2>
+		<ul class="mt-2 list-disc list-inside">
+			<li>Specialization in Gamification in E-Learning - Federal University of São Carlos - MAY/2020 - MAY/2022</li>
+			<li>Incomplete Master's in Structural Engineering - Federal University of Paraná - MAR/2017 - SEP/2019</li>
+			<li>Bachelor's in Civil Engineering - Federal University of Paraná - MAR/2012 - DEC/2016</li>
+		</ul>
+	</div>
+
+	<div class="mt-8">
+		<h2 class="text-2xl font-bold">CERTIFICATIONS & COURSES</h2>
+		<ul class="mt-2 list-disc list-inside">
+			<li>Tech Academy – StartSe University (2022) - Credential ID 62e293e41aa0ba726fbb04c4</li>
+			<li>Python Para Data Science - Alura (2022) - Credential ID f33fb405-ffd5-4310-9192-cf05a612864b</li>
+			<li>Formação Fullstack – Alura (2023) - In Progress</li>
+		</ul>
+	</div>
+
+	<div class="mt-8">
+		<h2 class="text-2xl font-bold">LANGUAGES</h2>
+		<ul class="mt-2 list-disc list-inside">
+			<li>Portuguese (Native – CEFR C2)</li>
+			<li>English (Fluent – CEFR C1)</li>
+			<li>French (Basic – CEFR B1)</li>
+		</ul>
 	</div>
 </Layout>

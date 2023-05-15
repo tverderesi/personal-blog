@@ -3,6 +3,7 @@ import '~/assets/styles/base.css';
 
 import MetaTags from '~/components/core/MetaTags.astro';
 import BasicScripts from '~/components/core/BasicScripts.astro';
+import Footer from '~/components/widgets/Footer.astro';
 
 const { meta = {} } = Astro.props;
 ---
@@ -21,5 +22,6 @@ const { meta = {} } = Astro.props;
 				content-visibility: auto;
 			}
 		</style>
+		<Footer />
 	</body>
 </html>

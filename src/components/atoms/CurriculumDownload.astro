@@ -1,0 +1,18 @@
+---
+import { Icon } from 'astro-icon';
+
+const linkClass =
+	'flex hover:text-primary-400 dark:hover:text-secondary-400 not-italic font-bold transition-colors duration-200 ease-in-out';
+const { downloadLinks } = Astro.props;
+---
+
+<p class="text-sm italic gap-2 pb-6 flex flex-row">
+	Download this curriculum:
+	{
+		downloadLinks.map((link) => (
+			<a href={link.href} download class={linkClass} aria-label={link.ariaLabel}>
+				<Icon name={link.icon} class="h-4 w-4 mr-1" /> {link.format}
+			</a>
+		))
+	}
+</p>

@@ -1,0 +1,22 @@
+---
+import { Icon } from 'astro-icon';
+const linkClass =
+	'flex hover:text-primary-400 dark:hover:text-secondary-400 not-italic transition-colors duration-200 ease-in-out';
+const iconClass = 'w-6 h-6 mr-1';
+const { contactInfo } = Astro.props;
+---
+
+<div class="mt-3 flex flex-col gap-3">
+	<div class="flex flex-col lg:flex-row gap-3">
+		{
+			contactInfo.map((link) => (
+				<a href={link.href} class={linkClass}>
+					<Icon name={link.iconName} class={iconClass} aria-label={link.label} />
+					{link.iconText}
+				</a>
+			))
+		}
+	</div>
+
+	<p class="flex"><Icon name="mdi:map-marker-account" class={iconClass} /> Curitiba, Paraná, Brazil (GMT-3)</p>
+</div>
