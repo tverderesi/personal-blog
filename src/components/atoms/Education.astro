@@ -1,0 +1,30 @@
+---
+import Icon from 'astro-icon';
+const { education } = Astro.props;
+---
+
+<ul class="mt-2 list-inside">
+	{
+		education.map((degree) => {
+			return (
+				<li class="my-2">
+					<span class="flex flex-row items-center">
+						<Icon name="mdi:school" class="w-4 h-4 mr-1 text-primary-500 dark:text-secondary-500" />
+						<strong class="font-semibold">{degree.title}</strong>
+					</span>
+					<ul class="ml-5">
+						<li class="flex flex-row items-center">
+							<Icon name="mdi:map" class="h-4 w-4 mr-1 text-primary-500 dark:text-secondary-500" />
+							{degree.place}
+						</li>
+
+						<li class="flex flex-row items-center">
+							<Icon name="mdi:calendar" class="w-4 h-4 mr-1 text-primary-500 dark:text-secondary-500" />
+							{degree.time}
+						</li>
+					</ul>
+				</li>
+			);
+		})
+	}
+</ul>

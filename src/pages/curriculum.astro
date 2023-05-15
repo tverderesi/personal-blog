@@ -2,16 +2,27 @@
 import { SITE } from '~/config.mjs';
 import { getCanonical, getHomePermalink } from '~/utils/permalinks';
 import Layout from '~/layouts/PageLayout.astro';
-import { Icon } from 'astro-icon';
+
 import CurriculumDownload from '~/components/atoms/CurriculumDownload.astro';
 import ContactInfo from '~/components/atoms/ContactInfo.astro';
 import ProficiencyBar from '~/components/atoms/ProficiencyBar.astro';
 import Meetings from '~/components/atoms/Meetings.astro';
 import Paragraphs from '~/components/atoms/Paragraphs.astro';
-import { aboutMe, contactInfo, downloadLinks, strengths, techStack, workExperience } from '~/assets/curriculum/index.js';
-
-import ProjectList from '~/components/atoms/ProjectList.astro';
 import WorkXP from '~/components/atoms/workXP.astro';
+import Education from '~/components/atoms/Education.astro';
+import Courses from '~/components/atoms/Courses.astro';
+import Languages from '~/components/atoms/Languages.astro';
+import {
+	aboutMe,
+	contactInfo,
+	courses,
+	downloadLinks,
+	education,
+	languages,
+	strengths,
+	techStack,
+	workExperience,
+} from '~/assets/curriculum/index.js';
 
 const titleClass = 'text-2xl lg:text-3xl font-bold text-center text-slate-900 dark:text-slate-100';
 
@@ -50,6 +61,7 @@ const navClass = 'anchor-link hover:text-primary-500  dark:hover:text-secondary-
 				<a href="#tech-stack" class={navClass}> TECH STACK</a> |
 				<a href="#strengths" class={navClass}> STRENGTHS & SKILLS</a> |
 				<a href="#work-xp" class={navClass}> WORK EXPERIENCE</a> |
+				<a href="#education" class={navClass}> EDUCATION</a> |
 			</p>
 		</section>
 
@@ -84,85 +96,36 @@ const navClass = 'anchor-link hover:text-primary-500  dark:hover:text-secondary-
 			<h2 class={titleClass}>WORK EXPERIENCE</h2>
 			<WorkXP workExperience={workExperience} />
 		</section>
-		<div class="mt-8">
-			<h2 class="text-2xl font-bold">FOUNDER AND SERVER MAINTENANCE</h2>
-			<p class="font-medium">Dord English School</p>
-			<p><em>Company's brief description: Online-First Business English School</em></p>
-			<p class="mt-2">
-				<strong>📆 MAR/2020 – MAY/2022</strong>
-				<br />
-				<strong>🗺️ Curitiba, PR – Brasil (Remote)</strong>
-				<br />
-				<strong>💻 Business area: Education and Technology</strong>
-			</p>
-			<h3 class="mt-4 text-xl font-bold">Project 1 – Moodle Server Deployment and Maintenance</h3>
-			<ul class="mt-2 list-disc list-inside">
-				<li>Main goal: Deploy a Moodle Server and maintain it with zero cost as long as possible.</li>
-				<li>
-					Details and responsibilities: I was responsible for deploying the Moodle server and maintaining it while keeping in mind the School had $0
-					to invest in server maintenance when it was founded. I chose to use Google Cloud Platform because it had free credit for 12 months, which
-					was enough time for the school to have funds to keep the server running. I chose a low code approach because maintaining the server was a
-					secondary assignment that I did for free. I taught myself how to use GCP, Compute Engine and Data Buckets to backup the servers. I also
-					implemented Google’s OAuth2 login system to make the login process easier for students and teachers.
-				</li>
-				<li>Outcome: The Moodle server which was used to apply tests to grade students.</li>
-				<li>Technologies: Google Cloud Platform, PHP.</li>
-			</ul>
-		</div>
-		<h3 class="mt-4 text-xl font-bold">Project 2 – Data Good Practices Training</h3>
-		<ul class="mt-2 list-disc list-inside">
-			<li>Main goal: Train staff to effectively use the Moodle server while keeping good practices in inserting and keeping data.</li>
-			<li>
-				Details and responsibilities: I taught the teachers at Dord how to create questions for the question bank and to use a tag system that I
-				created, which was human-readable. The tagging system was created as a foundation to implement AI-driven granular grading and studying
-				suggestions as a long-term goal. I crafted video lessons and a manual for future reference. I also taught them how to navigate the system,
-				create cohorts, tests, and everything they needed to keep their classes running properly.
-			</li>
-			<li>Outcome: A tagging system and a training course for the teachers.</li>
-			<li>Technologies: Adobe Premiere, Microsoft Office, Moodle.</li>
-		</ul>
-		<div class="mt-8">
-			<h2 class="text-2xl font-bold">EDUCATION</h2>
-			<ul class="mt-2 list-disc list-inside">
-				<li>Specialization in Gamification in E-Learning - Federal University of São Carlos - MAY/2020 - MAY/2022</li>
-				<li>Incomplete Master's in Structural Engineering - Federal University of Paraná - MAR/2017 - SEP/2019</li>
-				<li>Bachelor's in Civil Engineering - Federal University of Paraná - MAR/2012 - DEC/2016</li>
-			</ul>
+
+		<div class={`${cardClass} ${halfWidth}`}>
+			<h2 class={titleClass}>EDUCATION</h2>
+			<Education education={education} />
 		</div>
 
-		<div class="mt-8">
-			<h2 class="text-2xl font-bold">CERTIFICATIONS & COURSES</h2>
-			<ul class="mt-2 list-disc list-inside">
-				<li>Tech Academy – StartSe University (2022) - Credential ID 62e293e41aa0ba726fbb04c4</li>
-				<li>Python Para Data Science - Alura (2022) - Credential ID f33fb405-ffd5-4310-9192-cf05a612864b</li>
-				<li>Formação Fullstack – Alura (2023) - In Progress</li>
-			</ul>
+		<div class={`${cardClass} ${halfWidth}`}>
+			<h2 class={titleClass}>CERTIFICATIONS & COURSES</h2>
+			<Courses courses={courses} />
 		</div>
-
-		<div class="mt-8">
-			<h2 class="text-2xl font-bold">LANGUAGES</h2>
-			<ul class="mt-2 list-disc list-inside">
-				<li>Portuguese (Native – CEFR C2)</li>
-				<li>English (Fluent – CEFR C1)</li>
-				<li>French (Basic – CEFR B1)</li>
-			</ul>
+		<div class={`${cardClass} ${halfWidth}`}>
+			<h2 class={titleClass}>LANGUAGES</h2>
+			<Languages languages={languages} maxLevel={6} />
 		</div>
-	</section>
-	<script>
-		const anchorLinks = document.querySelectorAll('.anchor-link');
-		const headerHeight = document.querySelector('#header')?.clientHeight;
-		anchorLinks.forEach((link) => {
-			link.addEventListener('click', (e) => {
-				e.preventDefault();
+		<script>
+			const anchorLinks = document.querySelectorAll('.anchor-link');
+			const headerHeight = document.querySelector('#header')?.clientHeight;
+			anchorLinks.forEach((link) => {
+				link.addEventListener('click', (e) => {
+					e.preventDefault();
 
-				const href = link.getAttribute('href');
-				//@ts-ignore
-				const offsetTop = document?.querySelector(href)?.offsetTop - headerHeight - 16;
-				scroll({
-					top: offsetTop,
-					behavior: 'smooth',
+					const href = link.getAttribute('href');
+					//@ts-ignore
+					const offsetTop = document?.querySelector(href)?.offsetTop - headerHeight - 16;
+					scroll({
+						top: offsetTop,
+						behavior: 'smooth',
+					});
 				});
 			});
-		});
-	</script>
+		</script>
+	</section>
 </Layout>

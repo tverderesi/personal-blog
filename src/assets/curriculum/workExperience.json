@@ -43,7 +43,7 @@
         "tech": "Astro, ReactJS, Tailwind, Vercel."
       },
       {
-        "status": "completed",
+        "status": "Completed",
         "title": "Hi World! Social Network",
         "picture": "hiworld.png",
         "subtitle": "Come and say Hi! to the world.",
@@ -53,6 +53,36 @@
         "details": "I built this project using the MERN stack and GraphQL for data requests. I also implemented ",
         "outcomes": "Complete social network with login, registration, posts, comments, likes, profile editing and deletion, and more.",
         "tech": "MongoDB, Typescript, ReactJS, Semantic UI, Node.js, GraphQL, Apollo Server and Client, Vercel."
+      }
+    ]
+  },
+  {
+    "title": "FOUNDER AND SERVER MAINTENANCE",
+    "company": "Dord English School",
+    "brief": "Online-First Business English School",
+    "period": "MAR/2020 - MAY/2022",
+    "location": "Curitiba, PR - Brasil (Remote)",
+    "area": "Education and Technology",
+    "projects": [
+      {
+        "title": "Moodle Server Deployment and Maintenance",
+        "href": "",
+        "client": "Dord",
+        "status": "Completed",
+        "mainGoal": "Deploy a Moodle Server and maintain it with zero cost as long as possible.",
+        "details": "I was responsible for deploying the Moodle server and maintaining it while keeping in mind the School had $0 to invest in server maintenance when it was founded. I chose to use Google Cloud Platform because it had free credit for 12 months, which was enough time for the school to have funds to keep the server running. I chose a low code approach because maintaining the server was a secondary assignment that I did for free. I taught myself how to use GCP, Compute Engine and Data Buckets to backup the servers. I also implemented Google’s OAuth2 login system to make the login process easier for students and teachers.",
+        "outcomes": "The Moodle server which was used to apply tests to grade students.",
+        "tech": "Google Cloud Platform, PHP"
+      },
+      {
+        "title": "Data Good Practices Training",
+        "href": "",
+        "client": "Dord",
+        "status": "Completed",
+        "mainGoal": "Train staff to effectively use the Moodle server while keeping good practices in inserting and keeping data.",
+        "details": "I taught the teachers at Dord how to create questions for the question bank and to use a tag system that I created, which was human-readable. The tagging system was created as a foundation to implement AI-driven granular grading and studying suggestions as a long-term goal. I crafted video lessons and a manual for future reference. I also taught them how to navigate the system, create cohorts, tests, and everything they needed to keep their classes running properly.",
+        "outcomes": "A tagging system and a training course for the teachers.",
+        "tech": "Adobe Premiere, Microsoft Office, Moodle"
       }
     ]
   }

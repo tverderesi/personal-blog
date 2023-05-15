@@ -22,11 +22,11 @@ return (
     /> : ''} -->
     <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100">
         <div class="flex-col">
-            <div class="flex flex-row items-center">
+           {project.status &&  <div class="flex flex-row items-center">
                 Project {index + 1} <div class="btn bg-primary-500 dark:bg-secondary-500 text-slate-100 text-[14px] shadow-none p-1.5 py-1 ml-2 font-medium">
                     {project.status}
                 </div>
-            </div>
+            </div>}
             <span class="text-2xl font-medium flex flex-col">
                 {project.title}
                 <span class="text-base"><em>{project.subtitle}</em></span>
@@ -36,10 +36,10 @@ return (
 </div>
 
 <ul class="mt-2 list-inside lg:px-5 text-base lg:text-lg text-slate-900 dark:text-slate-100 transition-colors duration-200">
-    <li class="flex flex-row items-center hover:text-primary-500 dark:hover:text-secondary-500 font-semibold">
+   {project.href &&  <li class="flex flex-row items-center hover:text-primary-500 dark:hover:text-secondary-500 font-semibold">
         <Icon name="ph:globe-bold" class="h-6 w-6 mr-1 inline" />
         <a href={project.href} target="_blank" rel="noopener noreferrer" class="">{project.href}</a>
-    </li>
+    </li>}
     <li class="my-3">
         <strong class="font-semibold text-lg lg:text-xl">Client</strong>
         <br />
@@ -50,7 +50,7 @@ return (
         <br />
         {project.mainGoal}
     </li>
-    <li>
+    <li class="my-3">
         <strong class="font-semibold text-lg lg:text-xl">Details and responsibilities</strong>
         <br />
         {project.details}
