@@ -10,43 +10,34 @@ const { post } = Astro.props;
 const image = await findImage(post.image);
 ---
 
-<article class="transition ease-in duration-200">
-	<div
-		class="w-11/12 relative h-32 lg:h-52 lg:w-52 mb-8 bg-slate-300 dark:bg-slate-800 rounded-2xl shadow-lg shadow-gray-300 dark:shadow-black/30 flex mx-4"
-	>
-		<div class="w-100">
-			{
-				image ? (
-					<Picture
-						src={image}
-						class="object-cover w-full rounded shadow-lg bg-slate-100 dark:bg-slate-700"
-						widths={[600, 900]}
-						sizes="(max-width: 900px) 600px, 900px"
-						alt={post.title}
-						aspectRatio="1:1"
-					/>
-				) : (
-					<Icon
-						name="la:feather-alt"
-						class="absolute  top-[12.5%] left-[12.5%] -z-1  dark:text-slate-400/20 text-slate-500/20 w-3/4 h-3/4 mx-auto my-auto"
-					/>
-				)
-			}
+<article
+	class="transition ease-in duration-200 text-slate-900 dark:text-slate-100 relative h-32 lg:h-52 lg:w-52 mx-4 flex bg-slate-300 dark:bg-slate-800 rounded-2xl shadow-gray-300 dark:shadow-black/30 shadow-lg hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-primary-500 dark:hover:text-secondary-500 mb-6"
+>
+	<a href={getPermalink(post.slug, 'post')}>
+		{
+			image ? (
+				<Picture
+					src={image}
+					class="object-cover w-full rounded shadow-lg bg-slate-100 dark:bg-slate-700"
+					widths={[600, 900]}
+					sizes="(max-width: 900px) 600px, 900px"
+					alt={post.title}
+					aspectRatio="1:1"
+				/>
+			) : (
+				<Icon
+					name="la:feather-alt"
+					class="absolute top-[12.5%] left-[12.5%] -z-1 dark:text-slate-400/20 text-slate-500/20 w-3/4 h-3/4 mx-auto my-auto"
+				/>
+			)
+		}
 
-			<a
-				href={getPermalink(post.slug, 'post')}
-				class="hover:text-primary-600 dark:hover:text-secondary-500 dark:text-slate-100 text-slate-900 transition ease-in duration-200"
-			>
-				<h3
-					class={`text-xl font-bold leading-snug sm:text-lg font-heading z-10 absolute bottom-0 left-0 right-0 ${
-						image ? 'bg-slate-100/50' : ''
-					} px-3 py-3`}
-				>
-					{post.title}
-				</h3>
-			</a>
-		</div>
-	</div>
-
-	<!-- <p class="text-gray-700 dark:text-gray-400">{post.excerpt || post.description}</p> -->
+		<h3
+			class={`text-xl font-bold leading-snug sm:text-lg font-heading z-10 absolute bottom-0 left-0 right-0 ${
+				image ? 'bg-slate-100/50' : ''
+			} px-3 py-3`}
+		>
+			{post.title}
+		</h3>
+	</a>
 </article>

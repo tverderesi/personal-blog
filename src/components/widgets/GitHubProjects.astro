@@ -1,48 +1,98 @@
 ---
 import { Icon } from 'astro-icon';
 import fallbackProjects from '~/utils/fallbackProjects.json';
-const projects = fallbackProjects;---
+const projects = fallbackProjects;
+---
 
-<h2 class="text-3xl w-3/4 mx-auto font-semibold pl-3 p-6">GitHub Projects ({projects
-			.filter((project) => project.fork === false).length})</h2>
+<h2 class="text-3xl w-3/4 mx-auto font-semibold pl-3 p-6">GitHub Projects ({projects.filter((project) => project.fork === false).length})</h2>
 <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mx-auto w-3/4 pb-10">
 	{
 		projects
 			.filter((project) => project.fork === false)
-			.map((project) => (
-				<article class="relative h-48 w-full md:w-64 md:h-48 lg:h-64 lg:w-64 bg-slate-300 dark:bg-slate-800 rounded-2xl shadow-gray-300  dark:shadow-black/30 shadow-lg hover:bg-slate-300 dark:hover:bg-slate-700 hover:text-primary-500 dark:hover:text-secondary-500 mb-6">
-					<Icon
-						name="ic:sharp-terminal"
-						class="absolute  top-[12.5%] left-[12.5%] -z-1  dark:text-slate-400/20 text-slate-500/20 w-3/4 h-3/4 mx-auto my-auto"
-					/>
-					<a href={project.html_url} class="h-full w-full relative z-1">
-						<h3 class="mb-2 text-xl p-3 text-center font-bold  whitespace-normal hyphens-auto h-1/4">{project.name}</h3>
+			.map((project) => {
+				const [sentence] = project.description?.split('.').slice(0, 1).concat('.') || [''];
 
-						<div class="flex justify-around items-center w-11/12 h-1/8">
-							<div class="flex items-center ">
-								<Icon name="mdi:source-commit" class="w-5 h-5 mr-1 text-primary-500 drop-shadow-md" />
-								<span class="text-sm text-gray-600 dark:text-gray-400 font-semibold">{project.commits}</span>
+				const truncatedDescription = sentence ? (sentence.length < 200 ? sentence + '.' : sentence.split(' ').slice(0, 20).join(' ') + '...') : '';
+
+				return (
+					<article class="relative h-48 w-full md:w-64 md:h-48 lg:h-64 lg:w-64 bg-slate-300 dark:bg-slate-800 rounded-2xl shadow-gray-300  dark:shadow-black/30 shadow-lg hover:bg-slate-300 dark:hover:bg-slate-700 hover:text-primary-500 dark:hover:text-secondary-500 mb-6">
+						<Icon
+							name="ic:sharp-terminal"
+							class="absolute  top-[12.5%] left-[12.5%] -z-1  dark:text-slate-400/20 text-slate-500/20 w-3/4 h-3/4 mx-auto my-auto"
+						/>
+						<a href={project.html_url} class="h-full w-full relative z-1">
+							<h3 class="mb-2 text-xl p-3 text-center font-bold  whitespace-normal hyphens-auto h-1/4">{project.name}</h3>
+
+							<div class="flex justify-around items-center w-11/12 h-1/8">
+								<div class="flex items-center ">
+									<Icon name="mdi:source-commit" class="w-5 h-5 mr-1 text-primary-500 drop-shadow-md" />
+									<span class="text-sm text-gray-600 dark:text-gray-400 font-semibold">{project.commits}</span>
+								</div>
+								<div class="flex items-center ">
+									<Icon name="ic:star" class="w-5 h-5 mr-1 text-secondary-500" />
+									<span class="text-sm text-gray-600 dark:text-gray-400  font-semibold">{project.stargazers_count}</span>
+								</div>
+								<div class="flex items-center ">
+									<Icon name="ic:baseline-remove-red-eye" class="w-5 h-5 mr-1 text-primary-500" />
+									<span class="text-sm text-gray-600 dark:text-gray-400  font-semibold">{project.watchers_count}</span>
+								</div>
+								<div class="flex items-center">
+									<Icon name="mdi:source-branch" class="w-5 h-5 mr-1 text-secondary-500" />
+									<span class="text-sm text-gray-600 dark:text-gray-400  font-semibold">{project.forks}</span>
+								</div>
 							</div>
-							<div class="flex items-center ">
-								<Icon name="ic:star" class="w-5 h-5 mr-1 text-secondary-500" />
-								<span class="text-sm text-gray-600 dark:text-gray-400  font-semibold">{project.stargazers_count}</span>
+							<div class="prose flex flex-col items-center justify-center h-1/2">
+								<p class="text-sm p-3 text-center font-semibold text-slate-900 dark:text-slate-100">{truncatedDescription}</p>
 							</div>
-							<div class="flex items-center ">
-								<Icon name="ic:baseline-remove-red-eye" class="w-5 h-5 mr-1 text-primary-500" />
-								<span class="text-sm text-gray-600 dark:text-gray-400  font-semibold">{project.watchers_count}</span>
+						</a>
+					</article>
+				);
+			})
+	}
+</div>
+<h2 class="text-3xl w-3/4 mx-auto font-semibold pl-3 p-6">GitHub Forks ({projects.filter((project) => project.fork === true).length})</h2>
+<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mx-auto w-3/4 pb-10">
+	{
+		projects
+			.filter((project) => project.fork === true)
+			.map((project) => {
+				const [sentence] = project.description?.split('.').slice(0, 1).concat('.') || [''];
+
+				const truncatedDescription = sentence ? (sentence.length < 200 ? sentence + '.' : sentence.split(' ').slice(0, 20).join(' ') + '...') : '';
+
+				return (
+					<article class="relative h-48 w-full md:w-64 md:h-48 lg:h-64 lg:w-64 bg-slate-300 dark:bg-slate-800 rounded-2xl shadow-gray-300  dark:shadow-black/30 shadow-lg hover:bg-slate-300 dark:hover:bg-slate-700 hover:text-primary-500 dark:hover:text-secondary-500 mb-6">
+						<Icon
+							name="ic:sharp-terminal"
+							class="absolute  top-[12.5%] left-[12.5%] -z-1  dark:text-slate-400/20 text-slate-500/20 w-3/4 h-3/4 mx-auto my-auto"
+						/>
+						<a href={project.html_url} class="h-full w-full relative z-1">
+							<h3 class="mb-2 text-xl p-3 text-center font-bold  whitespace-normal hyphens-auto h-1/4">{project.name}</h3>
+
+							<div class="flex justify-around items-center w-11/12 h-1/8">
+								<div class="flex items-center ">
+									<Icon name="mdi:source-commit" class="w-5 h-5 mr-1 text-primary-500 drop-shadow-md" />
+									<span class="text-sm text-gray-600 dark:text-gray-400 font-semibold">{project.commits}</span>
+								</div>
+								<div class="flex items-center ">
+									<Icon name="ic:star" class="w-5 h-5 mr-1 text-secondary-500" />
+									<span class="text-sm text-gray-600 dark:text-gray-400  font-semibold">{project.stargazers_count}</span>
+								</div>
+								<div class="flex items-center ">
+									<Icon name="ic:baseline-remove-red-eye" class="w-5 h-5 mr-1 text-primary-500" />
+									<span class="text-sm text-gray-600 dark:text-gray-400  font-semibold">{project.watchers_count}</span>
+								</div>
+								<div class="flex items-center">
+									<Icon name="mdi:source-branch" class="w-5 h-5 mr-1 text-secondary-500" />
+									<span class="text-sm text-gray-600 dark:text-gray-400  font-semibold">{project.forks}</span>
+								</div>
 							</div>
-							<div class="flex items-center">
-								<Icon name="mdi:source-branch" class="w-5 h-5 mr-1 text-secondary-500" />
-								<span class="text-sm text-gray-600 dark:text-gray-400  font-semibold">{project.forks}</span>
+							<div class="prose flex flex-col items-center justify-center h-1/2">
+								<p class="text-sm p-3 text-center font-semibold text-slate-900 dark:text-slate-100">{truncatedDescription}</p>
 							</div>
-						</div>
-						<div class="prose flex flex-col items-center justify-center h-1/2">
-							<p class="text-sm p-3 text-center font-semibold text-slate-900 dark:text-slate-100">
-								{project.description}
-							</p>
-						</div>
-					</a>
-				</article>
-			))
+						</a>
+					</article>
+				);
+			})
 	}
 </div>

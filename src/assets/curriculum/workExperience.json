@@ -24,7 +24,7 @@
         "title": "GK Empreendimentos",
         "picture": "GK.png",
         "subtitle": "",
-        "href": "https://gkempreendimentos.vercel.app/",
+        "href": "https://gk-emps.vercel.app/",
         "client": "GK, a high-end condominiums developer in Santa Catarina, Brazil.",
         "mainGoal": "Refactor a WordPress website into a SPA using ReactJS in the front-end and AWS Lambda, while also providing a CMS for it.",
         "details": "I am spearheading the front-end design and CMS conception and execution while being mentored on the backend and infrastructure implementation by a Senior Software Engineer. I also worked out a data structure for each building selling information so it can be updated easily and quickly.",
