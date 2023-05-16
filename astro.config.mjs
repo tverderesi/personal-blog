@@ -36,7 +36,10 @@ export default defineConfig({
 			},
 		}),
 		react(),
-		AstroPWA(),
+		AstroPWA({
+			registerType: 'autoUpdate',
+			mode: 'development',
+		}),
 	],
 	markdown: {
 		remarkPlugins: [remarkReadingTime],
