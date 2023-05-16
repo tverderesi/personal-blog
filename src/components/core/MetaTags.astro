@@ -12,12 +12,12 @@ import ExtraMetaTags from '../atoms/ExtraMetaTags.astro';
 import SplitbeeAnalytics from './SplitbeeAnalytics.astro';
 
 const { src: defaultImage } = await getImage({
-	src: '~/assets/images/apple-touch-icon.png',
-	width: 682,
-	height: 521,
+	src: '~/assets/images/default-square.png',
+	width: 192,
+	height: 192,
 	alt: 'Default image',
 });
-
+console.log(defaultImage);
 const {
 	title = SITE.name,
 	description = '',

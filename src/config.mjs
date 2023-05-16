@@ -1,10 +1,10 @@
 export const SITE = {
 	name: 'Thomas Verderesi - Fullstack Software Engineer',
+	favicon: '/favicon.ico',
 
 	origin: 'https://tverderesi.dev',
 	basePathname: '/',
 	trailingSlash: false,
-
 	title: 'Thomas Verderesi - Fullstack Software Engineer',
 	description: 'My personal page with my portfolio, curriculum and personal blog.',
 

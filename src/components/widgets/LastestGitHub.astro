@@ -19,7 +19,6 @@ const projects = fallbackProjects;
 				.map((project) => {
 					const [sentence] = project.description?.split('.').slice(0, 1).concat('.') || [''];
 
-					console.log(sentence.length);
 					const truncatedDescription = sentence ? (sentence.length < 93 ? sentence + '.' : sentence.split(' ').slice(0, 9).join(' ') + '...') : '';
 
 					return (

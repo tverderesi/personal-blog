@@ -1,9 +1,28 @@
 ---
 import { SITE } from '~/config.mjs';
 
-const base = `${SITE.basePathname}${SITE.basePathname.endsWith('/') ? "" : "/"}`
+const base = `${SITE.basePathname}${SITE.basePathname.endsWith('/') ? '' : '/'}`;
 ---
 
 <link rel="shortcut icon" href={`${base}favicon.ico`} />
-<link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
-<link rel="mask-icon" href={`${base}favicon.svg`} color="#8D46E7" />
+<link rel="icon" type="image/ico" href={`${base}favicon.ico`} />
+<link rel="mask-icon" href={`${base}favicon.ico`} color="#1a1a1a" />
+
+<meta name="theme-color" content="#1a1a1a" />
+<meta name="msapplication-TileColor" content="#1a1a1a" />
+<meta name="msapplication-TileImage" content={`${base}android-chrome-512x512`} />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="Tverderesi.dev" />
+<meta name="application-name" content="Tverderesi.dev" />
+<meta name="msapplication-config" content={`${base}browserconfig.xml`} />
+<meta name="msapplication-TileImage" content={`${base}android-chrome-512x512.png`} />
+<meta name="msapplication-TileColor" content="#1a1a1a" />
+<meta name="msapplication-navbutton-color" content="#1a1a1a" />
+<meta name="msapplication-starturl" content="/" />
+<meta name="msapplication-tooltip" content="Tverderesi.dev" />
+<meta name="msapplication-task" content="name=Tverderesi.dev;action-uri=/;icon-uri=/android-chrome-512x512.png" />
+<meta name="twitter:card" content={`${base}android-chrome-512x512.png`} />
+<meta name="twitter:title" content={'Tverderesi.dev - Fullstack Software Engineer'} />
+<meta name="twitter:description" content={'My personal page with my portfolio, curriculum and personal blog.'} />
+<meta name="twitter:image" content={`${base}android-chrome-512x512.png`} />
