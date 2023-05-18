@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon';
-import fallbackProjects from '~/utils/fallbackProjects.json';
+import fallbackProjects from '~/assets/projects/fallbackProjects.json';
 const projects = fallbackProjects;
 ---
 
@@ -25,20 +25,24 @@ const projects = fallbackProjects;
 
 							<div class="flex justify-around items-center w-11/12 h-1/8">
 								<div class="flex items-center ">
-									<Icon name="mdi:source-commit" class="w-5 h-5 mr-1 text-primary-500 drop-shadow-md" />
+									<Icon name="mdi:source-commit" class="w-5 h-5 mr-1 text-primary-500 drop-shadow-md dark:shadow-black/30" />
 									<span class="text-sm text-gray-600 dark:text-gray-400 font-semibold">{project.commits}</span>
 								</div>
 								<div class="flex items-center ">
 									<Icon name="ic:star" class="w-5 h-5 mr-1 text-secondary-500" />
-									<span class="text-sm text-gray-600 dark:text-gray-400  font-semibold">{project.stargazers_count}</span>
+									<span class="text-sm text-gray-600 dark:text-gray-400  font-semibold drop-shadow-md dark:shadow-black/30">
+										{project.stargazers_count}
+									</span>
 								</div>
 								<div class="flex items-center ">
 									<Icon name="ic:baseline-remove-red-eye" class="w-5 h-5 mr-1 text-primary-500" />
-									<span class="text-sm text-gray-600 dark:text-gray-400  font-semibold">{project.watchers_count}</span>
+									<span class="text-sm text-gray-600 dark:text-gray-400  font-semibold drop-shadow-md dark:shadow-black/30">
+										{project.watchers_count}
+									</span>
 								</div>
 								<div class="flex items-center">
 									<Icon name="mdi:source-branch" class="w-5 h-5 mr-1 text-secondary-500" />
-									<span class="text-sm text-gray-600 dark:text-gray-400  font-semibold">{project.forks}</span>
+									<span class="text-sm text-gray-600 dark:text-gray-400  font-semibold drop-shadow-md dark:shadow-black/30">{project.forks}</span>
 								</div>
 							</div>
 							<div class="prose flex flex-col items-center justify-center h-1/2">
