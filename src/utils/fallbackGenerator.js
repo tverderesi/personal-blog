@@ -1,10 +1,13 @@
 const fs = require('fs');
 const readline = require('readline');
+require('dotenv').config();
+
 //@TODO: Add documentation
 //@TODO: Add error handling
 //@TODO: Add tests
 //@TODO: transform to serveless function
-function formatTitle(title) {
+
+function formatProjectTitle(title) {
 	// Convert dashes and underscores to spaces
 	const spaceSeparated = title.replace(/[-_]/g, ' ');
 
@@ -17,9 +20,11 @@ function formatTitle(title) {
 }
 
 async function fetchCommits(url, headers) {
+	//get the commits
 	const response = await fetch(url, { headers });
 	const commits = await response.json();
 
+	//get the next page of commits
 	if (response.headers.get('Link')) {
 		const nextPageUrl = getNextPageUrl(response.headers.get('Link'));
 		if (nextPageUrl) {
@@ -32,9 +37,11 @@ async function fetchCommits(url, headers) {
 }
 
 function getNextPageUrl(linkHeader) {
+	// get links
 	const links = linkHeader.split(', ');
 	const nextLink = links.find((link) => link.includes('rel="next"'));
 
+	// get url
 	if (nextLink) {
 		return nextLink.split('; ')[0].slice(1, -1);
 	}
@@ -42,11 +49,13 @@ function getNextPageUrl(linkHeader) {
 	return null;
 }
 
-async function data(githubToken) {
+async function data(githubToken, sortOption) {
+	//Add the token to the headers
 	const headers = {
 		Authorization: `Bearer ${githubToken}`,
 	};
 
+	//get the projects
 	try {
 		const response = await fetch('https://api.github.com/users/tverderesi/repos?direction=desc&per_page=100&offset=0', {
 			headers,
@@ -58,26 +67,26 @@ async function data(githubToken) {
 
 		const projects = await response.json();
 
+		//get the commits
 		await Promise.all(
 			projects.map(async (project) => {
 				const commitsUrl = `https://api.github.com/repos/tverderesi/${project.name}/commits?per_page=100`;
 				const commits = await fetchCommits(commitsUrl, headers);
 				project.commits = commits.length;
-				project.name = formatTitle(project.name);
+				project.name = formatProjectTitle(project.name);
 				return project;
 			})
 		);
 
-		sortProjects(projects);
+		sortProjects(projects, sortOption);
 		return projects;
 	} catch (error) {
 		console.error('An error occurred while fetching data:', error);
 	}
 }
 
-let sortOption = 'commits'; // Default sorting option
-
-function sortProjects(projects) {
+function sortProjects(projects, sortOption) {
+	// Sort projects
 	projects.sort((a, b) => {
 		if (sortOption === 'name') {
 			return a.name.localeCompare(b.name);
@@ -93,36 +102,57 @@ function sortProjects(projects) {
 }
 
 // Function to handle user-selected sort option
-async function handleSortOption(projects) {
-	const rl = readline.createInterface({
-		input: process.stdin,
-		output: process.stdout,
-	});
+async function handleSortOption(projects, sortOption = '') {
+	// If no sort option is provided, ask the user for one
+	if (!sortOption) {
+		const rl = readline.createInterface({
+			input: process.stdin,
+			output: process.stdout,
+		});
+		rl.question('Enter the sort option (name/stars/commits): ', (option) => {
+			sortOption = option.trim().toLowerCase();
+			rl.close();
+		});
+	}
 
-	rl.question('Enter the sort option (name/stars/commits): ', (option) => {
-		sortOption = option.trim().toLowerCase();
-		rl.close();
-
-		saveFallbackData(projects);
-	});
+	// Save Projects
+	saveFallbackData(projects, sortOption);
 }
 
 async function saveFallbackData(projects) {
-	fs.writeFileSync('./fallbackProjects.json', JSON.stringify(projects, null, 2));
+	// Save projects to file
+
+	fs.writeFileSync('fallbackProjects.json', JSON.stringify(projects, null, 2));
 }
 
-async function handleGithubToken() {
-	const rl = readline.createInterface({
-		input: process.stdin,
-		output: process.stdout,
-	});
+async function handleGithubToken(githubToken = '', sortOption = '') {
+	// If no GitHub token is provided, ask the user for one
+	if (!githubToken) {
+		const rl = readline.createInterface({
+			input: process.stdin,
+			output: process.stdout,
+		});
 
-	rl.question('Enter your GitHub token: ', async (githubToken) => {
-		rl.close();
+		rl.question('Enter your GitHub token: ', async (githubToken) => {
+			rl.close();
+			return githubToken;
+		});
+	}
+	const projects = await data(githubToken.trim());
+	handleSortOption(projects, sortOption);
 
-		const projects = await data(githubToken.trim());
-		handleSortOption(projects);
-	});
+	// If no sort option is provided, ask the user for one
+	if (!sortOption) {
+		const rl = readline.createInterface({
+			input: process.stdin,
+			output: process.stdout,
+		});
+
+		rl.question('Enter the sort option (name/stars/commits): ', (option) => {
+			sortOption = option.trim().toLowerCase();
+			rl.close();
+		});
+	}
 }
 
-handleGithubToken();
+handleGithubToken(process.env.GH_API_KEY, 'commits');

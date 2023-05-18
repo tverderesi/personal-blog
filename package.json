@@ -10,7 +10,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier -w .",
-    "lint:eslint": "eslint . --ext .js,.ts,.astro"
+    "lint:eslint": "eslint . --ext .js,.ts,.astro",
+    "getProjects": "node src/utils/fallbackGenerator.js"
   },
   "devDependencies": {
     "@astrojs/image": "^0.16.7",
@@ -53,6 +54,7 @@
     "@nanostores/preact": "^0.4.1",
     "@types/react": "^18.2.6",
     "@vite-pwa/astro": "^0.0.5",
+    "dotenv": "^16.0.3",
     "nanostores": "^0.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
