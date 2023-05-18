@@ -1,6 +1,7 @@
 const fs = require('fs');
 const readline = require('readline');
 require('dotenv').config();
+const path = require('path');
 
 //@TODO: Add documentation
 //@TODO: Add error handling
@@ -49,7 +50,7 @@ function getNextPageUrl(linkHeader) {
 	return null;
 }
 
-async function data(githubToken, sortOption) {
+async function fetchProjects(githubToken) {
 	//Add the token to the headers
 	const headers = {
 		Authorization: `Bearer ${githubToken}`,
@@ -78,14 +79,13 @@ async function data(githubToken, sortOption) {
 			})
 		);
 
-		sortProjects(projects, sortOption);
 		return projects;
 	} catch (error) {
 		console.error('An error occurred while fetching data:', error);
 	}
 }
 
-function sortProjects(projects, sortOption) {
+function sortProjects(projects, sortOption = 'commits') {
 	// Sort projects
 	projects.sort((a, b) => {
 		if (sortOption === 'name') {
@@ -101,31 +101,13 @@ function sortProjects(projects, sortOption) {
 	});
 }
 
-// Function to handle user-selected sort option
-async function handleSortOption(projects, sortOption = '') {
-	// If no sort option is provided, ask the user for one
-	if (!sortOption) {
-		const rl = readline.createInterface({
-			input: process.stdin,
-			output: process.stdout,
-		});
-		rl.question('Enter the sort option (name/stars/commits): ', (option) => {
-			sortOption = option.trim().toLowerCase();
-			rl.close();
-		});
-	}
-
-	// Save Projects
-	saveFallbackData(projects, sortOption);
-}
-
 async function saveFallbackData(projects) {
 	// Save projects to file
-
-	fs.writeFileSync('fallbackProjects.json', JSON.stringify(projects, null, 2));
+	const filePath = path.join(__dirname, '../assets/projects/fallbackProjects.json');
+	fs.writeFileSync(filePath, JSON.stringify(projects, null, 2));
 }
 
-async function handleGithubToken(githubToken = '', sortOption = '') {
+async function getProjects(githubToken = '', sortOption = '') {
 	// If no GitHub token is provided, ask the user for one
 	if (!githubToken) {
 		const rl = readline.createInterface({
@@ -138,8 +120,6 @@ async function handleGithubToken(githubToken = '', sortOption = '') {
 			return githubToken;
 		});
 	}
-	const projects = await data(githubToken.trim());
-	handleSortOption(projects, sortOption);
 
 	// If no sort option is provided, ask the user for one
 	if (!sortOption) {
@@ -151,8 +131,13 @@ async function handleGithubToken(githubToken = '', sortOption = '') {
 		rl.question('Enter the sort option (name/stars/commits): ', (option) => {
 			sortOption = option.trim().toLowerCase();
 			rl.close();
+			return sortOption;
 		});
 	}
+	const projects = await fetchProjects(githubToken.trim());
+
+	sortProjects(projects, sortOption);
+	saveFallbackData(projects);
 }
 
-handleGithubToken(process.env.GH_API_KEY, 'commits');
+getProjects(process.env.GH_API_KEY, 'commits');
