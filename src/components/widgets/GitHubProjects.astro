@@ -55,7 +55,7 @@ const projects = fallbackProjects;
 	}
 </div>
 <h2 class="text-3xl w-3/4 mx-auto font-semibold pl-3 p-6">GitHub Forks ({projects.filter((project) => project.fork === true).length})</h2>
-<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mx-auto w-3/4 pb-10">
+<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mx-auto w-3/4 pb-10 justify-center justify-items-center">
 	{
 		projects
 			.filter((project) => project.fork === true)
