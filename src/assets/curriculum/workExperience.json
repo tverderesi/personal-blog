@@ -50,7 +50,7 @@
         "href": "https://hiworldsocial.vercel.app/",
         "client": "Myself/Learning purposes.",
         "mainGoal": "Create a social network with a focus on user experience and accessibility, while also learning new technologies.",
-        "details": "I built this project using the MERN stack and GraphQL for data requests. I also implemented ",
+        "details": "I built this project using the MERN stack and GraphQL for data requests. I also implemented a profile picture feature by myself, as well as editing and deleting profile functions.",
         "outcomes": "Complete social network with login, registration, posts, comments, likes, profile editing and deletion, and more.",
         "tech": "MongoDB, Typescript, ReactJS, Semantic UI, Node.js, GraphQL, Apollo Server and Client, Vercel."
       }
