@@ -505,7 +505,7 @@
     "deployments_url": "https://api.github.com/repos/tverderesi/personal-blog/deployments",
     "created_at": "2022-11-22T00:53:30Z",
     "updated_at": "2023-05-15T22:48:02Z",
-    "pushed_at": "2023-05-23T02:07:15Z",
+    "pushed_at": "2023-05-23T02:31:06Z",
     "git_url": "git://github.com/tverderesi/personal-blog.git",
     "ssh_url": "git@github.com:tverderesi/personal-blog.git",
     "clone_url": "https://github.com/tverderesi/personal-blog.git",
@@ -549,7 +549,7 @@
       "triage": true,
       "pull": true
     },
-    "commits": 88
+    "commits": 89
   },
   {
     "id": 584896689,
@@ -2214,7 +2214,7 @@
       "site_admin": false
     },
     "html_url": "https://github.com/tverderesi/alura-recoil",
-    "description": null,
+    "description": "Simple Event tracker app using Recoil and JSON Server.",
     "fork": false,
     "url": "https://api.github.com/repos/tverderesi/alura-recoil",
     "forks_url": "https://api.github.com/repos/tverderesi/alura-recoil/forks",
@@ -2254,7 +2254,7 @@
     "releases_url": "https://api.github.com/repos/tverderesi/alura-recoil/releases{/id}",
     "deployments_url": "https://api.github.com/repos/tverderesi/alura-recoil/deployments",
     "created_at": "2023-05-22T20:32:53Z",
-    "updated_at": "2023-05-23T02:20:54Z",
+    "updated_at": "2023-05-23T02:32:06Z",
     "pushed_at": "2023-05-23T02:26:47Z",
     "git_url": "git://github.com/tverderesi/alura-recoil.git",
     "ssh_url": "git@github.com:tverderesi/alura-recoil.git",
