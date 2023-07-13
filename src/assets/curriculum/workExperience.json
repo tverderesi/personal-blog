@@ -1,5 +1,27 @@
 [
   {
+    "title": "Fullstack Software Engineer II",
+    "company": "Quadritech Tecnologia",
+    "period": "MAY/2023 - Current",
+    "location": "Curitiba - PR, Brasil",
+    "area": "Fullstack Software Engineering",
+    "brief": "Quadritech combines the fields of Computing, Electronics, Mechanics, Telemetry, and Telecommunications to deliver solutions catered to the specific needs of the Brazilian Market, such as Hospitals, Driving Schools, Police and more.",
+    "projects": [
+      {
+        "status": "In Progress",
+        "title": "Forestask",
+        "subtitle": "(Formely Florestarefa)",
+        "picture": "forestask.png",
+        "href": "https://florestarefa.vercel.app/",
+        "client": "Myself/Learning purposes.",
+        "mainGoal": "Create a student friendly PWA with gamified elements which doubles as a Learning Management System for the school staff.",
+        "details": "I conceptualized Florestarefa during a Hackathon in 2022. Then I built it as a prototype using HTML, CSS and JS, and now I’m building it using the MERN (MongoDB, Express, React and Node.js) stack and GraphQL for data requests.",
+        "outcomes": "First prototype in HTML, CSS and JS. Student UI prototype in ReactJS and JSONServer. Partially complete PWA with login, registration and admin using the MERNG stack.",
+        "tech": "MongoDB, Typescript, ReactJS, Framer, Tailwind, Node.js, GraphQL, Apollo Server and Client, Vercel."
+      }
+    ]
+  },
+  {
     "title": "Freelance Fullstack Software Engineer",
     "company": "tverderesi.dev",
     "period": "SEP/2022 - Current",

@@ -1,28 +1,39 @@
 ---
-const { stack, maxYears } = Astro.props;
+const { stack } = Astro.props;
 ---
 
 {
-	stack.map(({ title, years }) => {
-		const width = Math.round((years / maxYears) * 100);
+	stack
+		.sort((a, b) => {
+			const bDate = new Date(b.from).getTime();
+			const aDate = new Date(a.from).getTime();
+			const diff = aDate - bDate;
+			return diff;
+		})
+		.map(({ title, from }) => {
+			const years = Math.round((new Date().getTime() - new Date(from).getTime()) / 3.154e9) / 10;
 
-		return (
-			<div class="mt-2 flex w-[90%] flex-col justify-center items-center mx-auto relative">
-				<h3 class="text-lg  mb-1 font-bold text-center">{title}</h3>
-				<div class="w-full h-7 rounded-full bg-gray-300 animation-container">
-					<div
-						class={`h-7 rounded-full progress-bar ${
-							years === maxYears ? 'rounded' : 'rounded-r'
-						} text-right pr-5 font-bold bg-primary-500 dark:bg-secondary-500 flex items-center justify-end text-white`}
-						style={{ width: `${width}%` }}
-						data-width={width}
-					>
-						<span>{years} years</span>
+			const maxYears = Math.round((new Date().getTime() - new Date(stack[0].from).getTime()) / 3.154e9) / 10;
+
+			const width = Math.round((years / maxYears) * 100);
+
+			return (
+				<div class="mt-2 flex w-[90%] flex-col justify-center items-center mx-auto relative">
+					<h3 class="text-lg  mb-1 font-bold text-center">{title}</h3>
+					<div class="w-full h-7 rounded-full bg-gray-300 animation-container">
+						<div
+							class={`h-7 rounded-full progress-bar ${
+								years === maxYears ? 'rounded' : 'rounded-r'
+							} text-right pr-5 font-bold bg-primary-500 dark:bg-secondary-500 flex items-center justify-end text-white`}
+							style={{ width: `${width}%` }}
+							data-width={width}
+						>
+							<span>{years} years</span>
+						</div>
 					</div>
 				</div>
-			</div>
-		);
-	})
+			);
+		})
 }
 
 <style>
@@ -46,22 +57,23 @@ const { stack, maxYears } = Astro.props;
 </style>
 <script>
 	const animationContainers = document.querySelectorAll('.animation-container') as NodeListOf<HTMLElement>;
-	const observer = new IntersectionObserver((entries) => {
+	const observer = new IntersectionObserver((entries, observer) => {
 		entries.forEach((entry) => {
 			const progressBar = entry.target.querySelector('.progress-bar') as HTMLElement;
+			const hasIntersection = entry.target.getAttribute('data-has-intersection');
 
-			if (entry.isIntersecting) {
+			if (entry.isIntersecting && !hasIntersection) {
 				const width = progressBar?.getAttribute('data-width');
 				progressBar.style.width = `${width}%`;
 				entry.target.classList.add('animate');
-			} else {
-				progressBar.style.width = '0';
-				entry.target.classList.remove('animate');
+				entry.target.setAttribute('data-has-intersection', 'true');
+				observer.unobserve(entry.target);
 			}
 		});
 	});
 
 	animationContainers.forEach((container) => {
+		container.setAttribute('data-has-intersection', 'false');
 		observer.observe(container);
 	});
 </script>
