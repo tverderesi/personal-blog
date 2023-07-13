@@ -1,5 +1,18 @@
+---
+import { Image } from '@astrojs/image/components';
+import heroImage from '../../assets/images/hero.jpeg';
+---
+
 <section class="h-full flex flex-col items-center justify-center relative">
-	<img class="relative z-0 w-full bottom-0 h-[20rem] overflow-clip object-cover a mix-blend-multiply" src="hero.jpeg" alt="building" />
+<Image
+		class:list={"relative z-0 w-full bottom-0 h-[20rem] overflow-clip object-cover mix-blend-multiply"}
+		src={heroImage}
+		widths={[480,720,960, 1920,3840]}
+		sizes="(max-width: 3840px) 100vw, 3840px"
+		quality={100}
+		format="webp"
+	
+	/>
 
 	<h1 class="absolute z-10 text-5xl text-center font-bold leading-tighter tracking-tighter font-heading text-slate-900 dark:text-slate-100">
 		<span class="bg-clip-text text-transparent bg-gradient-to-r to-primary-500 from-secondary-500 wavy">(Always)</span>

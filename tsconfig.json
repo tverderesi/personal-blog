@@ -2,16 +2,11 @@
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     "strict": true,
-    "types": [
-      "astro/client" ,
-      "vite-plugin-pwa/client"
-    ],
+    "types": ["astro/client", "vite-plugin-pwa/client", "@astrojs/image/client"],
     "allowJs": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": [
-        "src/*"
-      ]
+      "~/*": ["src/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react",
