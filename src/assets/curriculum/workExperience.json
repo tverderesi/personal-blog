@@ -13,7 +13,7 @@
         "mainGoal": "Create a platform that allows the application and monitoring of written tests to obtain a driver's license in Brazil (CNH), with real time anomaly monitoring, backed up by biometric data (passive liveness detection, head movements, browser monitoring, etc.), in addition to integration with each Brazilian state's DMV (DETRAN, in Portuguese) API.",
         "details": "I am responsible for the entire project, from documentation, creation of use cases, management, architecture and Design System selection, database, to front-end and back-end development.",
         "outcomes": "A Proof of Concept (PoC) of the application, with interfaces for users, examiners, and administrators. It also includes a question bank, as well as the basic biometric system for authentication and anomaly detection. Creation of a Design System Prototype which is being developed into the company's new Design System. Additionally, the implementation of an Event Driven Architecture is planned in order to normalize data between DETRAN's API and the legacy system.",
-        "tech": ": Express, React, Bootstrap, REST, MySQL, Laravel."
+        "tech": "Express, React, Bootstrap, REST, MySQL, Laravel."
       },
       {
         "status": "In Progress",
