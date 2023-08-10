@@ -9,18 +9,18 @@
     "projects": [
       {
         "status": "In Progress",
-        "title": "Online Written Test for obtaining a Driver's License in Brazil",
-        "mainGoal": "Create a platform that allows the application and monitoring of written tests to obtain a driver's license in Brazil (CNH), with real time anomaly monitoring, backed up by biometric data (passive liveness detection, head movements, browser monitoring, etc.), in addition to integration with each Brazilian state's DMV (DETRAN, in Portuguese) API.",
+        "title": "Online Written Test System",
+        "mainGoal": "Create a platform that allows the application and monitoring of written tests.",
         "details": "I am responsible for the entire project, from documentation, creation of use cases, management, architecture and Design System selection, database, to front-end and back-end development.",
-        "outcomes": "A Proof of Concept (PoC) of the application, with interfaces for users, examiners, and administrators. It also includes a question bank, as well as the basic biometric system for authentication and anomaly detection. Creation of a Design System Prototype which is being developed into the company's new Design System. Additionally, the implementation of an Event Driven Architecture is planned in order to normalize data between DETRAN's API and the legacy system.",
+        "outcomes": "A Proof of Concept (PoC) of the application. Creation of a Design System Prototype which is being developed into the company's new Design System. Additionally, the implementation of an Event Driven Architecture is planned in order to normalize data.",
         "tech": "Express, React, Bootstrap, REST, MySQL, Laravel."
       },
       {
         "status": "In Progress",
-        "title": "Biometric Identification System for Citizens and Criminals",
-        "mainGoal": "Biometric registration and identification system for civilians and criminals, using facial and fingerprint biometric data, as well as signatures, for the state of Pará. The system integrates with the Police's database to link a suspet biometric data of suspects with biometric data from investigations, and also enables the printing of documents such as ID cards and functional records for civilians. It features mobile, desktop, and web components.",
-        "details": "I worked on the front-end design as well refactoring some back-end controllers, focusing on performance improvements and decoupling the logic from various controllers to enhance performance, modularity, and code maintainability.",
-        "outcomes": "A Proof of Concept (PoC) of a comprehensive system for registration and biometric identification of civilians and criminals, with mobile, web, and desktop components. The PoC enables real-time registration and authentication of civilians and criminals. Specifically, my frontend refactoring reduced the page loading time from 2 minutes to 10 seconds by utilizing lazy-loading techniques. Additionally, one of the tightly coupled controllers was divided into five separate endpoints. This restructuring allowed for the complete elimination of other controllers that implicitly used the same logic as these endpoints. This refactoring significantly improved the Developer Experience (DX).",
+        "title": "Biometric Identification System",
+        "mainGoal": "Biometric registration and identification system using biometric data. It features mobile, desktop, and web components.",
+        "details": "I worked on the front-end design as well back-end, focusing on performance improvements in performance, modularity, and code maintainability.",
+        "outcomes": "A Proof of Concept (PoC) with mobile, web, and desktop components. My work resulted in a perfomance improvement of 90% in the web component.",
         "tech": "PHP, Yii Framework 2, JavaScript, CSS, Bootstrap 5."
       }
     ]
