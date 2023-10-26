@@ -36,7 +36,7 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "mdast-util-to-string": "^3.2.0",
     "prettier": "^2.8.8",
-    "prettier-plugin-astro": "^0.8.0",
+    "prettier-plugin-astro": "^0.12.1",
     "reading-time": "^1.5.0",
     "sharp": "^0.32.1",
     "svgo": "2.8.0",
