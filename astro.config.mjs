@@ -3,12 +3,12 @@ import { fileURLToPath } from 'url';
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
-import image from '@astrojs/image';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
+import icon from 'astro-icon';
+import compress from 'astro-compress';
 import { remarkReadingTime } from './src/utils/frontmatter.js';
 import { SITE } from './src/config.mjs';
-import react from '@astrojs/react';
 import AstroPWA from '@vite-pwa/astro';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -21,21 +21,35 @@ export default defineConfig({
 	output: 'static',
 	integrations: [
 		tailwind({
-			config: {
-				applyBaseStyles: false,
-			},
+			applyBaseStyles: false,
 		}),
 		sitemap(),
-		image({
-			serviceEntryPoint: '@astrojs/image/sharp',
-		}),
 		mdx() /* Disable this integration if you don't use Google Analytics (or other external script). */,
 		partytown({
 			config: {
 				forward: ['dataLayer.push'],
 			},
 		}),
-		react(),
+		icon({
+			include: {
+				'ant-design': ['*'],
+				brandico: ['*'],
+				carbon: ['*'],
+				fluent: ['*'],
+				ic: ['*'],
+				la: ['*'],
+				mdi: ['*'],
+				ph: ['*'],
+				tabler: ['*'],
+			},
+		}),
+		compress({
+			CSS: true,
+			HTML: true,
+			Image: false,
+			JavaScript: true,
+			SVG: false,
+		}),
 		AstroPWA({
 			registerType: 'autoUpdate',
 			mode: 'development',
@@ -43,7 +57,6 @@ export default defineConfig({
 	],
 	markdown: {
 		remarkPlugins: [remarkReadingTime],
-		extendDefaultPlugins: true,
 	},
 	vite: {
 		resolve: {
