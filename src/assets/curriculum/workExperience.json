@@ -1,115 +1,140 @@
 [
   {
-    "title": "Fullstack Software Engineer II",
+    "title": "Software Engineer",
+    "company": "EBANX",
+    "period": "CURRENT",
+    "location": "Curitiba - PR, Brazil / Remote",
+    "area": "Full-stack Engineering, Architecture, Reporting Systems, Internal Platforms",
+    "summary": "Work on financial, operational, and reporting systems, contributing across backend services, frontend modernization, BFF APIs, data exports, permissions, multi-tenant flows, metadata tracking, automated testing, and legacy system modernization.",
+    "highlights": [
+      "Designed and implemented backend APIs and BFF layers for reporting and operational systems.",
+      "Worked on report generation, file download flows, metadata tracking, permissions, and multi-tenant behavior.",
+      "Improved architecture by defining clearer service boundaries, separating domain logic from framework concerns, and reducing coupling in legacy systems.",
+      "Contributed to frontend modernization using React and TypeScript, including component-based interfaces, form flows, validation, and query-driven UIs.",
+      "Improved automated test coverage and reliability across controllers, services, integration points, and report-processing flows.",
+      "Worked with Elasticsearch-backed metadata tracking to improve traceability and observability of business processes."
+    ],
+    "tech": [
+      "Ruby",
+      "Ruby on Rails",
+      "React",
+      "TypeScript",
+      "JavaScript",
+      "PostgreSQL",
+      "Elasticsearch",
+      "REST APIs",
+      "RSpec",
+      "Jest",
+      "Docker",
+      "Webpacker"
+    ]
+  },
+  {
+    "title": "Full-stack Software Engineer II",
     "company": "Quadritech Tecnologia",
-    "period": "MAY/2023 - Current",
-    "location": "Curitiba - PR, Brasil",
-    "area": "Fullstack Software Engineering",
-    "brief": "Quadritech combines the fields of Computing, Electronics, Mechanics, Telemetry, and Telecommunications to deliver solutions catered to the specific needs of the Brazilian Market, such as Hospitals, Driving Schools, Police and more.",
-    "projects": [
+    "period": "MAY/2023 - CURRENT",
+    "location": "Curitiba - PR, Brazil",
+    "area": "Full-stack Engineering, System Architecture, Public-sector Systems",
+    "summary": "Work on specialized web systems for public-sector and regulated environments, contributing across architecture, backend, frontend, databases, design systems, documentation, and technical direction.",
+    "highlights": [
+      "Led the end-to-end development of a written test management platform used in the driver's license process in Pará, Brazil.",
+      "Owned documentation, use cases, architecture, database modeling, Design System selection, frontend development, backend development, and technical direction.",
+      "Evolved the written test platform from Proof of Concept into a production system used in a real public-service process.",
+      "Contributed to a biometric registration and identification system with web, desktop, and mobile components.",
+      "Improved performance, modularity, maintainability, and code organization in the biometric system's web component.",
+      "Delivered an approximately 90% performance improvement in the biometric system's web component."
+    ],
+    "selectedProjects": [
       {
-        "status": "In Progress",
         "title": "Online Written Test System",
-        "mainGoal": "Create a platform that allows the application and monitoring of written tests.",
-        "details": "I am responsible for the entire project, from documentation, creation of use cases, management, architecture and Design System selection, database, to front-end and back-end development.",
-        "outcomes": "A Proof of Concept (PoC) of the application. Creation of a Design System Prototype which is being developed into the company's new Design System. Additionally, the implementation of an Event Driven Architecture is planned in order to normalize data.",
-        "tech": "Express, React, Bootstrap, REST, MySQL, Laravel."
+        "description": "Production platform for applying, managing, and monitoring written tests in the driver's license process in Pará, Brazil."
       },
       {
-        "status": "In Progress",
         "title": "Biometric Identification System",
-        "mainGoal": "Biometric registration and identification system using biometric data. It features mobile, desktop, and web components.",
-        "details": "I worked on the front-end design as well back-end, focusing on performance improvements in performance, modularity, and code maintainability.",
-        "outcomes": "A Proof of Concept (PoC) with mobile, web, and desktop components. My work resulted in a perfomance improvement of 90% in the web component.",
-        "tech": "PHP, Yii Framework 2, JavaScript, CSS, Bootstrap 5."
+        "description": "Biometric registration and identification system with web, desktop, and mobile components."
       }
+    ],
+    "tech": [
+      "Express",
+      "React",
+      "Bootstrap",
+      "REST APIs",
+      "MySQL",
+      "Laravel",
+      "PHP",
+      "Yii Framework 2",
+      "JavaScript",
+      "CSS"
     ]
   },
   {
-    "title": "Freelance Fullstack Software Engineer",
+    "title": "Freelance Full-stack Software Engineer",
     "company": "tverderesi.dev",
-    "period": "SEP/2022 - Current",
-    "location": "Curitiba - PR, Brasil (Remote)",
-    "area": "Software Engineering",
-    "brief": "I work freelance for some clients.",
-    "projects": [
+    "period": "SEP/2022 - CURRENT",
+    "location": "Curitiba - PR, Brazil / Remote",
+    "area": "Web Applications, Product Prototyping, Full-stack Development",
+    "summary": "Design and build web applications, prototypes, landing pages, and product experiments, working across frontend, backend, architecture, deployment, and product decisions.",
+    "highlights": [
+      "Built full-stack applications using React, TypeScript, Node.js, GraphQL, MongoDB, and serverless deployment platforms.",
+      "Designed frontend architectures, reusable UI structures, and data models for product-driven web applications.",
+      "Built a complete social network application with authentication, posts, comments, likes, profile editing, profile deletion, and profile picture functionality.",
+      "Developed product prototypes and PWAs focused on learning management, gamification, accessibility, and user experience.",
+      "Created a portfolio website and client-facing SPA projects using modern frontend tooling and deployment workflows."
+    ],
+    "selectedProjects": [
       {
-        "status": "In Progress",
         "title": "Forestask",
-        "subtitle": "(Formely Florestarefa)",
-        "picture": "forestask.png",
-        "href": "https://florestarefa.vercel.app/",
-        "client": "Myself/Learning purposes.",
-        "mainGoal": "Create a student friendly PWA with gamified elements which doubles as a Learning Management System for the school staff.",
-        "details": "I conceptualized Florestarefa during a Hackathon in 2022. Then I built it as a prototype using HTML, CSS and JS, and now I’m building it using the MERN (MongoDB, Express, React and Node.js) stack and GraphQL for data requests.",
-        "outcomes": "First prototype in HTML, CSS and JS. Student UI prototype in ReactJS and JSONServer. Partially complete PWA with login, registration and admin using the MERNG stack.",
-        "tech": "MongoDB, Typescript, ReactJS, Framer, Tailwind, Node.js, GraphQL, Apollo Server and Client, Vercel."
+        "description": "Gamified PWA and lightweight LMS concept for students and school staff."
       },
       {
-        "status": "In Progress",
         "title": "GK Empreendimentos",
-        "picture": "GK.png",
-        "subtitle": "",
-        "href": "https://gk-emps.vercel.app/",
-        "client": "GK, a high-end condominiums developer in Santa Catarina, Brazil.",
-        "mainGoal": "Refactor a WordPress website into a SPA using ReactJS in the front-end and AWS Lambda, while also providing a CMS for it.",
-        "details": "I am spearheading the front-end design and CMS conception and execution while being mentored on the backend and infrastructure implementation by a Senior Software Engineer. I also worked out a data structure for each building selling information so it can be updated easily and quickly.",
-        "outcomes": "Partially Complete SPA. The generic frame for displaying each building’s information is ready, currently working on the company page and CMS development.",
-        "tech": "ReactJS, AWS Lambda, Typescript, Node.js, Vercel."
+        "description": "SPA and CMS-oriented website refactor for a high-end condominium developer."
       },
       {
-        "status": "Completed",
-        "title": "",
-        "picture": "tverderesi.png",
-        "subtitle": "",
-        "href": "https://tverderesi.dev/",
-        "mainGoal": "Create a personal website to showcase my work and skills.",
-        "details": "I am building this website using Astro, a new static site builder that uses ReactJS, Vue, Svelte and Markdown. I'm also planning to implement serverless functions to fetch content in the future.",
-        "outcomes": "Complete website.",
-        "tech": "Astro, ReactJS, Tailwind, Vercel."
-      },
-      {
-        "status": "Completed",
         "title": "Hi World! Social Network",
-        "picture": "hiworld.png",
-        "subtitle": "Come and say Hi! to the world.",
-        "href": "https://hiworldsocial.vercel.app/",
-        "client": "Myself/Learning purposes.",
-        "mainGoal": "Create a social network with a focus on user experience and accessibility, while also learning new technologies.",
-        "details": "I built this project using the MERN stack and GraphQL for data requests. I also implemented a profile picture feature by myself, as well as editing and deleting profile functions.",
-        "outcomes": "Complete social network with login, registration, posts, comments, likes, profile editing and deletion, and more.",
-        "tech": "MongoDB, Typescript, ReactJS, Semantic UI, Node.js, GraphQL, Apollo Server and Client, Vercel."
+        "description": "Complete social network built with React, Node.js, MongoDB, and GraphQL."
+      },
+      {
+        "title": "Personal Portfolio",
+        "description": "Portfolio website for showcasing projects, skills, and professional experience."
       }
+    ],
+    "tech": [
+      "TypeScript",
+      "React",
+      "Node.js",
+      "MongoDB",
+      "GraphQL",
+      "Apollo",
+      "Astro",
+      "TailwindCSS",
+      "Semantic UI",
+      "AWS Lambda",
+      "Vercel"
     ]
   },
   {
-    "title": "FOUNDER AND SERVER MAINTENANCE",
+    "title": "Founder and Server Maintainer",
     "company": "Dord English School",
-    "brief": "Online-First Business English School",
     "period": "MAR/2020 - MAY/2022",
-    "location": "Curitiba, PR - Brasil (Remote)",
-    "area": "Education and Technology",
-    "projects": [
-      {
-        "title": "Moodle Server Deployment and Maintenance",
-        "href": "",
-        "client": "Dord",
-        "status": "Completed",
-        "mainGoal": "Deploy a Moodle Server and maintain it with zero cost as long as possible.",
-        "details": "I was responsible for deploying the Moodle server and maintaining it while keeping in mind the School had $0 to invest in server maintenance when it was founded. I chose to use Google Cloud Platform because it had free credit for 12 months, which was enough time for the school to have funds to keep the server running. I chose a low code approach because maintaining the server was a secondary assignment that I did for free. I taught myself how to use GCP, Compute Engine and Data Buckets to backup the servers. I also implemented Google’s OAuth2 login system to make the login process easier for students and teachers.",
-        "outcomes": "The Moodle server which was used to apply tests to grade students.",
-        "tech": "Google Cloud Platform, PHP"
-      },
-      {
-        "title": "Data Good Practices Training",
-        "href": "",
-        "client": "Dord",
-        "status": "Completed",
-        "mainGoal": "Train staff to effectively use the Moodle server while keeping good practices in inserting and keeping data.",
-        "details": "I taught the teachers at Dord how to create questions for the question bank and to use a tag system that I created, which was human-readable. The tagging system was created as a foundation to implement AI-driven granular grading and studying suggestions as a long-term goal. I crafted video lessons and a manual for future reference. I also taught them how to navigate the system, create cohorts, tests, and everything they needed to keep their classes running properly.",
-        "outcomes": "A tagging system and a training course for the teachers.",
-        "tech": "Adobe Premiere, Microsoft Office, Moodle"
-      }
+    "location": "Curitiba - PR, Brazil / Remote",
+    "area": "Education Technology, Cloud Infrastructure, Training",
+    "summary": "Founded and supported an online-first business English school, handling educational technology, Moodle infrastructure, staff training, and operational tooling.",
+    "highlights": [
+      "Deployed and maintained a Moodle server on Google Cloud Platform with minimal operational cost.",
+      "Configured Compute Engine infrastructure, backup routines, and Google OAuth2 login for students and teachers.",
+      "Created a structured question-bank tagging system to improve educational content organization.",
+      "Trained teachers on Moodle usage, question creation, cohorts, tests, tagging, and data-entry practices.",
+      "Produced documentation and video lessons to support future staff onboarding."
+    ],
+    "tech": [
+      "Google Cloud Platform",
+      "Compute Engine",
+      "Moodle",
+      "PHP",
+      "OAuth2",
+      "Microsoft Office",
+      "Adobe Premiere"
     ]
   }
 ]
