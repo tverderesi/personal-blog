@@ -8,7 +8,7 @@ import partytown from '@astrojs/partytown';
 import icon from 'astro-icon';
 import compress from 'astro-compress';
 import { remarkReadingTime } from './src/utils/frontmatter.js';
-import { SITE } from './src/config.mjs';
+import { SITE } from './src/config';
 import AstroPWA from '@vite-pwa/astro';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
