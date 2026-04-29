@@ -1,8 +1,12 @@
 [
-  "Experienced with relational and non-relational databases (MongoDB, MariaDB, MySQL).",
-  "Intermediate experience with modern JS frameworks (ReactJS, Astro).",
-  "Intermediate experience with modern CSS frameworks (TailwindCSS).",
-  "Some experience deploying and managing a Moodle server using Google Cloud Platform (Compute Engine).",
-  "Mentoring, teaching, and leadership skills.",
-  "Creativity, problem-solving, team worker, self-taught, adaptive person."
+  "Full-stack web development across backend, frontend, APIs, databases, testing, and production support.",
+  "Software architecture, service boundaries, BFF layers, legacy modernization, and maintainable system design.",
+  "Relational and non-relational databases, including MongoDB, MariaDB, MySQL, SQL modeling, and reporting flows.",
+  "Modern frontend development with React, TypeScript, JavaScript, component architecture, forms, and query-driven UIs.",
+  "Design systems and styling with TailwindCSS, Bootstrap, shadcn/ui, and component libraries.",
+  "Backend development with Ruby on Rails, Express, Laravel, PHP/Yii, REST APIs, background processing, and service-oriented patterns.",
+  "Reporting systems, file exports, metadata tracking, permissions, multi-tenant flows, and Elasticsearch-backed observability.",
+  "Cloud deployment basics, including Moodle server deployment and management on Google Cloud Platform Compute Engine.",
+  "Mentoring, teaching, technical communication, leadership, and product-oriented engineering.",
+  "Creative, analytical, adaptive, collaborative, self-taught, and strong at solving complex technical problems."
 ]
