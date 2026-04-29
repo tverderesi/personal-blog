@@ -4,6 +4,7 @@
   "version": "0.9.8",
   "private": true,
   "license": "MIT",
+  "packageManager": "pnpm@10.33.2",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -19,7 +20,7 @@
     "@astrojs/mdx": "^0.19.0",
     "@astrojs/partytown": "^1.2.0",
     "@astrojs/rss": "^2.4.1",
-    "@astrojs/sitemap": "^1.2.2",
+    "@astrojs/sitemap": "1.3.3",
     "@astrojs/tailwind": "^3.1.2",
     "@astrolib/analytics": "^0.3.0",
     "@astrolib/seo": "^0.3.0",
@@ -29,7 +30,6 @@
     "@typescript-eslint/eslint-plugin": "^5.59.5",
     "@typescript-eslint/parser": "^5.59.5",
     "astro": "^2.4.3",
-    "astro-compress": "^1.1.42",
     "astro-icon": "^0.8.0",
     "eslint": "^8.39.0",
     "eslint-plugin-astro": "^0.26.1",
@@ -49,6 +49,15 @@
   },
   "engines": {
     "node": ">=16.12.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "sitemap": "7.1.1"
+    },
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp"
+    ]
   },
   "dependencies": {
     "@astrojs/react": "^2.1.3",
