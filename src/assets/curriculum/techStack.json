@@ -1,16 +1,26 @@
 [
-  { "title": "HTML", "from": "2021-01-01" },
-  { "title": "CSS", "from": "2021-01-01" },
-  { "title": "SQL", "from": "2021-01-01" },
-  { "title": "JavaScript", "from": "2021-05-01" },
-  { "title": "Typescript", "from": "2022-03-01" },
-  { "title": "ReactJS", "from": "2022-03-01" },
-  { "title": "Python", "from": "2022-01-01" },
-  { "title": "GraphQL", "from": "2022-04-01" },
-  { "title": "Node.js", "from": "2022-03-01" },
-  { "title": "REST API", "from": "2022-03-01" },
-  { "title": "MongoDB", "from": "2022-03-01" },
-  { "title": "Google Cloud Platform", "from": "2022-08-01" },
-  { "title": "PHP", "from": "2023-01-01" },
-  { "title": "Postgres", "from": "2023-02-01" }
+  {
+    "category": "Languages",
+    "items": ["TypeScript", "JavaScript", "Ruby", "PHP", "Python", "SQL", "HTML", "CSS"]
+  },
+  {
+    "category": "Frontend",
+    "items": ["React", "TailwindCSS", "Bootstrap", "shadcn/ui", "React Hook Form", "Zod", "TanStack Query", "TanStack Table"]
+  },
+  {
+    "category": "Backend",
+    "items": ["Ruby on Rails", "Node.js", "Express", "Laravel", "Yii Framework", "REST APIs", "GraphQL"]
+  },
+  {
+    "category": "Databases & Search",
+    "items": ["PostgreSQL", "MySQL", "MariaDB", "MongoDB", "Elasticsearch"]
+  },
+  {
+    "category": "Testing",
+    "items": ["RSpec", "Jest", "React Testing Library"]
+  },
+  {
+    "category": "Infrastructure & Tooling",
+    "items": ["Docker", "Google Cloud Platform", "Webpacker"]
+  }
 ]
