@@ -1,5 +1,5 @@
 ---
-import { SITE, BLOG } from '~/config.mjs';
+import { SITE, BLOG } from '~/config';
 
 import Layout from '~/layouts/PageLayout.astro';
 import SinglePost from '~/components/blog/SinglePost.astro';
@@ -22,7 +22,7 @@ export async function getStaticPaths() {
 	}));
 }
 
-const { post } = Astro.props;
+const { post } = Astro.props as { post: any };
 const url = getCanonical(getPermalink(post.slug, 'post'));
 
 const meta = {
