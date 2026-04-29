@@ -1,0 +1,14 @@
+node_modules
+dist
+.astro
+.git
+.github
+.env
+.env.*
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+Dockerfile
+docker-compose.yml
+README.md
