@@ -1,20 +1,28 @@
 [
   {
-    "title": "Tech Academy – StartSe University",
-    "place": "StartSe University (2022) - ",
-    "time": "2022",
-    "credentialID": "Credential ID 62e293e41aa0ba726fbb04c4"
+    "title": "Desenvolve Bootcamp",
+    "place": "Grupo Boticário / Alura",
+    "time": "JAN/2023 - MAY/2023",
+    "credentialID": "",
+    "description": "Full-stack development bootcamp focused on JavaScript, TypeScript, React, Node.js, SQL, APIs, testing, design systems, and web development fundamentals."
   },
   {
-    "title": "Python Para Data Science",
-    "place": "Alura ",
+    "title": "Tech Academy",
+    "place": "StartSe University",
     "time": "2022",
-    "credentialID": "Credential ID f33fb405-ffd5-4310-9192-cf05a612864b"
+    "credentialID": "62e293e41aa0ba726fbb04c4"
   },
   {
-    "title": "Formação Fullstack",
-    "place": "Alura ",
-    "time": "2023 (In Progress)",
-    "credentialID": ""
+    "title": "Python para Data Science",
+    "place": "Alura",
+    "time": "2022",
+    "credentialID": "f33fb405-ffd5-4310-9192-cf05a612864b"
+  },
+  {
+    "title": "EF SET English Certificate — C1 Advanced",
+    "place": "EF SET",
+    "time": "2026",
+    "credentialID": "",
+    "description": "English proficiency certificate with score 67/100, equivalent to C1 Advanced."
   }
 ]
