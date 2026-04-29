@@ -4,9 +4,8 @@
     "strict": true,
     "types": ["astro/client", "vite-plugin-pwa/client"],
     "allowJs": true,
-    "baseUrl": ".",
     "paths": {
-      "~/*": ["src/*"]
+      "~/*": ["./src/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react",
