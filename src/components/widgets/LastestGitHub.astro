@@ -1,59 +1,14 @@
 ---
-import { Icon } from 'astro-icon/components';
-import fallbackProjects from '~/assets/projects/fallbackProjects.json';
-
-const projects = fallbackProjects;
-
-// Function to handle user-selected sort option
+const githubUrl = 'https://github.com/tverderesi';
 ---
 
-<section class="flex flex-col justify-center border-t border-slate-100 dark:border-slate-800">
-	<h5 class="text-center my-10 font-bold tracking-tight text-3xl sm:leading-none group font-heading dark:text-slate-100 text-slate-900">
-		Latest GitHub Repositories
-	</h5>
-	<div class="grid gap-2 md:grid-cols-2 lg:grid-cols-4 mx-auto w-11/12 pb-10 justify-center justify-items-center">
-		{
-			projects
-				.filter((project) => project.fork === false)
-				.slice(0, 4)
-				.map((project) => {
-					const [sentence] = project.description?.split('.').slice(0, 1).concat('.') || [''];
-
-					const truncatedDescription = sentence ? (sentence.length < 93 ? sentence + '.' : sentence.split(' ').slice(0, 9).join(' ') + '...') : '';
-
-					return (
-						<article class="transition ease-in duration-200 text-slate-900 dark:text-slate-100 relative h-48 lg:h-52 lg:w-52 mx-4 flex bg-slate-300 dark:bg-slate-800 rounded-2xl shadow-gray-300  dark:shadow-black/30 shadow-lg hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-primary-500 dark:hover:text-secondary-500 mb-6">
-							<Icon
-								name="ic:sharp-terminal"
-								class="absolute  top-[12.5%] left-[12.5%] -z-1  dark:text-slate-400/5 text-slate-500/10 w-3/4 h-3/4 mx-auto my-auto"
-							/>
-							<a href={project.html_url} class="h-full w-full relative z-1">
-								<h3 class="text-xl mb-2 p-3 text-center font-bold  whitespace-normal hyphens-auto h-auto">{project.name}</h3>
-								<div class="prose flex flex-col items-center justify-center">
-									<p class="px-3 text-center text-sm font-semibold text-slate-900 dark:text-slate-100">{truncatedDescription}</p>
-								</div>
-								<div class="flex justify-around items-center w-11/12 h-1/8 absolute bottom-[12.5%]">
-									<div class="flex items-center ">
-										<Icon name="mdi:source-commit" class="w-6 h-6 mr-1 text-primary-500 drop-shadow-md" />
-										<span class="text-slate-700 dark:text-slate-100 font-semibold">{project.commits}</span>
-									</div>
-									<div class="flex items-center ">
-										<Icon name="ic:star" class="w-6 h-6 mr-1 text-secondary-500 drop-shadow-md" />
-										<span class="text-slate-700 dark:text-slate-100  font-semibold">{project.stargazers_count}</span>
-									</div>
-									<div class="flex items-center ">
-										<Icon name="ic:baseline-remove-red-eye" class="w-6 h-6 mr-1 text-primary-500 drop-shadow-md" />
-										<span class="text-slate-700 dark:text-slate-100  font-semibold">{project.watchers_count}</span>
-									</div>
-									<div class="flex items-center">
-										<Icon name="mdi:source-branch" class="w-6 h-6 mr-1 text-secondary-500 drop-shadow-md" />
-										<span class=" text-slate-700 dark:text-slate-100  font-semibold">{project.forks}</span>
-									</div>
-								</div>
-							</a>
-						</article>
-					);
-				})
-		}
-	</div>
+<section class="flex flex-col items-center justify-center border-t border-slate-100 px-6 py-10 text-center dark:border-slate-800">
+	<h5 class="font-heading text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:leading-none">GitHub</h5>
+	<p class="mt-4 max-w-xl text-slate-700 dark:text-slate-300">See my repositories and current experiments on GitHub.</p>
+	<a
+		href={githubUrl}
+		class="mt-6 inline-flex items-center justify-center rounded-md bg-primary-500 px-5 py-3 font-semibold text-white shadow-lg shadow-gray-300 transition hover:bg-primary-600 dark:bg-secondary-500 dark:shadow-black/30 dark:hover:bg-secondary-600"
+	>
+		View GitHub Profile
+	</a>
 </section>

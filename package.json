@@ -15,8 +15,7 @@
     "check": "ASTRO_TELEMETRY_DISABLED=1 astro check",
     "typecheck": "ASTRO_TELEMETRY_DISABLED=1 astro check",
     "format": "prettier -w .",
-    "lint:eslint": "eslint . --ext .js,.ts,.astro",
-    "getProjects": "node src/utils/fallbackGenerator.js"
+    "lint:eslint": "eslint . --ext .js,.ts,.astro"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
