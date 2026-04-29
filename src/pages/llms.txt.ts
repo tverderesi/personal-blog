@@ -1,8 +1,10 @@
 import type { APIRoute } from 'astro';
-import { profile, projects } from '~/data/cv';
+import { experience, profile, projects, techStack } from '~/data/cv';
 
 export const prerender = true;
 
+const technologyLines = techStack.map((group) => `- ${group.category}: ${group.items.join(', ')}`).join('\n');
+const employmentLines = experience.map((job) => `- ${job.company}: ${job.title}, ${job.period}`).join('\n');
 const projectLines = projects.map((project) => `- ${project.title}: ${project.description}`).join('\n');
 
 const content = `# ${profile.name}
@@ -33,6 +35,14 @@ Do not infer employment details, seniority, private clients, confidential projec
 - Strong points
 - Courses and certifications
 - Selected projects
+
+## Technologies
+
+${technologyLines}
+
+## Employment history
+
+${employmentLines}
 
 ${projectLines ? `## Selected public projects\n\n${projectLines}\n` : ''}`;
 
