@@ -1,5 +1,5 @@
 ---
-import { SITE, PORTFOLIO } from '~/config.mjs';
+import { SITE, PORTFOLIO } from '~/config';
 import GitHubProjects from '~/components/widgets/GitHubProjects.astro';
 import Layout from '~/layouts/PageLayout.astro';
 // import BlogList from '~/components/project/List.astro';
@@ -19,13 +19,13 @@ export async function getStaticPaths({ paginate }) {
 	});
 }
 
-const { page } = Astro.props;
+const { page } = Astro.props as { page: any };
 const currentPage = page.currentPage ?? 1;
 
 const meta = {
 	title: `Projects — ${SITE.name}`,
 	description: SITE.description,
-	canonical: getCanonical(getPermalink(PORTFOLIO?.project?.pathname)),
+	canonical: getCanonical(getPermalink(PORTFOLIO?.post?.pathname)),
 	ogType: 'project',
 	noindex: currentPage > 1,
 };

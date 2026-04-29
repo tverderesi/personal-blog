@@ -1,6 +1,6 @@
 import slug from 'slug';
 
-import { SITE, BLOG, PORTFOLIO } from '~/config.mjs';
+import { SITE, BLOG, PORTFOLIO } from '~/config';
 
 const trim = (str, ch) => {
 	let start = 0,

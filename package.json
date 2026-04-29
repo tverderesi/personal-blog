@@ -12,11 +12,14 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "check": "ASTRO_TELEMETRY_DISABLED=1 astro check",
+    "typecheck": "ASTRO_TELEMETRY_DISABLED=1 astro check",
     "format": "prettier -w .",
     "lint:eslint": "eslint . --ext .js,.ts,.astro",
     "getProjects": "node src/utils/fallbackGenerator.js"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^4.3.14",
     "@astrojs/partytown": "^2.1.7",
     "@astrojs/rss": "^4.0.18",
