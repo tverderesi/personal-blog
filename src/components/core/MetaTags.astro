@@ -1,10 +1,9 @@
 ---
 import { AstroSeo } from '@astrolib/seo';
 import { GoogleAnalytics } from '@astrolib/analytics';
-import { getImage } from '@astrojs/image';
+import { getImage } from 'astro:assets';
 import { getRelativeUrlByFilePath } from '~/utils/directories';
-
-import '~/assets/images/default.png';
+import defaultSquareImage from '~/assets/images/default-square.png';
 
 import { SITE } from '~/config.mjs';
 import Fonts from '../atoms/Fonts.astro';
@@ -12,7 +11,7 @@ import ExtraMetaTags from '../atoms/ExtraMetaTags.astro';
 import SplitbeeAnalytics from './SplitbeeAnalytics.astro';
 
 const { src: defaultImage } = await getImage({
-	src: '~/assets/images/default-square.png',
+	src: defaultSquareImage,
 	width: 192,
 	height: 192,
 	alt: 'Default image',
