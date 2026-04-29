@@ -1,79 +1,23 @@
 ---
-const { stack } = Astro.props;
+type SkillGroup = {
+	category: string;
+	items: string[];
+};
+
+const { stack } = Astro.props as { stack: SkillGroup[] };
 ---
 
-{
-	stack
-		.sort((a, b) => {
-			const bDate = new Date(b.from).getTime();
-			const aDate = new Date(a.from).getTime();
-			const diff = aDate - bDate;
-			return diff;
-		})
-		.map(({ title, from }) => {
-			const years = Math.round((new Date().getTime() - new Date(from).getTime()) / 3.154e9) / 10;
-
-			const maxYears = Math.round((new Date().getTime() - new Date(stack[0].from).getTime()) / 3.154e9) / 10;
-
-			const width = Math.round((years / maxYears) * 100);
-
-			return (
-				<div class="mt-2 flex w-[90%] flex-col justify-center items-center mx-auto relative">
-					<h3 class="text-lg  mb-1 font-bold text-center">{title}</h3>
-					<div class="w-full h-7 rounded-full bg-gray-300 animation-container">
-						<div
-							class={`h-7 rounded-full progress-bar ${
-								years === maxYears ? 'rounded' : 'rounded-r'
-							} text-right pr-5 font-bold bg-primary-500 dark:bg-secondary-500 flex items-center justify-end text-white`}
-							style={{ width: `${width}%` }}
-							data-width={width}
-						>
-							<span>{years} years</span>
-						</div>
-					</div>
-				</div>
-			);
-		})
-}
-
-<style>
-	.progress-bar {
-		transition: width 1s ease-in-out;
-		width: 0;
-		border-radius: 999rem;
+<div class="mt-4 grid gap-5">
+	{
+		stack.map(({ category, items }) => (
+			<section>
+				<h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">{category}</h3>
+				<ul class="mt-3 flex flex-wrap gap-2">
+					{items.map((item) => (
+						<li class="rounded-md bg-slate-200 px-3 py-2 text-sm font-semibold text-slate-900 dark:bg-slate-800 dark:text-slate-100">{item}</li>
+					))}
+				</ul>
+			</section>
+		))
 	}
-	.progress-bar span {
-		transition: opacity 1s ease-in-out;
-		opacity: 0;
-	}
-
-	.animation-container.animate .progress-bar span {
-		opacity: 1;
-	}
-
-	.animation-container.animate .progress-bar {
-		width: 100%;
-	}
-</style>
-<script>
-	const animationContainers = document.querySelectorAll('.animation-container') as NodeListOf<HTMLElement>;
-	const observer = new IntersectionObserver((entries, observer) => {
-		entries.forEach((entry) => {
-			const progressBar = entry.target.querySelector('.progress-bar') as HTMLElement;
-			const hasIntersection = entry.target.getAttribute('data-has-intersection');
-
-			if (entry.isIntersecting && !hasIntersection) {
-				const width = progressBar?.getAttribute('data-width');
-				progressBar.style.width = `${width}%`;
-				entry.target.classList.add('animate');
-				entry.target.setAttribute('data-has-intersection', 'true');
-				observer.unobserve(entry.target);
-			}
-		});
-	});
-
-	animationContainers.forEach((container) => {
-		container.setAttribute('data-has-intersection', 'false');
-		observer.observe(container);
-	});
-</script>
+</div>
