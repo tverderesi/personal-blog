@@ -1,2 +1,7 @@
 User-agent: *
-Disallow:
+Allow: /
+Allow: /cv.json
+Allow: /resume.json
+Allow: /llms.txt
+
+Sitemap: https://tverderesi.dev/sitemap-index.xml
