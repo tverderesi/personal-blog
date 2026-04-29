@@ -10,48 +10,48 @@ return (
 <hr class="border-slate-900 dark:border-slate-100 mt-8" />
 
 <div class="px-0 lg:px-5 flex flex-row items-center relative mt-4">
-    <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100">
+    <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">
         <div class="flex-col">
            {project.status &&  <div class="flex flex-row items-center">
-                Project {index + 1} <div class="btn bg-primary-500 dark:bg-secondary-500 text-slate-100 text-[14px] shadow-none p-1.5 py-1 ml-2 font-medium">
+                Project {index + 1} <div class="btn bg-primary-500 dark:bg-secondary-500 text-slate-100 text-xs shadow-none p-1.5 py-1 ml-2 font-medium">
                     {project.status}
                 </div>
             </div>}
-            <span class="text-2xl font-medium flex flex-col">
+            <span class="text-xl font-medium flex flex-col">
                 {project.title}
-                <span class="text-base"><em>{project.subtitle}</em></span>
+                <span class="text-sm"><em>{project.subtitle}</em></span>
             </span>
         </div>
     </h3>
 </div>
 
-<ul class="mt-2 list-inside lg:px-5 text-base lg:text-lg text-slate-900 dark:text-slate-100 transition-colors duration-200">
+<ul class="mt-2 list-inside lg:px-5 text-sm lg:text-base text-slate-900 dark:text-slate-100 transition-colors duration-200">
    {project.href &&  <li class="flex flex-row items-center hover:text-primary-500 dark:hover:text-secondary-500 font-semibold">
         <Icon name="ph:globe-bold" class="h-6 w-6 mr-1 inline" />
         <a href={project.href} target="_blank" rel="noopener noreferrer" class="">{project.href}</a>
     </li>}
     <li class="my-3">
-        <strong class="font-semibold text-lg lg:text-xl">Client</strong>
+        <strong class="font-semibold text-base lg:text-lg">Client</strong>
         <br />
         {project.client}
     </li>
     <li class="my-3">
-        <strong class="font-semibold text-lg lg:text-xl">Main goal</strong>
+        <strong class="font-semibold text-base lg:text-lg">Main goal</strong>
         <br />
         {project.mainGoal}
     </li>
     <li class="my-3">
-        <strong class="font-semibold text-lg lg:text-xl">Details and responsibilities</strong>
+        <strong class="font-semibold text-base lg:text-lg">Details and responsibilities</strong>
         <br />
         {project.details}
     </li>
     <li class="my-3">
-        <strong class="font-semibold text-lg lg:text-xl">Outcomes</strong>
+        <strong class="font-semibold text-base lg:text-lg">Outcomes</strong>
         <br />
         {project.outcomes}
     </li>
     <li class="my-3">
-        <strong class="font-semibold text-lg lg:text-xl">Technologies</strong>
+        <strong class="font-semibold text-base lg:text-lg">Technologies</strong>
         <br />
         {project.tech}
     </li>
