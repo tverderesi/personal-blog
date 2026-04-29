@@ -12,17 +12,7 @@ import WorkXP from '~/components/atoms/workXP.astro';
 import Education from '~/components/atoms/Education.astro';
 import Courses from '~/components/atoms/Courses.astro';
 import Languages from '~/components/atoms/Languages.astro';
-import {
-	aboutMe,
-	contactInfo,
-	courses,
-	downloadLinks,
-	education,
-	languages,
-	strengths,
-	techStack,
-	workExperience,
-} from '~/assets/curriculum/index.js';
+import { address, contactInfo, courses, downloadLinks, education, experience, languages, profile, strongPoints, summary, techStack } from '~/data/cv';
 
 const titleClass = 'text-2xl lg:text-3xl font-bold text-center text-slate-900 dark:text-slate-100';
 
@@ -37,10 +27,28 @@ const meta = {
 
 const navClass = 'anchor-link hover:text-primary-500  dark:hover:text-secondary-500 transition-colors duration-20';
 
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	name: profile.name,
+	jobTitle: profile.title,
+	url: profile.url,
+	description: profile.summary,
+	sameAs: [profile.github, profile.linkedin].filter(Boolean),
+	address: {
+		'@type': 'PostalAddress',
+		addressLocality: address.locality,
+		addressRegion: address.region,
+		addressCountry: address.country,
+	},
+	knowsAbout: techStack.flatMap((group) => group.items),
+};
+
 // Smooth scrolling for anchor links
 ---
 
 <Layout {meta}>
+	<script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 	<section class="shadow-inner shadow-slate-600/30 p-20 bg-gradient-to-r from-primary-400 to-secondary-500 text-slate-100 wavy">
 		<h1 class="text-3xl lg:text-4xl font-bold">THOMAS B. VERDERESI</h1>
 		<p class="text-xl lg:text-2xl font-medium">FULLSTACK SOFTWARE ENGINEER</p>
@@ -79,7 +87,7 @@ const navClass = 'anchor-link hover:text-primary-500  dark:hover:text-secondary-
 
 		<section id="about" class={`${cardClass} ${halfWidth} row-span-1`}>
 			<h2 class={titleClass}>ABOUT ME</h2>
-			<Paragraphs paragraphs={aboutMe} />
+			<Paragraphs paragraphs={summary} />
 		</section>
 
 		<section id="tech-stack" class={`${cardClass} ${halfWidth} row-span-2`}>
@@ -90,13 +98,13 @@ const navClass = 'anchor-link hover:text-primary-500  dark:hover:text-secondary-
 		<section id="strengths" class={`${cardClass} ${halfWidth} row-span-1`}>
 			<h2 class={titleClass}>STRENGTHS & SKILLS</h2>
 			<ul class="mt-2 list-disc list-inside text-slate-900 dark:text-slate-100">
-				{strengths.map((strength) => <li class="mb-2 text-justify text-slate-900 dark:text-slate-100 ">{strength}</li>)}
+				{strongPoints.map((strength) => <li class="mb-2 text-justify text-slate-900 dark:text-slate-100 ">{strength}</li>)}
 			</ul>
 		</section>
 
 		<section id="work-xp" class={`${cardClass}  col-span-2 lg:col-span-2`}>
 			<h2 class={titleClass}>WORK EXPERIENCE</h2>
-			<WorkXP workExperience={workExperience} />
+			<WorkXP workExperience={experience} />
 		</section>
 
 		<div class={`${cardClass} ${halfWidth}`} id="education">
