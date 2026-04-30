@@ -1,18 +1,31 @@
 ---
 import { Icon } from 'astro-icon/components';
 
+type DownloadLink = {
+	href: string;
+	filename: string;
+	format: string;
+	icon: string;
+	ariaLabel: string;
+};
+
 const linkClass =
-	'flex hover:text-primary-400 dark:hover:text-secondary-400 not-italic font-bold transition-colors duration-200 ease-in-out';
-const { downloadLinks } = Astro.props;
+	'inline-flex items-center gap-2 rounded-sm border border-slate-300 px-3 py-2 text-sm font-medium text-slate-900 transition-colors hover:border-slate-900 hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 dark:border-slate-600 dark:text-yellow-50 dark:hover:border-yellow-50 dark:hover:bg-slate-900 dark:focus-visible:outline-yellow-50';
+const { downloadLinks } = Astro.props as { downloadLinks: DownloadLink[] };
 ---
 
-<p class="text-sm italic gap-2 pb-6 flex flex-row">
-	Download this curriculum:
-	{
-		downloadLinks.map((link) => (
-			<a href={link.href} download class={linkClass} aria-label={link.ariaLabel}>
-				<Icon name={link.icon} class="h-4 w-4 mr-1" /> {link.format}
-			</a>
-		))
-	}
-</p>
+<section
+	aria-labelledby="download-curriculum"
+	class="border border-slate-300 bg-white p-4 text-slate-900 dark:border-slate-700 dark:bg-black dark:text-yellow-50"
+>
+	<h2 id="download-curriculum" class="text-base font-semibold">Download this curriculum</h2>
+	<div class="mt-4 flex flex-col gap-3 sm:flex-row">
+		{
+			downloadLinks.map((link) => (
+				<a href={link.href} download={link.filename} class={linkClass} aria-label={link.ariaLabel}>
+					<Icon name={link.icon} class="h-5 w-5" aria-hidden="true" /> {link.format}
+				</a>
+			))
+		}
+	</div>
+</section>

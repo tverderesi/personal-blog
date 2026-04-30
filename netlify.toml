@@ -5,3 +5,15 @@
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/api/curriculum/en-us.pdf"
+  [headers.values]
+    Content-Type = "application/pdf"
+    Content-Disposition = "attachment; filename=\"thomas-verderesi-curriculum-en-us.pdf\""
+
+[[headers]]
+  for = "/api/curriculum/pt-br.pdf"
+  [headers.values]
+    Content-Type = "application/pdf"
+    Content-Disposition = "attachment; filename=\"thomas-verderesi-curriculo-pt-br.pdf\""
