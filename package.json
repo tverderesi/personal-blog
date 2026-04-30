@@ -23,7 +23,7 @@
     "@astrojs/partytown": "^2.1.7",
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.2",
-    "@astrojs/tailwind": "^5.1.5",
+    "@astrojs/tailwind": "^6.0.2",
     "@astrolib/analytics": "^0.6.1",
     "@astrolib/seo": "^1.0.0-beta.8",
     "@fontsource/inter": "^4.5.15",
