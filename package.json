@@ -37,6 +37,7 @@
     "@iconify-json/ph": "^1.2.2",
     "@iconify-json/tabler": "^1.2.33",
     "@tailwindcss/typography": "^0.5.19",
+    "@types/pdfkit": "^0.17.6",
     "@typescript-eslint/eslint-plugin": "^8.49.0",
     "@typescript-eslint/parser": "^8.49.0",
     "astro": "^6.1.6",
@@ -70,6 +71,7 @@
   "dependencies": {
     "@vite-pwa/astro": "^1.2.0",
     "dotenv": "^17.2.3",
+    "pdfkit": "^0.18.0",
     "slug": "^11.0.1"
   }
 }
