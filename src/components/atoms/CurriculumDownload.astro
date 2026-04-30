@@ -10,15 +10,15 @@ type DownloadLink = {
 };
 
 const linkClass =
-	'inline-flex items-center gap-2 rounded-sm border border-slate-300 px-3 py-2 text-sm font-medium text-slate-900 transition-colors hover:border-slate-900 hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 dark:border-slate-600 dark:text-yellow-50 dark:hover:border-yellow-50 dark:hover:bg-slate-900 dark:focus-visible:outline-yellow-50';
+	'inline-flex items-center gap-2 border-2 border-black bg-stone-100 px-3 py-2 text-sm font-black uppercase text-black shadow-[4px_4px_0_#050505] transition-transform duration-100 hover:-translate-y-0.5 hover:bg-red-500 hover:text-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-red-500 dark:border-yellow-300 dark:bg-black dark:text-yellow-50 dark:shadow-[4px_4px_0_#ff3b30] dark:hover:bg-red-500';
 const { downloadLinks } = Astro.props as { downloadLinks: DownloadLink[] };
 ---
 
 <section
 	aria-labelledby="download-curriculum"
-	class="border border-slate-300 bg-white p-4 text-slate-900 dark:border-slate-700 dark:bg-black dark:text-yellow-50"
+	class="border-4 border-black bg-stone-100 p-5 text-black shadow-[8px_8px_0_#050505] dark:border-yellow-300 dark:bg-black dark:text-yellow-50 dark:shadow-[8px_8px_0_#ff3b30]"
 >
-	<h2 id="download-curriculum" class="text-base font-semibold">Download this curriculum</h2>
+	<h2 id="download-curriculum" class="text-lg font-black uppercase">Download this curriculum</h2>
 	<div class="mt-4 flex flex-col gap-3 sm:flex-row">
 		{
 			downloadLinks.map((link) => (

@@ -4,13 +4,13 @@ import { getHomePermalink } from '~/utils/permalinks';
 import Logo from '../atoms/Logo.astro';
 ---
 
-<footer class="border-t border-gray-200 dark:border-slate-800 p-10">
+<footer class="border-t-4 border-black bg-yellow-300 p-10 text-black dark:border-yellow-300 dark:bg-black dark:text-yellow-50">
 	<div class="flex flex-col lg:flex-row justify-center items-center">
 		<a class="inline-block font-bold text-xl" href={getHomePermalink()}><Logo /></a>
 		<ul class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0">
 			<li>
 				<a
-					class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+					class="brutalist-link text-sm p-2.5 inline-flex items-center"
 					aria-label="Twitter"
 					href="https://twitter.com/tverderesi_dev"
 					target="_blank"
@@ -22,7 +22,7 @@ import Logo from '../atoms/Logo.astro';
 
 			<li>
 				<a
-					class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+					class="brutalist-link text-sm p-2.5 inline-flex items-center"
 					aria-label="Github"
 					href="https://github.com/tverderesi"
 					target="_blank"
@@ -33,7 +33,7 @@ import Logo from '../atoms/Logo.astro';
 			</li>
 			<li>
 				<a
-					class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+					class="brutalist-link text-sm p-2.5 inline-flex items-center"
 					aria-label="email"
 					href="mailto:tverderesi@gmail.com"
 					target="_blank"
@@ -48,21 +48,21 @@ import Logo from '../atoms/Logo.astro';
 		Schedule Calendly meeting
 		<ul class="inline-flex gap-3 ml-3">
 			<li>
-				<a class="text-slate-900 hover:underline dark:text-slate-100 inline font-semibold" href="https://calendly.com/tverderesi/30min">
+				<a class="text-black underline hover:bg-red-500 hover:text-white dark:text-yellow-50 inline font-black" href="https://calendly.com/tverderesi/30min">
 					<Icon name="tabler:clock" class="w-4 h-4 inline-flex self-center align-text-top mr-1" />30 minutes</a
 				>
 			</li>
 			<li>
-				<a class="text-slate-900 hover:underline dark:text-slate-100 inline font-semibold" href="https://calendly.com/tverderesi/1hr-meeting">
+				<a class="text-black underline hover:bg-red-500 hover:text-white dark:text-yellow-50 inline font-black" href="https://calendly.com/tverderesi/1hr-meeting">
 					<Icon name="tabler:clock" class="w-4 h-4 inline-flex self-center align-text-top mr-1" />1 hour</a
 				>
 			</li>
 		</ul>
 	</div>
 
-	<div class="text-sm text-gray-700 mr-4 dark:text-slate-400 pt-3 text-center w-full">
-		<a class="text-blue-600 hover:underline dark:text-gray-200" aria-label="Github" href="https://github.com/onwidget/astrowind"> Astrowind</a> Template
+	<div class="text-sm text-black mr-4 dark:text-yellow-50 pt-3 text-center w-full">
+		<a class="text-black underline hover:bg-red-500 hover:text-white dark:text-yellow-50" aria-label="Github" href="https://github.com/onwidget/astrowind"> Astrowind</a> Template
 		by
-		<a class="text-blue-600 hover:underline dark:text-gray-200" href="https://onwidget.com/"> onWidget</a> · All rights reserved.
+		<a class="text-black underline hover:bg-red-500 hover:text-white dark:text-yellow-50" href="https://onwidget.com/"> onWidget</a> · All rights reserved.
 	</div>
 </footer>

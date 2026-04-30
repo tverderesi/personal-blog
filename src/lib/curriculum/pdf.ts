@@ -12,6 +12,7 @@ const margins = {
 const colors = {
 	text: '#111111',
 	muted: '#404040',
+	accent: '#b91c1c',
 	link: '#0645ad',
 	rule: '#111111',
 };
@@ -44,7 +45,7 @@ const text = (doc: PdfDoc, value: string, options: PDFKit.Mixins.TextOptions = {
 const section = (doc: PdfDoc, title: string) => {
 	ensureSpace(doc, 72);
 	doc.moveDown(0.9);
-	doc.fillColor(colors.text).font('Helvetica-Bold').fontSize(12).text(title.toUpperCase(), { width: contentWidth, lineGap: 2 });
+	doc.fillColor(colors.accent).font('Helvetica-Bold').fontSize(12).text(title.toUpperCase(), { width: contentWidth, lineGap: 2 });
 	doc
 		.moveTo(margins.left, doc.y + 2)
 		.lineTo(margins.left + contentWidth, doc.y + 2)
@@ -190,7 +191,7 @@ export const generateCurriculumPdf = (curriculum: Curriculum) =>
 		doc.on('error', reject);
 
 		doc.fillColor(colors.text).font('Helvetica-Bold').fontSize(21).text(curriculum.profile.name, { width: contentWidth, lineGap: 2 });
-		doc.fillColor(colors.text).font('Helvetica-Bold').fontSize(12).text(curriculum.profile.headline, { width: contentWidth, lineGap: 2 });
+		doc.fillColor(colors.accent).font('Helvetica-Bold').fontSize(12).text(curriculum.profile.headline, { width: contentWidth, lineGap: 2 });
 		doc.moveDown(0.8);
 
 		labelValue(doc, curriculum.labels.contact.name, curriculum.profile.name);

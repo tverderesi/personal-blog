@@ -10,7 +10,7 @@ const image = await findImage(post.image);
 ---
 
 <article
-	class="transition ease-in duration-200 text-slate-900 dark:text-slate-100 relative h-32 lg:h-52 lg:w-52 mx-4 flex bg-slate-300 dark:bg-slate-800 rounded-2xl shadow-gray-300 dark:shadow-black/30 shadow-lg hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-primary-500 dark:hover:text-secondary-500 mb-6"
+	class="relative mx-4 mb-8 flex h-32 border-4 border-black bg-stone-100 text-black shadow-[8px_8px_0_#050505] transition duration-100 hover:-translate-x-1 hover:-translate-y-1 hover:bg-yellow-300 hover:shadow-[12px_12px_0_#050505] dark:border-yellow-300 dark:bg-black dark:text-yellow-50 dark:shadow-[8px_8px_0_#ff3b30] lg:h-52 lg:w-52"
 >
 	<a href={getPermalink(post.slug, 'post')} class="h-full w-full relative z-1">
 		<div class="relative h-0 pb-[56.25%] lg:h-64 overflow-hidden">
@@ -23,7 +23,9 @@ const image = await findImage(post.image);
 				aspectRatio="16:9"
 			/>
 		</div>
-		<h3 class="mb-2 text-xl font-bold leading-snug sm:text-2xl font-heading">{post.title}</h3>
-		<p class="text-gray-700 dark:text-gray-400">{post.excerpt || post.description}</p>
+		<h3 class="mb-2 border-t-4 border-black bg-yellow-300 px-3 py-2 font-heading text-xl font-black uppercase leading-snug dark:border-yellow-300 dark:bg-black sm:text-2xl">
+			{post.title}
+		</h3>
+		<p class="px-3 pb-3 font-bold text-black dark:text-yellow-50">{post.excerpt || post.description}</p>
 	</a>
 </article>
