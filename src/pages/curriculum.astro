@@ -1,150 +1,117 @@
 ---
-import { SITE } from '~/config';
-import { getCanonical, getHomePermalink } from '~/utils/permalinks';
-import Layout from '~/layouts/PageLayout.astro';
+import { SITE } from "~/config";
+import { getCanonical, getHomePermalink } from "~/utils/permalinks";
+import Layout from "~/layouts/HomePageLayout.astro";
+import WorkXP from "~/components/atoms/workXP.astro";
+import Education from "~/components/atoms/Education.astro";
+import Courses from "~/components/atoms/Courses.astro";
+import {
+  address,
+  courses,
+  experience,
+  profile,
+  strongPoints,
+  techStack,
+} from "~/data/cv";
 
-import CurriculumDownload from '~/components/atoms/CurriculumDownload.astro';
-import ContactInfo from '~/components/atoms/ContactInfo.astro';
-import ProficiencyBar from '~/components/atoms/ProficiencyBar.astro';
-import Meetings from '~/components/atoms/Meetings.astro';
-import Paragraphs from '~/components/atoms/Paragraphs.astro';
-import WorkXP from '~/components/atoms/workXP.astro';
-import Education from '~/components/atoms/Education.astro';
-import Courses from '~/components/atoms/Courses.astro';
-import Languages from '~/components/atoms/Languages.astro';
-import { address, contactInfo, courses, downloadLinks, education, experience, languages, profile, strongPoints, summary, techStack } from '~/data/cv';
-
-const titleClass = 'text-2xl lg:text-3xl font-black uppercase text-center text-black dark:text-yellow-50';
+const titleClass =
+  "text-2xl lg:text-3xl font-black uppercase text-center text-black dark:text-yellow-50";
 
 const cardClass =
-	'p-5 border-black dark:border-yellow-300 border-4 bg-stone-100 dark:bg-black text-black dark:text-yellow-50 shadow-[8px_8px_0_#050505] dark:shadow-[8px_8px_0_#ff3b30] w-full';
-const halfWidth = 'col-span-2 lg:col-span-1';
+  "p-5 border-black dark:border-yellow-300 border-4 bg-stone-100 dark:bg-black text-black dark:text-yellow-50 shadow-[8px_8px_0_#050505] dark:shadow-[8px_8px_0_#ff3b30] w-full";
+const halfWidth = "col-span-2 lg:col-span-1";
 
 const meta = {
-	title: SITE.title,
-	description: SITE.description,
-	canonical: getCanonical(getHomePermalink()),
+  title: SITE.title,
+  description: SITE.description,
+  canonical: getCanonical(getHomePermalink()),
 };
 
-const navClass = 'anchor-link underline hover:bg-red-500 hover:text-white transition-colors duration-100';
+const navClass =
+  "anchor-link underline hover:bg-red-500 hover:text-white transition-colors duration-100";
 
 const jsonLd = {
-	'@context': 'https://schema.org',
-	'@type': 'Person',
-	name: profile.name,
-	jobTitle: profile.title,
-	url: profile.url,
-	description: profile.summary,
-	sameAs: [profile.github, profile.linkedin].filter(Boolean),
-	address: {
-		'@type': 'PostalAddress',
-		addressLocality: address.locality,
-		addressRegion: address.region,
-		addressCountry: address.country,
-	},
-	knowsAbout: techStack.flatMap((group) => group.items),
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  jobTitle: profile.title,
+  url: profile.url,
+  description: profile.summary,
+  sameAs: [profile.github, profile.linkedin].filter(Boolean),
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: address.locality,
+    addressRegion: address.region,
+    addressCountry: address.country,
+  },
+  knowsAbout: techStack.flatMap((group) => group.items),
 };
 
 // Smooth scrolling for anchor links
 ---
 
 <Layout {meta}>
-	<script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-	<section class="border-b-4 border-black bg-yellow-300 p-10 text-black dark:border-yellow-300 dark:bg-black dark:text-yellow-50 lg:p-20">
-		<h1
-			class="inline-block border-4 border-black bg-stone-100 px-4 py-2 text-3xl font-black uppercase shadow-[8px_8px_0_#050505] dark:border-yellow-300 dark:bg-black dark:shadow-[8px_8px_0_#ff3b30] lg:text-5xl"
-		>
-			THOMAS B. VERDERESI
-		</h1>
-		<p
-			class="mt-6 inline-block border-4 border-black bg-red-500 px-4 py-2 text-xl font-black uppercase text-white dark:border-yellow-300 lg:text-2xl"
-		>
-			FULLSTACK SOFTWARE ENGINEER
-		</p>
-	</section>
-	<section class="px-5 py-10 lg:p-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10">
-		<section class="lg:px-10 col-span-2">
-			<CurriculumDownload downloadLinks={downloadLinks} />
-		</section>
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(jsonLd)}
+  />
+  <section
+    class="border-b-4 border-black bg-yellow-300 p-10 text-black lg:p-20 dark:border-yellow-300 dark:bg-black dark:text-yellow-50"
+  >
+    <h1
+      class="inline-block border-4 border-black bg-stone-100 px-4 py-2 text-3xl font-black uppercase shadow-[8px_8px_0_#050505] lg:text-5xl dark:border-yellow-300 dark:bg-black dark:shadow-[8px_8px_0_#ff3b30]"
+    >
+      THOMAS B. VERDERESI
+    </h1>
+    <p
+      class="mt-6 inline-block border-4 border-black bg-red-500 px-4 py-2 text-xl font-black text-white uppercase lg:text-2xl dark:border-yellow-300"
+    >
+      FULLSTACK SOFTWARE ENGINEER
+    </p>
+  </section>
+  <section
+    class="grid w-full grid-cols-1 gap-5 px-5 py-10 lg:grid-cols-2 lg:gap-10 lg:p-10"
+  >
+    <section id="strengths" class={`${cardClass} ${halfWidth} row-span-1`}>
+      <h2 class={titleClass}>STRENGTHS & SKILLS</h2>
+      <ul class="mt-2 list-inside list-disc text-black dark:text-yellow-50">
+        {
+          strongPoints.map((strength) => (
+            <li class="mb-2 text-justify text-black dark:text-yellow-50 ">
+              {strength}
+            </li>
+          ))
+        }
+      </ul>
+    </section>
 
-		<section class={`${cardClass} col-span-2`}>
-			<h2 class={titleClass}>INDEX</h2>
+    <section id="work-xp" class={`${cardClass}  col-span-2 lg:col-span-2`}>
+      <h2 class={titleClass}>WORK EXPERIENCE</h2>
+      <WorkXP workExperience={experience} />
+    </section>
 
-			<p class={`text-center text-lg lg:text-lg break-word font-black uppercase text-black dark:text-yellow-50`}>
-				| <a href="#contacts" class={navClass}> CONTACT</a>
-				| <a href="#meetings" class={navClass}> SCHEDULE A MEETING</a>
-				| <a href="#about" class={navClass}> ABOUT ME</a>
-				| <a href="#tech-stack" class={navClass}> TECH STACK</a>
-				| <a href="#strengths" class={navClass}> STRENGTHS & SKILLS</a>
-				| <a href="#work-xp" class={navClass}> WORK EXPERIENCE</a>
-				| <a href="#education" class={navClass}> EDUCATION</a>
-				| <a href="#courses" class={navClass}> COURSES</a>
-				| <a href="#languages" class={navClass}> LANGUAGES</a>
-				|
-			</p>
-		</section>
+    <div class={`${cardClass} ${halfWidth}`} id="courses">
+      <h2 class={titleClass}>CERTIFICATIONS & COURSES</h2>
+      <Courses courses={courses} />
+    </div>
+    <script>
+      const anchorLinks = document.querySelectorAll(".anchor-link");
+      const headerHeight = document.querySelector("#header")?.clientHeight;
+      anchorLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
 
-		<section id="contacts" class={`${cardClass} ${halfWidth}`}>
-			<h2 class={titleClass}>CONTACT INFO</h2>
-			<ContactInfo contactInfo={contactInfo} />
-		</section>
-
-		<section id="meetings" class={`${cardClass} ${halfWidth}`}>
-			<h2 class={titleClass}>SCHEDULE A MEETING</h2>
-			<Meetings />
-		</section>
-
-		<section id="about" class={`${cardClass} ${halfWidth} row-span-1`}>
-			<h2 class={titleClass}>ABOUT ME</h2>
-			<Paragraphs paragraphs={summary} />
-		</section>
-
-		<section id="tech-stack" class={`${cardClass} ${halfWidth} row-span-2`}>
-			<h2 class={titleClass}>TECH STACK</h2>
-			<ProficiencyBar stack={techStack} />
-		</section>
-
-		<section id="strengths" class={`${cardClass} ${halfWidth} row-span-1`}>
-			<h2 class={titleClass}>STRENGTHS & SKILLS</h2>
-			<ul class="mt-2 list-disc list-inside text-black dark:text-yellow-50">
-				{strongPoints.map((strength) => <li class="mb-2 text-justify text-black dark:text-yellow-50 ">{strength}</li>)}
-			</ul>
-		</section>
-
-		<section id="work-xp" class={`${cardClass}  col-span-2 lg:col-span-2`}>
-			<h2 class={titleClass}>WORK EXPERIENCE</h2>
-			<WorkXP workExperience={experience} />
-		</section>
-
-		<div class={`${cardClass} ${halfWidth}`} id="education">
-			<h2 class={titleClass}>EDUCATION</h2>
-			<Education education={education} />
-		</div>
-
-		<div class={`${cardClass} ${halfWidth}`} id="courses">
-			<h2 class={titleClass}>CERTIFICATIONS & COURSES</h2>
-			<Courses courses={courses} />
-		</div>
-		<div class={`${cardClass} ${halfWidth}`} id="languages">
-			<h2 class={titleClass}>LANGUAGES</h2>
-			<Languages languages={languages} maxLevel={6} />
-		</div>
-		<script>
-			const anchorLinks = document.querySelectorAll('.anchor-link');
-			const headerHeight = document.querySelector('#header')?.clientHeight;
-			anchorLinks.forEach((link) => {
-				link.addEventListener('click', (e) => {
-					e.preventDefault();
-
-					const href = link.getAttribute('href');
-					//@ts-ignore
-					const offsetTop = document?.querySelector(href)?.offsetTop - headerHeight - 16;
-					scroll({
-						top: offsetTop,
-						behavior: 'smooth',
-					});
-				});
-			});
-		</script>
-	</section>
+          const href = link.getAttribute("href");
+          //@ts-ignore
+          const offsetTop =
+            document?.querySelector(href)?.offsetTop - headerHeight - 16;
+          scroll({
+            top: offsetTop,
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
+  </section>
 </Layout>

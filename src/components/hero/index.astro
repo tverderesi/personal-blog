@@ -1,0 +1,21 @@
+---
+import BentoCell from "~/layouts/BentoCell.astro";
+import GitHub from "./GitHub.astro";
+import Statement from "./Statement.astro";
+import TitleCard from "./TitleCard.astro";
+---
+
+<BentoCell rowSpan={2} span={8}>
+  <TitleCard
+    miniTitle="SOFTWARE ENGINEER / SYSTEMS TINKERER"
+    titles={["THOMAS", "VERDERESI"]}
+  />
+</BentoCell>
+
+<BentoCell rowSpan={2} span={4}>
+  <GitHub />
+</BentoCell>
+
+<BentoCell span={12}>
+  <Statement />
+</BentoCell>

@@ -1,0 +1,20 @@
+---
+import Layout from "~/layouts/BaseLayout.astro";
+import Header from "~/components/widgets/Header.astro";
+import RevealWhenTargetLeaves from "~/components/utils/RevealWhenTargetLeaves.astro";
+
+const { meta } = Astro.props;
+---
+
+<Layout {meta} class="selection-loud overflow-x-clip border-b-4 border-black">
+  <Header />
+  <main class="mx-auto w-full max-w-295 px-4 py-12 md:py-20 lg:py-24">
+    <slot />
+  </main>
+  <RevealWhenTargetLeaves
+    targetId="hero-title"
+    revealId="navbar-name"
+    visibleClasses="max-w-[28rem] opacity-100"
+    hiddenClasses="max-w-0 opacity-0"
+  />
+</Layout>

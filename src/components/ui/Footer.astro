@@ -1,0 +1,29 @@
+---
+import { card } from "~/assets/styles/variants/card";
+import BentoCell from "~/layouts/BentoCell.astro";
+import { cn } from "~/utils/cn";
+---
+
+<BentoCell span={12}>
+  <footer class={cn(card({ intent: "acid", size: "sm" }), "font-mono")}>
+    <p class="text-sm leading-tight font-black tracking-normal">
+      <span>tverderesi@tverderesi.dev</span>{" "}
+      <span>❯</span>{" "}
+      EOF / built with
+      <a
+        href="https://astro.build"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="underline decoration-1 underline-offset-1"
+      >
+        astro</a
+      >
+      / Curitiba / {new Date().getFullYear()}
+      <span
+        class="relative -top-0.5 -ml-1 animate-[blink_0.5s_steps(1,end)_infinite]"
+      >
+        █
+      </span>
+    </p>
+  </footer>
+</BentoCell>

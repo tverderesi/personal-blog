@@ -1,0 +1,24 @@
+---
+interface Props {
+  id?: string;
+  miniTitle: string;
+  titles: string[];
+}
+
+const { id = "hero-title", miniTitle, titles } = Astro.props as Props;
+---
+
+<article
+  class="border-[3px] border-black bg-white p-[clamp(1rem,4vw,2rem)] shadow-[8px_8px_0_#000] lg:col-span-8 dark:border-white dark:bg-black dark:shadow-[8px_8px_0_rgb(224,224,224)]"
+>
+  <p class="mb-3 text-xs leading-tight font-black uppercase">
+    {miniTitle}
+  </p>
+
+  <h1
+    id={id}
+    class="m-0 overflow-visible pr-4 pb-2 text-[clamp(2rem,15vw,7rem)] leading-[0.86] font-black -tracking-widest uppercase lg:text-[clamp(2rem,9.5vw,7rem)]"
+  >
+    {titles.map((title) => <span class="block">{title}</span>)}
+  </h1>
+</article>

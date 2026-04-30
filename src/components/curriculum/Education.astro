@@ -1,0 +1,30 @@
+---
+import { education } from "~/assets/curriculum";
+import Card from "~/components/ui/Card.astro";
+import CardTitle from "~/components/ui/CardTitle.astro";
+---
+
+<Card intent="signal" size="xl" aria-labelledby="education-title">
+  <CardTitle id="education-title">/education</CardTitle>
+
+  <ol class="mt-5 flex flex-col divide-y-[3px] divide-black dark:divide-white">
+    {
+      education.map((degree) => (
+        <li class="py-4 first:pt-0 last:pb-0">
+          <p class="text-xs leading-none font-black tracking-tight text-contrast-dark uppercase">
+            {degree.time}
+          </p>
+
+          <h3 class="mt-2 text-2xl leading-none font-black tracking-tight uppercase">
+            {degree.title}
+          </h3>
+
+          <p class="mt-2 text-sm leading-tight font-bold normal-case">
+            {"kind" in degree && degree.kind && <span>{degree.kind}</span>}
+            <span class="font-black">@</span> <span>{degree.place}</span>
+          </p>
+        </li>
+      ))
+    }
+  </ol>
+</Card>

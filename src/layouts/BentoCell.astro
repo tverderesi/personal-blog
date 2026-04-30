@@ -1,0 +1,77 @@
+---
+// src/components/BentoCell.astro
+
+import { cva, type VariantProps } from "class-variance-authority";
+
+const bentoCell = cva("", {
+  variants: {
+    span: {
+      1: "lg:col-span-1",
+      2: "lg:col-span-2",
+      3: "lg:col-span-3",
+      4: "lg:col-span-4",
+      5: "lg:col-span-5",
+      6: "lg:col-span-6",
+      7: "lg:col-span-7",
+      8: "lg:col-span-8",
+      9: "lg:col-span-9",
+      10: "lg:col-span-10",
+      11: "lg:col-span-11",
+      12: "lg:col-span-12",
+    },
+
+    rowSpan: {
+      1: "lg:row-span-1",
+      2: "lg:row-span-2",
+      3: "lg:row-span-3",
+      4: "lg:row-span-4",
+      5: "lg:row-span-5",
+      6: "lg:row-span-6",
+    },
+
+    start: {
+      auto: "",
+      1: "lg:col-start-1",
+      2: "lg:col-start-2",
+      3: "lg:col-start-3",
+      4: "lg:col-start-4",
+      5: "lg:col-start-5",
+      6: "lg:col-start-6",
+      7: "lg:col-start-7",
+      8: "lg:col-start-8",
+      9: "lg:col-start-9",
+      10: "lg:col-start-10",
+      11: "lg:col-start-11",
+      12: "lg:col-start-12",
+    },
+
+    stretch: {
+      true: "h-full",
+      false: "",
+    },
+  },
+
+  defaultVariants: {
+    span: 12,
+    rowSpan: 1,
+    start: "auto",
+    stretch: true,
+  },
+});
+
+interface Props extends VariantProps<typeof bentoCell> {
+  class?: string;
+}
+
+const {
+  span = 12,
+  rowSpan = 1,
+  start = "auto",
+  stretch = true,
+  class: className = "",
+} = Astro.props;
+---
+
+<div class={bentoCell({ span, rowSpan, start, stretch, class: className })}>
+  <slot />
+</div>

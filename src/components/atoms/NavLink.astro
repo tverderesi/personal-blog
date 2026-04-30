@@ -1,0 +1,26 @@
+---
+import { button, type ButtonVariants } from "~/assets/styles/variants/button";
+import { cn } from "~/utils/cn";
+
+interface Props extends ButtonVariants {
+  href: string;
+  label: string;
+  class?: string;
+}
+
+const { href, label, intent = "brutal", class: className = "" } = Astro.props;
+
+const classNames = cn(
+  button({
+    intent,
+  }),
+  "hidden px-3 py-2 md:inline-block",
+  className,
+);
+---
+
+<li class="flex">
+  <a class={classNames} href={href}>
+    {label}
+  </a>
+</li>

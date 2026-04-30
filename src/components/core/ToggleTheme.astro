@@ -1,14 +1,36 @@
 ---
-import { Icon } from 'astro-icon/components';
+import { Icon } from "astro-icon/components";
+import { button, type ButtonVariants } from "~/assets/styles/variants/button";
+import { cn } from "~/utils/cn";
 
-const { label = 'Toggle between Dark and Light mode', iconClass = 'w-6 h-6', iconName = 'tabler:sun' } = Astro.props;
+interface Props extends ButtonVariants {
+  label?: string;
+  class?: string;
+  iconClass?: string;
+  iconName?: string;
+}
+
+const {
+  label = "Toggle between Dark and Light mode",
+  class: className = "",
+  intent = "contrast",
+} = Astro.props;
+
+const classNames = cn(
+  button({
+    intent,
+  }),
+  "inline-flex items-center justify-center p-2.5 text-sm",
+  className,
+);
 ---
 
 <button
-	type="button"
-	class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-	aria-label={label}
-	data-aw-toggle-color-scheme
+  type="button"
+  class={classNames}
+  aria-label={label}
+  data-aw-toggle-color-scheme
 >
-	<Icon name={iconName} class={iconClass} />
+  <Icon name="tabler:sun" class="size-5 dark:hidden" />
+  <Icon name="tabler:moon" class="hidden size-5 dark:inline" />
 </button>

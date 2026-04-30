@@ -1,0 +1,36 @@
+---
+import { downloadLinks } from "~/data/cv";
+import Card from "~/components/ui/Card.astro";
+import CardTitle from "~/components/ui/CardTitle.astro";
+
+type DownloadLink = {
+  href: string;
+  filename: string;
+  format: string;
+  icon: string;
+  ariaLabel: string;
+};
+---
+
+<Card
+  intent="contrast"
+  size="lg"
+  class="h-full flex flex-col justify-between"
+  aria-labelledby="download-curriculum-title"
+>
+  <CardTitle id="download-curriculum-title">/download me</CardTitle>
+  <div class="mt-auto flex flex-col gap-3 pt-4">
+    {
+      downloadLinks.map((link: DownloadLink) => (
+        <a
+          href={link.href}
+          download={link.filename}
+          class="flex items-center gap-1 font-black hover:bg-brutal py-0.5 px-1 hover:text-contrast"
+          aria-label={link.ariaLabel}
+        >
+          {link.format}
+        </a>
+      ))
+    }
+  </div>
+</Card>

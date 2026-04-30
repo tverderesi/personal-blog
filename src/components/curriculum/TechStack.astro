@@ -1,0 +1,16 @@
+---
+import { techStack } from "~/assets/curriculum";
+import InfoCard from "../ui/InfoCard.astro";
+
+const items = techStack.map(({ category, items }) => ({
+  term: category,
+  description: items.join(", "),
+}));
+---
+
+<InfoCard
+  title="/Tech stack"
+  ariaLabel="Tech stack"
+  items={items}
+  intent="signal"
+/>

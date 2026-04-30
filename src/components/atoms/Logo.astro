@@ -1,10 +1,24 @@
 ---
-import Picture from '../core/Picture.astro';
+
 ---
 
-<div class="flex jusitfy-center items-center">
-	<img src={'default.png'} class="object-cover h-10 relative bottom-0 border-2 border-black bg-white dark:border-yellow-300" alt="Thomas" />
-	<span class="self-center ml-2 border-2 border-black bg-white px-2 py-1 text lg:text-2xl font-black uppercase text-black whitespace-nowrap dark:border-yellow-300 dark:bg-black dark:text-yellow-50">
-		Thomas Verderesi</span
-	>
-</div>
+<a
+  href="/"
+  aria-label="Thomas Verderesi home"
+  class="inline-flex items-center gap-3 no-underline"
+>
+  <div
+    class="flex items-center justify-center pb-1 leading-none font-black tracking-[-0.12em] lg:text-3xl"
+  >
+    <span>&lt;</span>
+    <span class="text-loud">/</span>
+    <span>&gt;</span>
+  </div>
+
+  <span
+    id="navbar-name"
+    class="inline-block max-w-0 -translate-x-2 overflow-hidden align-middle font-black tracking-[-0.04em] whitespace-nowrap text-black uppercase opacity-0 transition-[max-width,opacity,transform] duration-300 ease-out lg:text-3xl dark:text-white"
+  >
+    Thomas Verderesi
+  </span>
+</a>

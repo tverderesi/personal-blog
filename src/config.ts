@@ -1,18 +1,14 @@
 export const SITE = {
-	name: 'Thomas Verderesi - Fullstack Software Engineer',
+	name: 'Thomas Verderesi - Software Engineer',
 	favicon: '/favicon.ico',
 
 	origin: 'https://tverderesi.dev',
 	basePathname: '/',
 	trailingSlash: false,
-	title: 'Thomas Verderesi - Fullstack Software Engineer',
-	description: 'My personal page with my portfolio, curriculum and personal blog.',
-
-	googleAnalyticsId: false, // or "G-XXXXXXXXXX",
+	title: 'Thomas Verderesi - Software Engineer',
+	description:
+		'Personal website of Thomas Verderesi: software engineering, web systems, technical product work, AI tools for humans, portfolio, curriculum, and blog.',
 	googleSiteVerificationId: 'orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M',
-	splitbeeAnalytics: {
-		enabled: false,
-	},
 };
 
 export const BLOG = {
@@ -21,46 +17,21 @@ export const BLOG = {
 
 	blog: {
 		disabled: false,
-		pathname: 'blog', // blog main path, you can change this to "articles" (/articles)
+		pathname: 'blog',
 	},
 
 	post: {
 		disabled: false,
-		pathname: '', // empty for /some-post, value for /pathname/some-post
+		pathname: '',
 	},
 
 	category: {
 		disabled: false,
-		pathname: 'category', // set empty to change from /category/some-category to /some-category
+		pathname: 'category',
 	},
 
 	tag: {
 		disabled: false,
-		pathname: 'tag', // set empty to change from /tag/some-tag to /some-tag
-	},
-};
-
-export const PORTFOLIO = {
-	disabled: false,
-	postsPerPage: 4,
-
-	blog: {
-		disabled: false,
-		pathname: 'portfolio', // blog main path, you can change this to "articles" (/articles)
-	},
-
-	post: {
-		disabled: false,
-		pathname: 'projects', // empty for /some-post, value for /pathname/some-post
-	},
-
-	category: {
-		disabled: false,
-		pathname: 'category', // set empty to change from /category/some-category to /some-category
-	},
-
-	tag: {
-		disabled: false,
-		pathname: 'tag', // set empty to change from /tag/some-tag to /some-tag
+		pathname: 'tag',
 	},
 };

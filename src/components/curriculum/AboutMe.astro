@@ -1,0 +1,29 @@
+---
+import { aboutMe } from "~/assets/curriculum";
+import Card from "~/components/ui/Card.astro";
+import CardTitle from "~/components/ui/CardTitle.astro";
+---
+
+<Card
+  intent="contrast"
+  size="lg"
+  class="flex h-full flex-col justify-between"
+  aria-labelledby="about-title"
+>
+  <CardTitle id="about-title">/about me</CardTitle>
+
+  <ul
+    class="mt-auto flex flex-col gap-3 px-9 pt-9 pb-5"
+    aria-label="Meeting options"
+  >
+    {
+      aboutMe.map((paragraph: string) => (
+        <li>
+          <p class=" text-justify text-lg font-bold transition-colors">
+            {paragraph}
+          </p>
+        </li>
+      ))
+    }
+  </ul>
+</Card>

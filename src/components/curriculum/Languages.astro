@@ -1,0 +1,83 @@
+---
+import Card from "~/components/ui/Card.astro";
+import CardTitle from "~/components/ui/CardTitle.astro";
+import { languages } from "~/data/cv";
+
+const maxLevel = Math.max(...languages.map((lang) => lang.level));
+const backgrounds = ["bg-loud", "bg-brutal", "bg-signal", "bg-technical"];
+---
+
+<Card
+  intent="contrast"
+  size="lg"
+  class="h-full"
+  aria-labelledby="languages-title"
+>
+  <CardTitle id="languages-title">/languages (cefr)</CardTitle>
+  {
+    languages.map(({ language, level, levelName }, idx) => {
+      const width = Math.round((level / maxLevel) * 100);
+
+      return (
+        <div class="relative mx-auto mt-2 flex flex-col items-center justify-start">
+          <h3 class="mb-1 w-full text-left text-base font-extrabold uppercase">
+            {language}
+          </h3>
+          <div class="animation-container h-7 w-full ">
+            <div
+              class={`progress-bar h-7 pr-2 text-right font-bold bg-primary-500 dark:bg-secondary-500 flex items-center justify-end ${backgrounds[idx % backgrounds.length]} text-contrast shadow-contrast`}
+              style={{ width: "0%" }}
+              data-width={width}
+            >
+              <span>{levelName}</span>
+            </div>
+          </div>
+        </div>
+      );
+    })
+  }
+</Card>
+
+<style>
+  .progress-bar {
+    transition: width 1s ease-in-out;
+    width: 0;
+  }
+  .progress-bar span {
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+  }
+
+  .animation-container.animate .progress-bar span {
+    opacity: 1;
+  }
+
+  .animation-container.animate .progress-bar {
+    width: 100%;
+  }
+</style>
+<script>
+  const animationContainers = document.querySelectorAll(
+    ".animation-container",
+  ) as NodeListOf<HTMLElement>;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const progressBar = entry.target.querySelector(
+        ".progress-bar",
+      ) as HTMLElement;
+
+      if (entry.isIntersecting) {
+        const width = progressBar?.getAttribute("data-width");
+        progressBar.style.width = `${width}%`;
+        entry.target.classList.add("animate");
+      } else {
+        progressBar.style.width = "0";
+        entry.target.classList.remove("animate");
+      }
+    });
+  });
+
+  animationContainers.forEach((container) => {
+    observer.observe(container);
+  });
+</script>

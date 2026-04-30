@@ -52,6 +52,12 @@ export type Course = {
 	description?: string;
 };
 
+export type LanguageData = {
+	language: string;
+	level: 1 | 2 | 3 | 4 | 5 | 6;
+	levelName: "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
+};
+
 export const updatedAt = '2026-04-29';
 
 export const summary = aboutMe;

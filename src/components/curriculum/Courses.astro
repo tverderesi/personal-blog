@@ -1,0 +1,35 @@
+---
+import { courses } from "~/data/cv";
+import Card from "~/components/ui/Card.astro";
+import CardTitle from "~/components/ui/CardTitle.astro";
+---
+
+<Card intent="brutal" size="xl" aria-labelledby="courses-title">
+  <CardTitle id="courses-title">/courses</CardTitle>
+
+  <ol class="mt-5 flex flex-col divide-y-[3px] divide-black dark:divide-white">
+    {
+      courses.map((course) => (
+        <li class="py-4 first:pt-0 last:pb-0">
+          <p class="text-xs leading-none font-black tracking-tight text-contrast uppercase">
+            {course.time}
+          </p>
+
+          <h3 class="mt-2 text-xl leading-none font-black tracking-tight uppercase">
+            {course.title}
+          </h3>
+
+          <p class="mt-2 text-sm leading-tight font-bold normal-case">
+            <span class="font-black">@</span> <span>{course.place}</span>
+          </p>
+
+          {course.description && (
+            <p class="mt-2 text-sm leading-snug font-medium normal-case">
+              {course.description}
+            </p>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</Card>

@@ -1,0 +1,45 @@
+---
+import Card from "~/components/ui/Card.astro";
+import CardTitle from "~/components/ui/CardTitle.astro";
+
+const meetItems: MeetItem[] = [
+  {
+    duration: "30 min",
+    href: "https://calendar.app.google/YvAGGTp8VogJvrAh7",
+  },
+  {
+    duration: "60 min",
+    href: "https://calendly.com/tverderesi/1hr-meeting",
+  },
+];
+
+type MeetItem = {
+  duration: string;
+  href: string;
+};
+---
+
+<Card
+  intent="contrast"
+  size="lg"
+  class="flex h-full flex-col justify-between"
+  aria-labelledby="meet-title"
+>
+  <CardTitle id="meet-title">/meet me</CardTitle>
+
+  <ul class="mt-auto flex flex-col gap-3 pt-4" aria-label="Meeting options">
+    {
+      meetItems.map((item: MeetItem) => (
+        <li>
+          <a
+            href={item.href}
+            class="flex items-center gap-1 px-1 py-0.5 font-black hover:bg-brutal hover:text-contrast"
+            aria-label={`Schedule a ${item.duration} meeting`}
+          >
+            {item.duration}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</Card>

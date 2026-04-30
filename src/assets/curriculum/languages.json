@@ -1,5 +1,22 @@
 [
-  { "title": "Portuguese", "level": 6, "levelName": " C2 - Native" },
-  { "title": "English", "level": 6, "levelName": "C2 - Native" },
-  { "title": "French", "level": 3, "levelName": "B1 - Basic" }
+  {
+    "language": "Portuguese",
+    "level": 6,
+    "levelName": "C2"
+  },
+  {
+    "language": "English",
+    "level": 5,
+    "levelName": "C1"
+  },
+  {
+    "language": "French",
+    "level": 3,
+    "levelName": "B1"
+  },
+  {
+    "language": "Spanish",
+    "level": 2,
+    "levelName": "A2"
+  }
 ]

@@ -1,5 +1,12 @@
 [
   {
+    "title": "EF SET English Certificate — C1 Advanced",
+    "place": "EF SET",
+    "time": "2026",
+    "credentialID": "",
+    "description": "English proficiency certificate with score 67/100, equivalent to C1 Advanced."
+  },
+  {
     "title": "Desenvolve Bootcamp",
     "place": "Grupo Boticário / Alura",
     "time": "JAN/2023 - MAY/2023",
@@ -17,12 +24,5 @@
     "place": "Alura",
     "time": "2022",
     "credentialID": "f33fb405-ffd5-4310-9192-cf05a612864b"
-  },
-  {
-    "title": "EF SET English Certificate — C1 Advanced",
-    "place": "EF SET",
-    "time": "2026",
-    "credentialID": "",
-    "description": "English proficiency certificate with score 67/100, equivalent to C1 Advanced."
   }
 ]

@@ -2,11 +2,6 @@
 ---
 
 <script is:inline>
-	// Set "light" theme as default
-	// if (!localStorage.theme) {
-	//   localStorage.theme = "light";
-	// }
-
 	if (
 		localStorage.theme === 'dark' ||
 		(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)

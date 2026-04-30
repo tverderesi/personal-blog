@@ -2,9 +2,13 @@ import { SITE } from '~/config';
 import contactInfoData from '~/assets/curriculum/contactInfo.json';
 import coursesData from '~/assets/curriculum/courses.json';
 import educationData from '~/assets/curriculum/education.json';
-import languagesData from '~/assets/curriculum/languages.json';
+import { type Language, languages } from './data/languages';
 import techStackData from '~/assets/curriculum/techStack.json';
 import workExperienceData from '~/assets/curriculum/workExperience.json';
+
+export type Simplify<T> = {
+	[K in keyof T]: T[K];
+} & {};
 
 export const curriculumLocales = ['en-us', 'pt-br'] as const;
 
@@ -53,10 +57,7 @@ export type CurriculumCourse = CurriculumEducation & {
 	credentialID?: string;
 };
 
-export type CurriculumLanguage = {
-	title: string;
-	levelName: string;
-};
+
 
 type SourceTechStackGroup = {
 	category: string;
@@ -129,14 +130,13 @@ export type Curriculum = {
 	education: CurriculumEducation[];
 	courses: CurriculumCourse[];
 	skills: Record<string, string[]>;
-	languages: CurriculumLanguage[];
+	languages: Omit<Language, 'level'>[];
 };
 
 const techStack = techStackData as SourceTechStackGroup[];
 const experience = workExperienceData as SourceExperience[];
 const education = educationData as SourceEducation[];
 const courses = coursesData as SourceCourse[];
-const languages = languagesData as SourceLanguage[];
 
 const emailHref = contactInfoData.find((item) => item.href.startsWith('mailto:'))?.href;
 const githubHref = contactInfoData.find((item) => item.href.includes('github.com'))?.href;
@@ -229,6 +229,7 @@ const languageTranslations: Record<string, string> = {
 	Portuguese: 'Português',
 	English: 'Inglês',
 	French: 'Francês',
+	Spanish: 'Espanhol',
 };
 
 const headlineByLocale = {
@@ -300,8 +301,8 @@ export const getCurriculum = (locale: CurriculumLocale): Curriculum => ({
 	skills: Object.fromEntries(
 		techStack.map((group) => [locale === 'pt-br' ? skillCategoryTranslations[group.category] || group.category : group.category, group.items])
 	),
-	languages: languages.map((language) => ({
-		title: locale === 'pt-br' ? languageTranslations[language.title] || language.title : language.title,
-		levelName: language.levelName.trim(),
+	languages: languages.map(({ language, levelName }) => ({
+		language: locale === 'pt-br' ? languageTranslations[language] || language : language,
+		levelName: levelName.trim() as Language['levelName'],
 	})),
 });

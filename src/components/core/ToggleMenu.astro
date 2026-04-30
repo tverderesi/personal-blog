@@ -1,15 +1,34 @@
 ---
-import { Icon } from 'astro-icon/components';
+import { Icon } from "astro-icon/components";
+import { button, type ButtonVariants } from "~/assets/styles/variants/button";
+
+interface Props extends ButtonVariants {
+  label?: string;
+  class?: string;
+  iconClass?: string;
+  iconName?: string;
+}
 
 const {
-	label = 'Toggle Menu',
-	class:
-		className = 'ml-1.5 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center transition',
-	iconClass = 'w-6 h-6',
-	iconName = 'tabler:menu',
+  label = "Toggle Menu",
+  class: className = "",
+  iconClass = "h-6 w-6",
+  iconName = "tabler:menu",
+  intent = "contrast",
 } = Astro.props;
 ---
 
-<button type="button" class={className} aria-label={label} data-aw-toggle-menu>
-	<Icon name={iconName} class={iconClass} />
+<button
+  type="button"
+  class={button({
+    intent,
+    class: [
+      "ml-1.5 inline-flex items-center justify-center p-2.5 text-sm",
+      className,
+    ],
+  })}
+  aria-label={label}
+  data-aw-toggle-menu
+>
+  <Icon name={iconName} class={iconClass} />
 </button>

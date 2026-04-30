@@ -1,0 +1,31 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { card, type CardVariants } from "~/assets/styles/variants/card";
+import { cn } from "~/utils/cn";
+
+type Props = CardVariants & HTMLAttributes<"section">;
+
+const {
+  class: className,
+  intent,
+  size,
+  interactive,
+  display,
+  ...rest
+} = Astro.props as Props;
+---
+
+<section
+  class={cn(
+    card({
+      intent,
+      size,
+      interactive,
+      display,
+    }),
+    className,
+  )}
+  {...rest}
+>
+  <slot />
+</section>

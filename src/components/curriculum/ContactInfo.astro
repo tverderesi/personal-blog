@@ -1,0 +1,36 @@
+---
+import { contactInfo } from "~/data/cv";
+import Card from "~/components/ui/Card.astro";
+import CardTitle from "~/components/ui/CardTitle.astro";
+
+export interface ContactItem {
+  href: string;
+  shortName: string;
+}
+---
+
+<Card intent="contrast" size="lg" aria-labelledby="contact-title">
+  <CardTitle id="contact-title">/contact</CardTitle>
+  <span class="flex text-2xl">
+    {
+      contactInfo.map(({ href, shortName }: ContactItem, index) => (
+        <>
+          <a
+            href={href}
+            class="-px-1 font-extrabold text-loud uppercase transition-colors first-of-type:pl-0 hover:bg-loud hover:text-contrast"
+          >
+            {shortName}
+          </a>
+          {index < contactInfo.length - 1 && (
+            <span class="mx-1 font-extrabold "> / </span>
+          )}
+        </>
+      ))
+    }
+  </span>
+  <hr class="mt-1 mb-2 border" />
+  <CardTitle class="mt-2">/location</CardTitle>
+  <p class="pl-0 text-xl font-extrabold text-loud uppercase transition-colors">
+    Curitiba, Paraná, Brazil (GMT-3)
+  </p>
+</Card>

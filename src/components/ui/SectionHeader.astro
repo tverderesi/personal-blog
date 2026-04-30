@@ -1,0 +1,46 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import type { CardVariants } from "~/assets/styles/variants/card";
+import Card from "./Card.astro";
+import { cn } from "~/utils/cn";
+
+const {
+  title,
+  intent,
+  size,
+  display,
+  class: additionalClasses,
+  items,
+  ...rest
+} = Astro.props as CardVariants &
+  HTMLAttributes<"section"> & {
+    title: string;
+    items: string[];
+  };
+---
+
+<Card
+  {intent}
+  {size}
+  display="inline"
+  class={cn(
+    "text-[clamp(0.86rem,2.1vw,1.08rem)] leading-tight font-black lowercase h-full",
+    additionalClasses,
+  )}
+  aria-label={title}
+  {...rest}
+>
+  <p class="font-black">
+    <span class="text-xs uppercase">
+      {title}<br />
+    </span>
+
+    <span class="text-4xl font-black tracking-[-0.02em]">
+      {
+        items.map(
+          (item, idx) => `${item}${idx < items.length - 1 ? " / " : ""}`,
+        )
+      }
+    </span>
+  </p>
+</Card>

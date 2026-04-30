@@ -3,18 +3,21 @@
     "href": "mailto:tverderesi@gmail.com",
     "label": "E-mail to tverderesi@gmail.com",
     "iconText": "tverderesi@gmail.com",
-    "iconName": "ic:baseline-email"
+    "iconName": "ic:baseline-email",
+    "shortName": "E-mail"
   },
   {
     "label": "Link to LinkedIn profile",
     "href": "https://www.linkedin.com/in/tverderesi/",
     "iconText": "tverderesi",
-    "iconName": "mdi:linkedin"
+    "iconName": "mdi:linkedin",
+    "shortName": "LinkedIn"
   },
   {
     "label": "Link to GitHub profile",
     "href": "https://github.com/tverderesi",
     "iconText": "tverderesi",
-    "iconName": "mdi:github"
+    "iconName": "mdi:github",
+    "shortName": "GitHub"
   }
 ]

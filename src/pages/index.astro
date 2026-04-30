@@ -1,20 +1,33 @@
 ---
-import { SITE } from '~/config';
-import { getCanonical, getHomePermalink } from '~/utils/permalinks';
-import Layout from '~/layouts/PageLayout.astro';
-import UnderConstruction from '~/components/widgets/UnderConstruction.astro';
-import LatestPosts from '~/components/blog/LatestPosts.astro';
-import LastestGitHub from '~/components/widgets/LastestGitHub.astro';
+import { SITE } from "~/config";
+import { getCanonical, getHomePermalink } from "~/utils/permalinks";
+import Layout from "~/layouts/HomePageLayout.astro";
+import CurriculumSection from "~/components/curriculum/index.astro";
+import BentoGridLayout from "~/layouts/BentoGridLayout.astro";
+import BentoCell from "~/layouts/BentoCell.astro";
+import HeroStatus from "~/components/widgets/HeroStatus.astro";
+import BlogSection from "~/components/blog/index.astro";
+import HeroSection from "~/components/hero/index.astro";
+import Footer from "~/components/ui/Footer.astro";
 
 const meta = {
-	title: SITE.title,
-	description: SITE.description,
-	canonical: getCanonical(getHomePermalink()),
+  title: SITE.title,
+  description: SITE.description,
+  canonical: getCanonical(getHomePermalink()),
 };
 ---
 
 <Layout {meta}>
-	<UnderConstruction />
-	<LastestGitHub />
-	<LatestPosts />
+  <BentoGridLayout>
+    <BentoCell span={10}>
+      <HeroStatus />
+    </BentoCell>
+
+    <HeroSection />
+
+    <CurriculumSection />
+
+    <BlogSection />
+    <Footer />
+  </BentoGridLayout>
 </Layout>

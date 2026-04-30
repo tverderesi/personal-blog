@@ -1,10 +1,10 @@
 ---
-import Picture from '~/components/core/Picture.astro';
-import PostTags from '~/components/atoms/Tags.astro';
+import Picture from "~/components/core/Picture.astro";
+import PostTags from "~/components/atoms/Tags.astro";
 
-import { getPermalink } from '~/utils/permalinks';
-import { findImage } from '~/utils/images';
-import { getFormattedDate } from '~/utils/utils';
+import { getPermalink } from "~/utils/permalinks";
+import { findImage } from "~/utils/images";
+import { getFormattedDate } from "~/utils/utils";
 
 const { post } = Astro.props;
 
@@ -12,47 +12,57 @@ const image = await findImage(post.image);
 ---
 
 <article
-	class={`brutalist-panel md:max-w-none grid gap-6 p-5 md:gap-8 ${
-		image ? 'md:grid-cols-4' : 'grid-cols-1'
-	} text-black dark:text-yellow-50`}
+  class={`brutalist-panel md:max-w-none grid gap-6 p-5 md:gap-8 ${
+    image ? "md:grid-cols-4" : "grid-cols-1"
+  } text-black dark:text-yellow-50`}
 >
-	<div class="col-span-3 w-[90%]">
-		<header>
-			<h2 class="text-xl sm:text-xl font-black uppercase leading-snug mb-2 font-heading">
-				<a class="hover:bg-red-500 hover:text-white transition ease-in duration-100" href={getPermalink(post.slug, 'post')}>
-					{post.title}
-				</a>
-			</h2>
-		</header>
-		<p class="text-md sm:text-md flex-grow text-justify font-bold">
-			{post.excerpt || post.description}
-		</p>
-		<footer class="mt-4">
-			<div>
-				<span class="text-black dark:text-yellow-50">
-					<time datetime={post.publishDate}>{getFormattedDate(post.publishDate)}</time> ~
-					{Math.ceil(post.readingTime)} min read
-				</span>
-			</div>
-			<div class="mt-4">
-				<PostTags tags={post.tags} />
-			</div>
-		</footer>
-	</div>
-	{
-		image && (
-			<a class="relative block group h-40 w-40 right-0 border-4 border-black bg-yellow-300 dark:border-yellow-300" href={getPermalink(post.slug, 'post')}>
-				<div class="overflow-hidden bg-yellow-300 dark:bg-black">
-					<Picture
-						src={image}
-						class="absolute inset-0 object-cover mb-6 w-full grayscale contrast-125 dark:bg-black"
-						widths={[400, 900]}
-						sizes="(max-width: 900px) 400px, 900px"
-						alt={post.title}
-						aspectRatio="1:1"
-					/>
-				</div>
-			</a>
-		)
-	}
+  <div class="col-span-3 w-[90%]">
+    <header>
+      <h2
+        class="font-heading mb-2 text-xl leading-snug font-black uppercase sm:text-xl"
+      >
+        <a
+          class="transition duration-100 ease-in hover:bg-red-500 hover:text-white"
+          href={getPermalink(post.slug, "post")}
+        >
+          {post.title}
+        </a>
+      </h2>
+    </header>
+    <p class="text-md sm:text-md grow text-justify font-bold">
+      {post.excerpt || post.description}
+    </p>
+    <footer class="mt-4">
+      <div>
+        <span class="text-gray-500 dark:text-slate-400">
+          <time datetime={post.publishDate}
+            >{getFormattedDate(post.publishDate)}</time
+          > ~
+          {Math.ceil(post.readingTime)} min read
+        </span>
+      </div>
+      <div class="mt-4">
+        <PostTags tags={post.tags} />
+      </div>
+    </footer>
+  </div>
+  {
+    image && (
+      <a
+        class="group relative right-0 block h-40 w-40 border-4 border-black bg-yellow-300 dark:border-yellow-300"
+        href={getPermalink(post.slug, "post")}
+      >
+        <div class="overflow-hidden bg-yellow-300 dark:bg-black">
+          <Picture
+            src={image}
+            class="absolute inset-0 mb-6 w-full object-cover contrast-125 grayscale dark:bg-black"
+            widths={[400, 900]}
+            sizes="(max-width: 900px) 400px, 900px"
+            alt={post.title}
+            aspectRatio="1:1"
+          />
+        </div>
+      </a>
+    )
+  }
 </article>

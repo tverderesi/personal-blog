@@ -1,0 +1,63 @@
+---
+interface Props {
+  targetId: string;
+  revealId: string;
+  rootMargin?: string;
+  threshold?: number;
+  visibleClasses?: string;
+  hiddenClasses?: string;
+}
+
+const {
+  targetId,
+  revealId,
+  rootMargin = "-96px 0px 0px 0px",
+  threshold = 0,
+  visibleClasses = "opacity-100 translate-x-0 translate-y-0 pointer-events-auto",
+  hiddenClasses = "opacity-0 translate-x-[-0.35rem] translate-y-1 pointer-events-none",
+} = Astro.props;
+---
+
+<script
+  is:inline
+  define:vars={{
+    targetId,
+    revealId,
+    rootMargin,
+    threshold,
+    visibleClasses,
+    hiddenClasses,
+  }}
+>
+  const target = document.getElementById(targetId);
+  const reveal = document.getElementById(revealId);
+
+  const toClassList = (value) => value.split(" ").filter(Boolean);
+
+  if (target instanceof HTMLElement && reveal instanceof HTMLElement) {
+    const visibleClassList = toClassList(visibleClasses);
+    const hiddenClassList = toClassList(hiddenClasses);
+
+    const setVisible = (visible) => {
+      if (visible) {
+        reveal.classList.remove(...hiddenClassList);
+        reveal.classList.add(...visibleClassList);
+      } else {
+        reveal.classList.remove(...visibleClassList);
+        reveal.classList.add(...hiddenClassList);
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setVisible(!entry.isIntersecting);
+      },
+      {
+        threshold,
+        rootMargin,
+      },
+    );
+
+    observer.observe(target);
+  }
+</script>

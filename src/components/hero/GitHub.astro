@@ -1,0 +1,39 @@
+---
+import InfoCard, { type Props as InfoCardProps } from "../ui/InfoCard.astro";
+
+const GITHUB_URL = "https://github.com/tverderesi";
+
+const props: InfoCardProps = {
+  title: "/OPERATING NOTES",
+  ariaLabel: "Operating notes",
+  intent: "loud",
+  class: "",
+  items: [
+    {
+      term: "work",
+      description: "product tools / internal systems / AI interfaces",
+    },
+    {
+      term: "stack",
+      description: "rails / php / react / typescript / product glue",
+    },
+    {
+      term: "method",
+      description: "understand / cut scope / ship / revise / document",
+    },
+  ],
+  hasBadge: true,
+};
+---
+
+<InfoCard {...props} id="github" class="scroll-mt-20">
+  <a
+    href={GITHUB_URL}
+    slot="badge"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="underline decoration-current/0 decoration-2 underline-offset-4 transition-all duration-200 hover:decoration-current"
+  >
+    Check out my GitHub
+  </a>
+</InfoCard>

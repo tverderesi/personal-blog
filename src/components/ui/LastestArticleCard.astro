@@ -1,0 +1,24 @@
+---
+import { getPermalink } from "~/utils/permalinks";
+
+export interface Props {
+  title: string;
+  slug: string;
+}
+
+const { title, slug } = Astro.props;
+---
+
+<a
+  href={getPermalink(slug, "post")}
+  class="dark:bg-contrast flex h-full flex-col gap-y-4 border-[3px] border-black bg-white p-3 font-black shadow-[8px_8px_0_#000] transition-colors duration-300 hover:bg-black hover:text-white hover:shadow-[8px_8px_0_#222] lg:col-span-8 dark:border-white dark:hover:bg-contrast-dark dark:hover:text-contrast dark:shadow-contrast-dark dark:hover:shadow-contrast-dark"
+>
+  <p class="text-xs uppercase">/article</p>
+  <article class="flex h-full w-full">
+    <h3
+      class="font-heading flex w-full items-end text-xl leading-snug uppercase"
+    >
+      {title}
+    </h3>
+  </article>
+</a>

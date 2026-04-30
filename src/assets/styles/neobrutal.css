@@ -1,0 +1,120 @@
+@theme {
+  --color-brutal: #c7ff00;
+  --color-brutal-dark: #c7ff00;
+  --color-brutal-shadow: #8fb800;
+  --color-brutal-shadow-dark: #c7ff00b3;
+
+  --color-acid: #ffe600;
+  --color-acid-dark: #ffea00;
+  --color-acid-shadow: #facc15;
+  --color-acid-shadow-dark: #ffea00b3;
+
+  --color-neon: #39ff14;
+  --color-neon-dark: #39ff14;
+  --color-neon-shadow: #00ff66;
+  --color-neon-shadow-dark: #39ff14b3;
+
+  --color-signal: #ff8a00;
+  --color-signal-dark: #ff9500;
+  --color-signal-shadow: #f97316;
+  --color-signal-shadow-dark: #ff9500b3;
+
+  --color-loud: #ff4fd8;
+  --color-loud-dark: #ff4fd8;
+  --color-loud-shadow: #d936b6;
+  --color-loud-shadow-dark: #ff4fd8b3;
+
+  --color-technical: #00f5ff;
+  --color-technical-dark: #00e5ff;
+  --color-technical-shadow: #00bcd4;
+  --color-technical-shadow-dark: #00e5ffb3;
+
+  --color-contrast: #000000;
+  --color-contrast-dark: #ffffff;
+  --color-contrast-shadow: #222222;
+  --color-contrast-shadow-dark: #e0e0e0;
+
+  --shadow-brutal-dark: 8px 8px 0 var(--color-brutal-shadow-dark);
+
+  --shadow-acid-dark: 8px 8px 0 var(--color-acid-shadow-dark);
+
+  --shadow-neon-dark: 8px 8px 0 var(--color-neon-shadow-dark);
+
+  --shadow-signal-dark: 8px 8px 0 var(--color-signal-shadow-dark);
+
+  --shadow-loud-dark: 8px 8px 0 var(--color-loud-shadow-dark);
+
+  --shadow-technical-dark: 8px 8px 0 var(--color-technical-shadow-dark);
+
+  --shadow-contrast: 8px 8px 0 var(--color-contrast-shadow);
+  --shadow-contrast-dark: 8px 8px 0 var(--color-contrast-shadow-dark);
+}
+
+@layer base {
+  :root {
+    --brutal-paper: white;
+    --brutal-ink: black;
+
+    --brutal-dark-paper: black;
+    --brutal-dark-ink: white;
+  }
+
+  body {
+    color: var(--brutal-ink);
+    background: var(--brutal-paper);
+  }
+
+  .dark body {
+    color: var(--brutal-dark-ink);
+    background: var(--brutal-dark-paper);
+  }
+}
+
+@layer utilities {
+  .brutal-grid {
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+      var(--brutal-paper);
+    background-size: 32px 32px;
+  }
+
+  .dark .brutal-grid {
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+      var(--brutal-dark-paper);
+    background-size: 32px 32px;
+  }
+
+  /*
+    .selection-loud
+
+    Normal selected text:
+    - loud pink at 80%
+    - black text
+
+    If the selected element already uses .text-loud or .bg-loud:
+    - technical cyan at 80%
+    - black text
+  */
+  .selection-loud:not(.text-loud):not(.bg-loud)::selection,
+  .selection-loud :not(.text-loud):not(.bg-loud)::selection {
+    @apply bg-loud/80 text-black;
+  }
+
+  .selection-loud .text-loud::selection,
+  .selection-loud .bg-loud::selection {
+    @apply bg-technical/80 text-black;
+  }
+
+  .dark .selection-loud:not(.text-loud):not(.bg-loud)::selection,
+  .dark .selection-loud :not(.text-loud):not(.bg-loud)::selection {
+    @apply bg-loud-dark/80 text-black;
+  }
+
+  .dark .selection-loud .text-loud::selection,
+  .dark .selection-loud .bg-loud::selection {
+    @apply bg-technical-dark/80 text-black;
+  }
+}

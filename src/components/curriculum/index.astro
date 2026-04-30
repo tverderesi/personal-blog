@@ -1,0 +1,57 @@
+---
+import BentoCell from "~/layouts/BentoCell.astro";
+import Header from "./Header.astro";
+import ContactInfo from "./ContactInfo.astro";
+import Download from "./Download.astro";
+import Meet from "./Meet.astro";
+import AboutMe from "./AboutMe.astro";
+import Languages from "./Languages.astro";
+import TechStack from "./TechStack.astro";
+import WorkXP from "./WorkXP.astro";
+import Education from "./Education.astro";
+import Courses from "./Courses.astro";
+---
+
+<BentoCell span={12}>
+  <div class="mt-4"></div>
+</BentoCell>
+
+<BentoCell span={12}>
+  <Header />
+</BentoCell>
+
+<BentoCell span={10}>
+  <ContactInfo />
+</BentoCell>
+
+<BentoCell span={2}>
+  <Download />
+</BentoCell>
+
+<BentoCell span={2}>
+  <Meet />
+</BentoCell>
+
+<BentoCell span={10} rowSpan={2}>
+  <AboutMe />
+</BentoCell>
+
+<BentoCell span={2}>
+  <Languages />
+</BentoCell>
+
+<BentoCell span={8} rowSpan={4}>
+  <WorkXP />
+</BentoCell>
+
+<BentoCell span={4} rowSpan={1}>
+  <TechStack />
+</BentoCell>
+
+<BentoCell span={4} rowSpan={1}>
+  <Education />
+</BentoCell>
+
+<BentoCell span={4} rowSpan={1}>
+  <Courses />
+</BentoCell>

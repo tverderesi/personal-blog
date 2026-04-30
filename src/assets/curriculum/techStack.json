@@ -1,26 +1,66 @@
 [
   {
     "category": "Languages",
-    "items": ["TypeScript", "JavaScript", "Ruby", "PHP", "Python", "SQL", "HTML", "CSS"]
+    "items": [
+      "TypeScript",
+      "JavaScript",
+      "Ruby",
+      "PHP",
+      "Python",
+      "SQL",
+      "HTML",
+      "CSS"
+    ]
   },
   {
     "category": "Frontend",
-    "items": ["React", "TailwindCSS", "Bootstrap", "shadcn/ui", "React Hook Form", "Zod", "TanStack Query", "TanStack Table"]
+    "items": [
+      "React",
+      "TailwindCSS",
+      "Bootstrap",
+      "shadcn/ui",
+      "React Hook Form",
+      "Zod",
+      "TanStack Query",
+      "TanStack Table"
+    ]
   },
   {
     "category": "Backend",
-    "items": ["Ruby on Rails", "Node.js", "Express", "Laravel", "Yii Framework", "REST APIs", "GraphQL"]
+    "items": [
+      "Ruby on Rails",
+      "Node.js",
+      "Express",
+      "Laravel",
+      "Yii Framework",
+      "REST APIs",
+      "GraphQL"
+    ]
   },
   {
     "category": "Databases & Search",
-    "items": ["PostgreSQL", "MySQL", "MariaDB", "MongoDB", "Elasticsearch"]
+    "items": [
+      "PostgreSQL",
+      "MySQL",
+      "MariaDB",
+      "MongoDB",
+      "Elasticsearch"
+    ]
   },
   {
     "category": "Testing",
-    "items": ["RSpec", "Jest", "React Testing Library"]
+    "items": [
+      "RSpec",
+      "Jest",
+      "React Testing Library"
+    ]
   },
   {
-    "category": "Infrastructure & Tooling",
-    "items": ["Docker", "Google Cloud Platform", "Webpacker"]
+    "category": "Infra & Tooling",
+    "items": [
+      "Docker",
+      "Google Cloud Platform",
+      "Webpacker"
+    ]
   }
 ]

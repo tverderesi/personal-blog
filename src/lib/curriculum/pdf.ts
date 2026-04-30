@@ -164,8 +164,8 @@ const renderLanguages = (doc: PdfDoc, curriculum: Curriculum) => {
 	if (curriculum.languages.length === 0) return;
 
 	section(doc, curriculum.labels.sections.languages);
-	curriculum.languages.forEach((language) => {
-		text(doc, `${language.title}: ${language.levelName}`);
+	curriculum.languages.forEach(({ language, levelName }) => {
+		text(doc, `${language}: ${levelName}`);
 	});
 };
 

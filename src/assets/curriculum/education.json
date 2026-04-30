@@ -1,22 +1,26 @@
 [
   {
-    "title": "Specialization in Gamification",
-    "place": "Federal University of São Carlos",
-    "time": "MAY/2020 - MAY/2022"
+    "title": "Gamification",
+    "kind": "Postgraduate Specialization",
+    "place": "UFSCar",
+    "time": "May 2020 – May 2022"
   },
   {
-    "title": "Specialization  in E-Learning",
-    "place": "Federal University of São Carlos",
-    "time": "MAY/2020 - MAY/2022"
+    "title": "E-Learning",
+    "kind": "Postgraduate Specialization",
+    "place": "UFSCar",
+    "time": "May 2020 – May 2022"
   },
   {
-    "title": "Incomplete Master's in Structural Engineering",
-    "place": "Federal University of Paraná",
-    "time": "MAR/2017 - SEP/2019"
+    "title": "Structural Engineering",
+    "kind": "Graduate Studies",
+    "place": "UFPR",
+    "time": "Mar 2017 – Sep 2019"
   },
   {
-    "title": "Bachelor's in Civil Engineering",
-    "place": "Federal University of Paraná",
-    "time": "MAR/2012 - DEC/2016"
+    "title": "Civil Engineering",
+    "kind": "Bachelor’s Degree",
+    "place": "UFPR",
+    "time": "Mar 2012 – Dec 2016"
   }
 ]

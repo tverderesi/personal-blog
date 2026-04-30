@@ -1,17 +1,21 @@
 ---
-import { findLatestPosts } from '~/utils/posts';
-import HomeGrid from './HomeGrid.astro';
+import { findLatestPosts } from "~/utils/posts";
+import BentoCell from "~/layouts/BentoCell.astro";
+import LastestArticleCard, {
+  type Props as LastestArticleCardProps,
+} from "../ui/LastestArticleCard.astro";
 
 const count = 4;
 const posts = await findLatestPosts({ count });
 ---
 
-<section class="flex flex-col justify-center bg-stone-100 px-3 py-8 dark:bg-black">
-	<h5
-		class="mx-auto mb-10 border-4 border-black bg-red-500 px-4 py-2 text-center font-heading text-3xl font-black uppercase text-white shadow-[7px_7px_0_#050505] group dark:border-yellow-300 dark:shadow-[7px_7px_0_#ffe100] sm:leading-none"
-	>
-		Latest Blog Articles
-	</h5>
-
-	<HomeGrid posts={posts} />
-</section>
+{
+  posts.map(({ title, slug }: LastestArticleCardProps) => (
+    <BentoCell
+      span={Math.floor(12 / count) as 1 | 2 | 3 | 4 | 6 | 12}
+      class="h-full"
+    >
+      <LastestArticleCard title={title} slug={slug} />
+    </BentoCell>
+  ))
+}
