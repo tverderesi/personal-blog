@@ -40,7 +40,7 @@
     "@types/pdfkit": "^0.17.6",
     "@typescript-eslint/eslint-plugin": "^8.49.0",
     "@typescript-eslint/parser": "^8.49.0",
-    "astro": "^6.1.6",
+    "astro": "^6.2.1",
     "astro-compress": "^2.4.1",
     "astro-icon": "^1.1.5",
     "eslint": "^8.57.1",
