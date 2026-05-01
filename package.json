@@ -26,7 +26,6 @@
     "@astrojs/tailwind": "^6.0.2",
     "@astrolib/analytics": "^0.6.1",
     "@astrolib/seo": "^1.0.0-beta.8",
-    "@fontsource/inter": "^4.5.15",
     "@iconify-json/ant-design": "^1.2.5",
     "@iconify-json/brandico": "^1.2.3",
     "@iconify-json/carbon": "^1.2.20",
@@ -69,6 +68,7 @@
     ]
   },
   "dependencies": {
+    "@fontsource/inter": "^4.5.15",
     "@vite-pwa/astro": "^1.2.0",
     "dotenv": "^17.2.3",
     "pdfkit": "^0.18.0",
